@@ -1,0 +1,47 @@
+{
+  "name": "Velvet Cakes - Saat 20:00 Match Drop",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 20 * * *"
+            }
+          ]
+        }
+      },
+      "name": "Saat 20:00 Tetikleyici",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [220, 240]
+    },
+    {
+      "parameters": {
+        "command": "echo 'AI Motoru Uyanıyor...' && python3 /home/node/.n8n/agents/auto_matcher.py"
+      },
+      "name": "Eşleşmeleri Gönder",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [440, 240]
+    }
+  ],
+  "connections": {
+    "Saat 20:00 Tetikleyici": {
+      "main": [
+        [
+          {
+            "node": "Eşleşmeleri Gönder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "timezone": "Europe/Istanbul"
+  }
+}
