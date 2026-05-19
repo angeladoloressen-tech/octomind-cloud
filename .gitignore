@@ -66,3 +66,7 @@ private/
 wallet*.json
 *.wallet
 # END OCTOMIND CLOUD SAFETY BLOCK
+
+# Athena Aegis generated hygiene
+reports/*.tmp
+reports/*.log
