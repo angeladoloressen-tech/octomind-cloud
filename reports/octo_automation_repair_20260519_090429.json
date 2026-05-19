@@ -1,0 +1,185 @@
+{
+  "summary": {
+    "status": "OCTO_AUTOMATION_REPAIR_DONE",
+    "root": "/Users/mantzoaziz/octomind",
+    "changed_files": {
+      ".github/workflows/octo-background.yml": true,
+      "automation/n8n/octo_lead_intake_workflow.json": true,
+      "OCTO_AUTOMATION_STATUS.md": true
+    },
+    "github": {
+      "gh_available": true,
+      "gh_auth_ok": false,
+      "remote_present": true,
+      "commit_ok": true,
+      "push_ok": false,
+      "workflow_run_ok": false,
+      "login_command_if_needed": "gh auth login --web --git-protocol https"
+    },
+    "n8n": {
+      "cli_available": false,
+      "docker_available": false,
+      "workflow_json": "/Users/mantzoaziz/octomind/automation/n8n/octo_lead_intake_workflow.json",
+      "import_ok": false
+    },
+    "mac_space": {
+      "project_size": "1.9G",
+      "cleanup_candidates_no_delete": [
+        {
+          "label": "project_venv",
+          "path": "/Users/mantzoaziz/octomind/.venv",
+          "size": "972M"
+        },
+        {
+          "label": "home_n8n",
+          "path": "/Users/mantzoaziz/.n8n",
+          "size": "3.2M"
+        },
+        {
+          "label": "npm_cache",
+          "path": "/Users/mantzoaziz/.npm",
+          "size": "3.3M"
+        },
+        {
+          "label": "macos_user_cache",
+          "path": "/Users/mantzoaziz/Library/Caches",
+          "size": "3.5G"
+        }
+      ]
+    },
+    "next_action": "If gh_auth_ok is false, run the login_command_if_needed once, then rerun this same command."
+  },
+  "checks": {
+    "root": "/Users/mantzoaziz/octomind",
+    "python": "3.14.3",
+    "disk_root": {
+      "ok": true,
+      "code": 0,
+      "stdout": "/dev/disk3s1   228Gi    69Gi   134Gi    34%    809k  1.4G    0%   /System/Volumes/Data",
+      "stderr": ""
+    },
+    "disk_home": {
+      "ok": true,
+      "code": 0,
+      "stdout": "/dev/disk3s1   228Gi    69Gi   134Gi    34%    809k  1.4G    0%   /System/Volumes/Data",
+      "stderr": ""
+    },
+    "project_size": {
+      "ok": true,
+      "code": 0,
+      "stdout": "1.9G",
+      "stderr": ""
+    },
+    "home_n8n_size": {
+      "ok": true,
+      "code": 0,
+      "stdout": "3.2M",
+      "stderr": ""
+    },
+    "project_venv_size": {
+      "ok": true,
+      "code": 0,
+      "stdout": "972M",
+      "stderr": ""
+    },
+    "npm_cache_size": {
+      "ok": true,
+      "code": 0,
+      "stdout": "3.3M",
+      "stderr": ""
+    },
+    "cache_size": {
+      "ok": true,
+      "code": 0,
+      "stdout": "3.5G",
+      "stderr": ""
+    },
+    "tools": {
+      "git": true,
+      "gh": true,
+      "n8n": false,
+      "docker": false,
+      "node": true,
+      "npm": true
+    },
+    "git_init": {
+      "ok": true,
+      "stdout": "already_git_repo",
+      "stderr": ""
+    },
+    "git_branch": {
+      "ok": true,
+      "code": 0,
+      "stdout": "auto/octomind-background-20260519t070113z",
+      "stderr": ""
+    },
+    "git_user_name": {
+      "ok": true,
+      "code": 0,
+      "stdout": "octomind-cloud",
+      "stderr": ""
+    },
+    "git_user_email": {
+      "ok": true,
+      "code": 0,
+      "stdout": "octomind-cloud@users.noreply.github.com",
+      "stderr": ""
+    },
+    "git_remote_before": {
+      "ok": true,
+      "code": 0,
+      "stdout": "origin\thttps://github.com/angeladoloressen-tech/octomind-cloud.git (fetch)\norigin\thttps://github.com/angeladoloressen-tech/octomind-cloud.git (push)",
+      "stderr": ""
+    },
+    "gh_auth_status": {
+      "ok": false,
+      "code": 1,
+      "stdout": "You are not logged into any GitHub hosts. To log in, run: gh auth login",
+      "stderr": ""
+    },
+    "git_stage": {
+      "ok": true,
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "git_status_after_stage": {
+      "ok": true,
+      "code": 0,
+      "stdout": "A  .github/workflows/octo-background.yml\nA  OCTO_AUTOMATION_STATUS.md\nA  automation/n8n/octo_lead_intake_workflow.json\nA  reports/agent_factory_20260518T200741Z.json\nA  reports/athena_aegis_background_bridge_20260519T070113Z.json\nA  reports/data_pipeline_20260518T200827Z.json\nA  reports/data_pipeline_20260518T200903Z.json\nA  reports/data_pipeline_20260518T200913Z.json\nA  reports/ecosystem_integration_20260518T200903Z.json\nA  reports/ecosystem_integration_20260518T200913Z.json\nA  reports/governance_test_20260518T200454.083562+0000.json\nA  reports/governance_test_20260518T200529.542104+0000.json\nA  reports/governance_test_20260518T200903.295837+0000.json\nA  reports/governance_test_20260518T200913.990142+0000.json\nA  reports/initialization_suite_20260518T200403Z.json\nA  reports/initialization_suite_20260518T200515Z.json\nA  reports/master_control_20260518T200515Z.json\nA  reports/mother_12qubic_bootstrap_20260518T144347Z.json\nA  reports/multi_agent_orchestration_20260518T200832Z.json\nA  reports/multi_agent_orchestration_20260518T200903Z.json\nA  reports/multi_agent_orchestration_20260518T200913Z.json\nA  reports/octocore_live_status_20260518T200403Z.json\nA  reports/octocore_live_status_20260518T200515Z.json\nA  reports/platform_core_bootstrap_20260518T200403Z.json\nA  reports/platform_core_bootstrap_20260518T200515Z.json\nA  reports/system_health_20260518T200403Z.json\nA  reports/system_health_20260518T200515Z.json\nA  reports/wallet_analysis_20260518T200403Z.json\nA  reports/wallet_analysis_20260518T200515Z.json\n M src/App.jsx\n M src/components/DrumPad/DrumPad.css\n M src/components/DrumPad/DrumPad.jsx\n M src/components/Guitar/Guitar.css\n M src/components/Guitar/Guitar.jsx\n M src/components/Sequencer/Sequencer.css\n M src/components/Sequencer/Sequencer.jsx\n M src/components/TheoryLesson/TheoryLesson.css\n M src/components/TheoryLesson/TheoryLesson.jsx\n M src/synth/synthEngine.js\n M velvet-cakes-core/agents/financial_canon.py\n M velvet-cakes-core/agents/growth_hunter.py\n M velvet-cakes-core/agents/pricing_ai.py\n M velvet-cakes-core/agents/requirements.txt\n?? AUTONOMOUS_ECOSYSTEM_v2.md\n?? DIGITAL_REAL_ESTATE_PLATFORM.md\n?? ECOSYSTEM_SHIELD_GAIACORE_REPORT.md\n?? INFRASTRUCTURE_STATUS.md\n?? MOTHER_BIQUBIC_ZERO/\n?? MOTHER_BIQUBIC_ZERO_20260518T143552Z/\n?? OCTOLAWYER_ENTERPRISE_ESTABLISHMENT.md\n?? OCTOLAWYER_PRODUCTION_ARCHITECTURE.md\n?? OCTO_12QUBIC_MOTHER/\n?? README_MOTHER_12QUBIC.md\n?? athena-zero-brain/\n?? autonomous_agent_factory.py\n?? autonomous_data_pipeline.py\n?? autonomous_governance_test.py\n?? bin/\n?? config/\n?? data/\n?? digital_real_estate_platform/\n?? gaia_master_orchestrator_v3.sh\n?? gaiacore_autonomous_treasury.py\n?? gaiacore_genesis.py\n?? init_autonomous_infrastructure.sh\n?? launch_complete_ecosystem.sh\n?? ledger/\n?? mother-biqubic-brain/\n?? multi_agent_orchestrator.py\n?? octo_spider.py\n?? octo_vector_vault.json\n?? octocore_genesis.py\n?? octocore_live.py\n?? octolawyer_4dqubic_core.py\n?? octolawyer_biqubic_core.py\n?? onchain_trader.py\n?? ouroboros_run_forever.sh\n?? run_master_control.sh\n?? run_octocore_live.sh\n?? self_generating_system.py\n?? src/components/Sequencer/octocore_shield_config.json\n?? src/synth/AiCompositions.css\n?? src/synth/AiCompositions.jsx\n?? state/\n?? system_health_check.py\n?? velvet-cakes-core/.env.example\n?? velvet-cakes-core/IMPLEMENTATION_REPORT.md\n?? velvet-cakes-core/OPERATIONAL_MASTER_CONTROL.py\n?? velvet-cakes-core/QUICK_START.py\n?? velvet-cakes-core/SWARM_OS_ARCHITECTURE.md\n?? velvet-cakes-core/agents/OctoLawyer.css\n?? velvet-cakes-core/agents/OctoLawyer.jsx\n?? velvet-cakes-core/agents/compute_to_data_tee.py\n?? velvet-cakes-core/agents/contract_scanner.py\n?? velvet-cakes-core/agents/contract_scanner_agent.py\n?? velvet-cakes-core/agents/document_loader.py\n?? velvet-cakes-core/agents/maestro.py\n?? velvet-cakes-core/agents/market_observer_agent.py\n?? velvet-cakes-core/agents/octocore_analytics.py\n?? velvet-cakes-core/agents/octocore_trader.py\n?? velvet-cakes-core/agents/octolawyer_agent.py\n?? velvet-cakes-core/agents/octolawyer_policy_config.json\n?? velvet-cakes-core/agents/portfolio_analyzer_agent.py\n?? velvet-cakes-core/agents/risk_assessor_agent.py\n?? velvet-cakes-core/audit_log.jsonl\n?? velvet-cakes-core/bootstrap_os.py\n?? velvet-cakes-core/compliance_checkpoint.py\n?? velvet-cakes-core/cron_autonomous_agents_setup.sh\n?? velvet-cakes-core/financial_canon.json\n?? velvet-cakes-core/governance_config.json\n?? velvet-cakes-core/init_system.py\n?? velvet-cakes-core/kpi_dashboard.txt\n?? velvet-cakes-core/maestro_v2.py\n?? velvet-cakes-core/ouroboros_v2.py\n?? velvet-cakes-core/swarm_os.py\n?? velvet-cakes-core/velvet_cakes.py\n?? wallet_analyzer.py",
+      "stderr": ""
+    },
+    "git_commit": {
+      "ok": true,
+      "code": 0,
+      "stdout": "[auto/octomind-background-20260519t070113z bcc19ee] chore: prepare octo background automation\n 29 files changed, 1780 insertions(+)\n create mode 100644 .github/workflows/octo-background.yml\n create mode 100644 OCTO_AUTOMATION_STATUS.md\n create mode 100644 automation/n8n/octo_lead_intake_workflow.json\n create mode 100644 reports/agent_factory_20260518T200741Z.json\n create mode 100644 reports/athena_aegis_background_bridge_20260519T070113Z.json\n create mode 100644 reports/data_pipeline_20260518T200827Z.json\n create mode 100644 reports/data_pipeline_20260518T200903Z.json\n create mode 100644 reports/data_pipeline_20260518T200913Z.json\n create mode 100644 reports/ecosystem_integration_20260518T200903Z.json\n create mode 100644 reports/ecosystem_integration_20260518T200913Z.json\n create mode 100644 reports/governance_test_20260518T200454.083562+0000.json\n create mode 100644 reports/governance_test_20260518T200529.542104+0000.json\n create mode 100644 reports/governance_test_20260518T200903.295837+0000.json\n create mode 100644 reports/governance_test_20260518T200913.990142+0000.json\n create mode 100644 reports/initialization_suite_20260518T200403Z.json\n create mode 100644 reports/initialization_suite_20260518T200515Z.json\n create mode 100644 reports/master_control_20260518T200515Z.json\n create mode 100644 reports/mother_12qubic_bootstrap_20260518T144347Z.json\n create mode 100644 reports/multi_agent_orchestration_20260518T200832Z.json\n create mode 100644 reports/multi_agent_orchestration_20260518T200903Z.json\n create mode 100644 reports/multi_agent_orchestration_20260518T200913Z.json\n create mode 100644 reports/octocore_live_status_20260518T200403Z.json\n create mode 100644 reports/octocore_live_status_20260518T200515Z.json\n create mode 100644 reports/platform_core_bootstrap_20260518T200403Z.json\n create mode 100644 reports/platform_core_bootstrap_20260518T200515Z.json\n create mode 100644 reports/system_health_20260518T200403Z.json\n create mode 100644 reports/system_health_20260518T200515Z.json\n create mode 100644 reports/wallet_analysis_20260518T200403Z.json\n create mode 100644 reports/wallet_analysis_20260518T200515Z.json",
+      "stderr": ""
+    },
+    "git_remote_after_commit": {
+      "ok": true,
+      "code": 0,
+      "stdout": "origin\thttps://github.com/angeladoloressen-tech/octomind-cloud.git (fetch)\norigin\thttps://github.com/angeladoloressen-tech/octomind-cloud.git (push)",
+      "stderr": ""
+    },
+    "repo_create": {
+      "ok": false,
+      "stdout": "",
+      "stderr": "not_attempted"
+    },
+    "git_push": {
+      "ok": false,
+      "stdout": "",
+      "stderr": "not_attempted"
+    },
+    "workflow_run": {
+      "ok": false,
+      "stdout": "",
+      "stderr": "not_attempted"
+    },
+    "n8n_import": {
+      "ok": false,
+      "stdout": "",
+      "stderr": "n8n_cli_not_available_or_not_imported"
+    }
+  }
+}
