@@ -1,0 +1,52 @@
+name: Octomind Background Smoke
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Inspect project
+        run: |
+          echo "octomind_background_smoke=started"
+          pwd
+          find . -maxdepth 2 -type f | sort | head -120
+
+      - name: Node smoke
+        run: |
+          if [ -f package.json ]; then
+            npm ci || npm install
+            npm run build --if-present
+            npm test --if-present
+          else
+            echo "package_json_not_found"
+          fi
+
+      - name: Python smoke
+        run: |
+          python --version
+          if [ -f requirements.txt ]; then
+            python -m pip install --upgrade pip
+            python -m pip install -r requirements.txt
+          fi
+          python - <<'PYSMOKE'
+          import json
+          from pathlib import Path
+          result = {
+              "status": "ok",
+              "mode": "github_background_smoke",
+              "has_package_json": Path("package.json").exists(),
+              "has_requirements": Path("requirements.txt").exists(),
+              "has_src": Path("src").exists(),
+          }
+          print(json.dumps(result, indent=2))
+          PYSMOKE

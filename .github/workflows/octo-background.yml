@@ -1,0 +1,48 @@
+name: OCTO Background Pulse
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  pulse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate background pulse
+        run: |
+          mkdir -p reports
+          python3 - <<'PY2'
+          import json, pathlib, time, os
+          root = pathlib.Path.cwd()
+          files = []
+          for p in root.rglob("*"):
+              if ".git" in p.parts:
+                  continue
+              if p.is_file():
+                  files.append(str(p.relative_to(root)))
+          payload = {
+              "status": "background_pulse_ok",
+              "created_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+              "mode": "safe_background_report",
+              "file_count": len(files),
+              "offer": "OCTO Application Audit",
+              "next_action": "Collect lead, create paid audit report, require human approval before external submission",
+              "no_auto_submit": True
+          }
+          pathlib.Path("reports/octo_background_pulse.json").write_text(json.dumps(payload, indent=2))
+          PY2
+
+      - name: Commit pulse report
+        run: |
+          git config user.name "octo-background-bot"
+          git config user.email "octo-background-bot@users.noreply.github.com"
+          git add reports/octo_background_pulse.json
+          git commit -m "chore: update octo background pulse" || echo "No changes to commit"
+          git push || echo "Push skipped"

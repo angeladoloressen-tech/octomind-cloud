@@ -1,0 +1,139 @@
+{
+  "summary": {
+    "status": "OCTO_AUTOMATION_GATE_CHECK_DONE",
+    "root": "/Users/mantzoaziz/octomind",
+    "github_ready": false,
+    "github_auth_ok": false,
+    "push_ok": false,
+    "workflow_run_ok": false,
+    "n8n_cli_found": false,
+    "n8n_import_ok": false,
+    "no_delete_performed": true,
+    "next_action": "If github_auth_ok is false, run gh auth login once. If n8n_cli_found is false, n8n exists as data but not as a terminal command."
+  },
+  "gh_auth": {
+    "ok": false,
+    "code": 1,
+    "stdout": "You are not logged into any GitHub hosts. To log in, run: gh auth login",
+    "stderr": ""
+  },
+  "git": {
+    "branch": {
+      "ok": true,
+      "code": 0,
+      "stdout": "auto/octomind-background-20260519t070113z",
+      "stderr": ""
+    },
+    "status_before": {
+      "ok": true,
+      "code": 0,
+      "stdout": "M src/App.jsx\n M src/components/DrumPad/DrumPad.css\n M src/components/DrumPad/DrumPad.jsx\n M src/components/Guitar/Guitar.css\n M src/components/Guitar/Guitar.jsx\n M src/components/Sequencer/Sequencer.css\n M src/components/Sequencer/Sequencer.jsx\n M src/components/TheoryLesson/TheoryLesson.css\n M src/components/TheoryLesson/TheoryLesson.jsx\n M src/synth/synthEngine.js\n M velvet-cakes-core/agents/financial_canon.py\n M velvet-cakes-core/agents/growth_hunter.py\n M velvet-cakes-core/agents/pricing_ai.py\n M velvet-cakes-core/agents/requirements.txt\n?? AUTONOMOUS_ECOSYSTEM_v2.md\n?? DIGITAL_REAL_ESTATE_PLATFORM.md\n?? ECOSYSTEM_SHIELD_GAIACORE_REPORT.md\n?? INFRASTRUCTURE_STATUS.md\n?? MOTHER_BIQUBIC_ZERO/\n?? MOTHER_BIQUBIC_ZERO_20260518T143552Z/\n?? OCTOLAWYER_ENTERPRISE_ESTABLISHMENT.md\n?? OCTOLAWYER_PRODUCTION_ARCHITECTURE.md\n?? OCTO_12QUBIC_MOTHER/\n?? README_MOTHER_12QUBIC.md\n?? athena-zero-brain/\n?? autonomous_agent_factory.py\n?? autonomous_data_pipeline.py\n?? autonomous_governance_test.py\n?? bin/\n?? config/\n?? data/\n?? digital_real_estate_platform/\n?? gaia_master_orchestrator_v3.sh\n?? gaiacore_autonomous_treasury.py\n?? gaiacore_genesis.py\n?? init_autonomous_infrastructure.sh\n?? launch_complete_ecosystem.sh\n?? ledger/\n?? mother-biqubic-brain/\n?? multi_agent_orchestrator.py\n?? octo_spider.py\n?? octo_vector_vault.json\n?? octocore_genesis.py\n?? octocore_live.py\n?? octolawyer_4dqubic_core.py\n?? octolawyer_biqubic_core.py\n?? onchain_trader.py\n?? ouroboros_run_forever.sh\n?? reports/octo_automation_repair_20260519_090429.json\n?? run_master_control.sh\n?? run_octocore_live.sh\n?? self_generating_system.py\n?? src/components/Sequencer/octocore_shield_config.json\n?? src/synth/AiCompositions.css\n?? src/synth/AiCompositions.jsx\n?? state/\n?? system_health_check.py\n?? velvet-cakes-core/.env.example\n?? velvet-cakes-core/IMPLEMENTATION_REPORT.md\n?? velvet-cakes-core/OPERATIONAL_MASTER_CONTROL.py\n?? velvet-cakes-core/QUICK_START.py\n?? velvet-cakes-core/SWARM_OS_ARCHITECTURE.md\n?? velvet-cakes-core/agents/OctoLawyer.css\n?? velvet-cakes-core/agents/OctoLawyer.jsx\n?? velvet-cakes-core/agents/compute_to_data_tee.py\n?? velvet-cakes-core/agents/contract_scanner.py\n?? velvet-cakes-core/agents/contract_scanner_agent.py\n?? velvet-cakes-core/agents/document_loader.py\n?? velvet-cakes-core/agents/maestro.py\n?? velvet-cakes-core/agents/market_observer_agent.py\n?? velvet-cakes-core/agents/octocore_analytics.py\n?? velvet-cakes-core/agents/octocore_trader.py\n?? velvet-cakes-core/agents/octolawyer_agent.py\n?? velvet-cakes-core/agents/octolawyer_policy_config.json\n?? velvet-cakes-core/agents/portfolio_analyzer_agent.py\n?? velvet-cakes-core/agents/risk_assessor_agent.py\n?? velvet-cakes-core/audit_log.jsonl\n?? velvet-cakes-core/bootstrap_os.py\n?? velvet-cakes-core/compliance_checkpoint.py\n?? velvet-cakes-core/cron_autonomous_agents_setup.sh\n?? velvet-cakes-core/financial_canon.json\n?? velvet-cakes-core/governance_config.json\n?? velvet-cakes-core/init_system.py\n?? velvet-cakes-core/kpi_dashboard.txt\n?? velvet-cakes-core/maestro_v2.py\n?? velvet-cakes-core/ouroboros_v2.py\n?? velvet-cakes-core/swarm_os.py\n?? velvet-cakes-core/velvet_cakes.py\n?? wallet_analyzer.py",
+      "stderr": ""
+    },
+    "remote": {
+      "ok": true,
+      "code": 0,
+      "stdout": "origin\thttps://github.com/angeladoloressen-tech/octomind-cloud.git (fetch)\norigin\thttps://github.com/angeladoloressen-tech/octomind-cloud.git (push)",
+      "stderr": ""
+    },
+    "force_add_workflows": {
+      "ok": true,
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "add_automation": {
+      "ok": true,
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "staged": {
+      "ok": true,
+      "code": 0,
+      "stdout": ".github/workflows/octomind-background-smoke.yml\nreports/octo_automation_repair_20260519_090429.json",
+      "stderr": ""
+    },
+    "commit": {
+      "ok": true,
+      "code": 0,
+      "stdout": "[auto/octomind-background-20260519t070113z 8c14047] Repair Octomind background automation bridge\n 2 files changed, 237 insertions(+)\n create mode 100644 .github/workflows/octomind-background-smoke.yml\n create mode 100644 reports/octo_automation_repair_20260519_090429.json",
+      "stderr": ""
+    },
+    "push": {
+      "ok": false,
+      "code": null,
+      "stdout": "",
+      "stderr": "blocked_until_gh_auth_login"
+    },
+    "workflow_run": {
+      "ok": false,
+      "code": null,
+      "stdout": "",
+      "stderr": "blocked_until_gh_auth_login"
+    }
+  },
+  "n8n": {
+    "home_exists": true,
+    "database_exists": true,
+    "cli_path": "",
+    "workflow_json": "/Users/mantzoaziz/octomind/automation/n8n/octo_lead_intake_workflow.json",
+    "version": {
+      "ok": false,
+      "stderr": "n8n_cli_not_found",
+      "stdout": "",
+      "code": null
+    },
+    "import_attempted": false,
+    "import": {
+      "ok": false,
+      "code": null,
+      "stdout": "",
+      "stderr": "not_attempted"
+    }
+  },
+  "space": {
+    "disk": {
+      "ok": true,
+      "code": 0,
+      "stdout": "Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on\n/dev/disk3s3s1   228Gi    12Gi   133Gi     9%    458k  1,4G    0%   /",
+      "stderr": ""
+    },
+    "home_top": {
+      "ok": true,
+      "code": 0,
+      "stdout": "14G\t/Users/mantzoaziz/Pictures\n 11G\t/Users/mantzoaziz/Library\n3,1G\t/Users/mantzoaziz/.npm-global\n1,9G\t/Users/mantzoaziz/octomind\n1,2G\t/Users/mantzoaziz/.vscode\n1,1G\t/Users/mantzoaziz/.cache\n815M\t/Users/mantzoaziz/.gemini\n755M\t/Users/mantzoaziz/.local\n732M\t/Users/mantzoaziz/angeladoloressen-tech\n664M\t/Users/mantzoaziz/Downloads\n443M\t/Users/mantzoaziz/.zsh_sessions\n 55M\t/Users/mantzoaziz/node_modules\n 38M\t/Users/mantzoaziz/.codex\n 21M\t/Users/mantzoaziz/Desktop\n 15M\t/Users/mantzoaziz/.solcx\n 11M\t/Users/mantzoaziz/.ipfs\n7,6M\t/Users/mantzoaziz/.zsh_history\n6,2M\t/Users/mantzoaziz/.openclaw\n3,5M\t/Users/mantzoaziz/AICommandCenter\n3,3M\t/Users/mantzoaziz/.npm\n3,2M\t/Users/mantzoaziz/.n8n\n1,5M\t/Users/mantzoaziz/.playwright-cli\n1,3M\t/Users/mantzoaziz/TITANIUS4TB\n1,3M\t/Users/mantzoaziz/.aider\n780K\t/Users/mantzoaziz/.copilot\n420K\t/Users/mantzoaziz/.claude\n396K\t/Users/mantzoaziz/Music\n204K\t/Users/mantzoaziz/TITANIUS_OCTOPUS_CORE\n200K\t/Users/mantzoaziz/.tmp\n168K\t/Users/mantzoaziz/QUEEN_TERMINAL_CORE",
+      "stderr": ""
+    },
+    "project_size": {
+      "ok": true,
+      "code": 0,
+      "stdout": "1,9G\t/Users/mantzoaziz/octomind",
+      "stderr": ""
+    },
+    "venv_size": {
+      "ok": true,
+      "code": 0,
+      "stdout": "972M\t/Users/mantzoaziz/octomind/.venv\n900M\t/Users/mantzoaziz/octomind/venv",
+      "stderr": ""
+    },
+    "node_modules_size": {
+      "ok": true,
+      "code": 0,
+      "stdout": "110M\t/Users/mantzoaziz/octomind/node_modules",
+      "stderr": ""
+    },
+    "library_cache_size": {
+      "ok": true,
+      "code": 0,
+      "stdout": "3,6G\t/Users/mantzoaziz/Library/Caches",
+      "stderr": ""
+    },
+    "npm_global_size": {
+      "ok": true,
+      "code": 0,
+      "stdout": "3,1G\t/Users/mantzoaziz/.npm-global",
+      "stderr": ""
+    }
+  }
+}
