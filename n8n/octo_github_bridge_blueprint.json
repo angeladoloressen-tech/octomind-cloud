@@ -1,0 +1,20 @@
+{
+  "name": "OCTO GitHub Bridge Blueprint",
+  "active": false,
+  "notes": [
+    "This is a blueprint because local n8n CLI is not currently available.",
+    "Use GitHub Actions as the current automation engine.",
+    "Connect n8n later through n8n cloud, local n8n CLI, or API credentials."
+  ],
+  "github": {
+    "repo_hint": "https://github.com/angeladoloressen-tech/octomind-cloud.git",
+    "workflow_file": ".github/workflows/octo-background-pulse.yml",
+    "manual_trigger_command": "gh workflow run octo-background-pulse.yml"
+  },
+  "safety": {
+    "no_local_delete": true,
+    "no_secret_write": true,
+    "no_wallet_action": true,
+    "human_approval_required": true
+  }
+}

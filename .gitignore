@@ -70,3 +70,12 @@ wallet*.json
 # Athena Aegis generated hygiene
 reports/*.tmp
 reports/*.log
+# OCTO local runtime and heavy local artifacts
+.venv/
+venv/
+__pycache__/
+*.pyc
+node_modules/
+.n8n/
+reports/*.json
+.DS_Store
