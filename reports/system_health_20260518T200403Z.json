@@ -1,0 +1,25 @@
+/Users/mantzoaziz/octomind/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+{
+  "engine": "octomind_system_health_check",
+  "timestamp_utc": "2026-05-18T20:04:13.125664+00:00",
+  "status": "OCTOMIND_INFRASTRUCTURE_HEALTHY",
+  "python_packages": {
+    "missing": [],
+    "count": 0
+  },
+  "core_files": {
+    "missing": [],
+    "count": 0
+  },
+  "compilation": {
+    "errors": [],
+    "count": 0
+  },
+  "wallet_access": false,
+  "transaction_sending": false,
+  "live_trading": false,
+  "browser_opened": false,
+  "email_sent": false,
+  "next_action": "All systems operational. Ready for agent execution."
+}

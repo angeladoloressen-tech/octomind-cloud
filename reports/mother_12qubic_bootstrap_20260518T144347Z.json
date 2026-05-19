@@ -1,0 +1,32 @@
+{
+  "engine": "mother_12qubic_ninequbic_bootstrap",
+  "timestamp_utc": "2026-05-18T14:43:47.663161+00:00",
+  "status": "MOTHER_12QUBIC_AND_OCTO_9QUBIC_INSTALLED",
+  "root": "/Users/mantzoaziz/octomind",
+  "files": {
+    "outer_12qubic": "/Users/mantzoaziz/octomind/config/12qubic_outer_layers.json",
+    "inner_9qubic": "/Users/mantzoaziz/octomind/config/9qubic_octo_inner_layers.json",
+    "ledger_policy": "/Users/mantzoaziz/octomind/config/mother_ledger_policy.json",
+    "state": "/Users/mantzoaziz/octomind/state/mother_12qubic_state.json",
+    "ledger": "/Users/mantzoaziz/octomind/ledger/mother_decision_ledger.csv",
+    "status_tool": "/Users/mantzoaziz/octomind/bin/mother-12qubic-status",
+    "readme": "/Users/mantzoaziz/octomind/README_MOTHER_12QUBIC.md"
+  },
+  "backup_dir": "/Users/mantzoaziz/octomind/backups/mother_12qubic_20260518T144347Z",
+  "outer_layers_count": 12,
+  "inner_layers_count": 9,
+  "ledger_owner": "MNEMOSYNE_LEDGER_KEEPER",
+  "audit_owner": "MAAT_AUDITOR",
+  "safety": {
+    "wallet_access": false,
+    "transaction_sending": false,
+    "live_trading": false,
+    "browser_opened": false,
+    "email_sent": false,
+    "destructive_changes": false,
+    "automatic_publish_allowed": false,
+    "manual_live_deploy_allowed": false
+  },
+  "next_command": "/Users/mantzoaziz/octomind/bin/mother-12qubic-status",
+  "next_action": "Run the status tool automatically now, then paste the compact JSON back."
+}

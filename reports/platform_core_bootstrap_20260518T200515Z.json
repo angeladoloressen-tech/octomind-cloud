@@ -1,0 +1,40 @@
+[DigitalEstatePlatform] Bootstrapping platform
+[Identity] OIDC provider registered: google
+[Connector] Registered google_drive
+[Connector] Registered google_calendar
+[Connector] Registered google_gmail
+[Connector] Registered custom_portal
+[Connector] Registered hris
+[Graph] Added node Person:person_001
+[Graph] Added node Organization:org_001
+[Graph] Added edge person_001 -[member_of]-> org_001
+[DigitalEstatePlatform] Running sample workflow
+[Identity] Session issued for person_001 via google
+[Connector] Synced google_drive
+[Connector] Synced google_calendar
+[Orchestrator] Preparing application for person_001
+[RAG] Retrieving sources for query: prepare visa application
+[Orchestrator] Running agent action: submit_application
+[Workflow] Executing workflow: agent_action_flow
+{
+  "session": {
+    "subject_id": "person_001",
+    "provider": "google",
+    "session_id": "e4ba12ea-54f4-40cf-8c60-f59e57c91cd1",
+    "issued_at": "2026-05-18T20:05:22.119507Z",
+    "expires_at": 1779131122.119665
+  },
+  "application": {
+    "subject_id": "person_001",
+    "application_type": "visa",
+    "recommendation": {
+      "query": "prepare visa application",
+      "source_count": 0,
+      "draft": "Generated recommendation from 0 sources.",
+      "sources": []
+    },
+    "allowed": true,
+    "reason": "Action permitted under current policy.",
+    "approval_needed": true
+  }
+}

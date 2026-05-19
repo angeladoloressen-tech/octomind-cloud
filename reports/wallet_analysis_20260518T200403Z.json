@@ -1,0 +1,22 @@
+/Users/mantzoaziz/octomind/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+[WalletAnalyzer] Connected to RPC: https://cloudflare-eth.com
+[WalletAnalyzer] Reading wallet: 0x13b6F7841C8AcCA9AEA8D322febDad71048F6949
+[WalletAnalyzer] Failed to read balance: {'code': -32603, 'message': 'Internal error'}
+[WalletAnalyzer] Failed to read tx count: {'code': -32603, 'message': 'Internal error'}
+[WalletAnalyzer] Failed to read block: {'code': -32046, 'message': 'Cannot fulfill request'}
+{
+  "wallet": "0x13b6F7841C8AcCA9AEA8D322febDad71048F6949",
+  "timestamp_utc": "2026-05-18T20:04:12.864409+00:00",
+  "rpc_endpoint": "https://cloudflare-eth.com",
+  "connected": true,
+  "balance_error": "{'code': -32603, 'message': 'Internal error'}",
+  "tx_count_error": "{'code': -32603, 'message': 'Internal error'}",
+  "block_error": "{'code': -32046, 'message': 'Cannot fulfill request'}",
+  "wallet_access": false,
+  "transaction_sending": false,
+  "live_trading": false,
+  "mode": "read_only_observation"
+}
+
+[WalletAnalyzer] Report saved: logs/wallet_analysis_20260518T200413Z.json

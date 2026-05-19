@@ -1,0 +1,8 @@
+/Users/mantzoaziz/octomind/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+[OctoCore] Connected to RPC: https://cloudflare-eth.com
+🔗 Gerçeklik Hattı AÇIK. Blok bilgisi alınamadı (demo).
+
+[HybridOctoCore] Checking on-chain truth for token 0xdAC17F958D2ee523a2206206994597C13D831ec7 and wallet 0x28C6c06298d514Db089934071355E5743bf21d60
+[HybridOctoCore] Connected: True; RPC endpoint: https://cloudflare-eth.com
+[HybridOctoCore] Failed to read latest block: {'code': -32046, 'message': 'Cannot fulfill request'}

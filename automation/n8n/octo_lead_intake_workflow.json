@@ -1,0 +1,75 @@
+{
+  "name": "OCTO Lead Intake - Safe Draft Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "octo-lead-intake",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-intake",
+      "name": "Lead Intake Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        260,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { status: 'lead_received', no_auto_submit: true, received_at: new Date().toISOString(), input: $json } }];"
+      },
+      "id": "safe-normalizer",
+      "name": "Normalize Safe Lead",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        520,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "respond",
+      "name": "Respond",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        780,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Lead Intake Webhook": {
+      "main": [
+        [
+          {
+            "node": "Normalize Safe Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Safe Lead": {
+      "main": [
+        [
+          {
+            "node": "Respond",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}
