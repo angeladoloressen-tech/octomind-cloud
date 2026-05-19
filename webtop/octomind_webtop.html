@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OctoMind Webtop Bridge</title>
+  <style>
+    :root {
+      --bg: #07000f;
+      --panel: #12001f;
+      --panel2: #05000a;
+      --line: #7d4cff;
+      --text: #eadcff;
+      --muted: #a98cff;
+      --ok: #00ffcc;
+      --warn: #ffcc66;
+      --bad: #ff5577;
+    }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #1d0033, var(--bg) 60%);
+      color: var(--text);
+      font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
+      overflow: hidden;
+    }
+    .desktop {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+    }
+    .window {
+      position: absolute;
+      background: linear-gradient(180deg, var(--panel), var(--panel2));
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 0 28px rgba(125,76,255,.25);
+      overflow: hidden;
+      min-width: 340px;
+    }
+    .titlebar {
+      padding: 10px 14px;
+      background: rgba(125,76,255,.18);
+      cursor: grab;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--ok);
+      font-weight: 700;
+    }
+    .content {
+      padding: 14px;
+    }
+    #motherLogs {
+      left: 40px;
+      top: 40px;
+      width: 520px;
+      height: 560px;
+    }
+    #sensorWindow {
+      left: 600px;
+      top: 80px;
+      width: 520px;
+      height: 430px;
+    }
+    #console {
+      background: #000;
+      border-radius: 10px;
+      height: 385px;
+      overflow-y: auto;
+      padding: 12px;
+      line-height: 1.45;
+      font-size: 13px;
+      border: 1px solid rgba(125,76,255,.35);
+    }
+    canvas {
+      width: 100%;
+      height: 260px;
+      background: #030008;
+      border-radius: 10px;
+      border: 1px solid rgba(125,76,255,.35);
+    }
+    button, input {
+      background: #1a0033;
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 10px;
+      font-family: inherit;
+    }
+    button {
+      cursor: pointer;
+    }
+    button:hover {
+      border-color: var(--ok);
+    }
+    .row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    input {
+      flex: 1;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .metric {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(125,76,255,.25);
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+    .metric span {
+      display: block;
+      color: var(--ok);
+      font-size: 19px;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="desktop">
+    <section class="window" id="motherLogs">
+      <div class="titlebar">Mother Logs <span id="backendState">offline</span></div>
+      <div class="content">
+        <div id="console"></div>
+        <div class="row">
+          <input id="command" placeholder="Type: analyze, scan, evolve, cloud">
+          <button onclick="sendAnalysis()">Analyze</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="window" id="sensorWindow">
+      <div class="titlebar">Camera / Sensor Simulation <span id="sensorState">live</span></div>
+      <div class="content">
+        <canvas id="sensorCanvas" width="900" height="420"></canvas>
+        <div class="metrics">
+          <div class="metric">Signal<span id="mSignal">0</span></div>
+          <div class="metric">Motion<span id="mMotion">0</span></div>
+          <div class="metric">Heat<span id="mHeat">0</span></div>
+          <div class="metric">Objects<span id="mObjects">0</span></div>
+        </div>
+        <div class="row">
+          <button onclick="toggleAuto()">Toggle Auto Analyze</button>
+          <button onclick="sendAnalysis()">Send Packet</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const API = "http://127.0.0.1:8765";
+    const consoleEl = document.getElementById("console");
+    const canvas = document.getElementById("sensorCanvas");
+    const ctx = canvas.getContext("2d");
+    let autoAnalyze = false;
+    let tick = 0;
+    let packet = {
+      sensor: { signal: 0, motion: 0, heat: 0 },
+      camera: { mode: "simulated", objects: 0, focus: "stable" }
+    };
+
+    function log(text, color = "#eadcff") {
+      const line = document.createElement("div");
+      line.style.color = color;
+      line.textContent = "[Ω] " + text;
+      consoleEl.appendChild(line);
+      consoleEl.scrollTop = consoleEl.scrollHeight;
+    }
+
+    function updatePacket() {
+      tick += 1;
+      const signal = Math.round(45 + Math.sin(tick / 9) * 28 + Math.random() * 12);
+      const motion = Math.round(30 + Math.cos(tick / 13) * 22 + Math.random() * 15);
+      const heat = Number((22 + Math.sin(tick / 17) * 4 + Math.random() * 2).toFixed(1));
+      const objects = Math.max(1, Math.min(8, Math.round(3 + Math.sin(tick / 11) * 2 + Math.random() * 2)));
+      packet = {
+        command: document.getElementById("command").value || "sensor_scan",
+        sensor: { signal, motion, heat },
+        camera: { mode: "simulated", objects, focus: motion > 60 ? "unstable" : "stable" }
+      };
+      document.getElementById("mSignal").textContent = signal;
+      document.getElementById("mMotion").textContent = motion;
+      document.getElementById("mHeat").textContent = heat;
+      document.getElementById("mObjects").textContent = objects;
+    }
+
+    function drawSensor() {
+      updatePacket();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#030008";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.strokeStyle = "rgba(125,76,255,.35)";
+      ctx.lineWidth = 1;
+      for (let x = 0; x < canvas.width; x += 45) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+      for (let y = 0; y < canvas.height; y += 42) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+
+      const objects = packet.camera.objects;
+      for (let i = 0; i < objects; i++) {
+        const x = 90 + i * 95 + Math.sin((tick + i) / 8) * 34;
+        const y = 90 + Math.cos((tick + i) / 10) * 54 + (i % 3) * 62;
+        ctx.fillStyle = i % 2 === 0 ? "#00ffcc" : "#ffcc66";
+        ctx.beginPath();
+        ctx.arc(x, y, 16 + Math.sin(tick / 6 + i) * 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = "rgba(255,255,255,.45)";
+        ctx.strokeRect(x - 26, y - 22, 52, 44);
+      }
+
+      ctx.fillStyle = "#eadcff";
+      ctx.fillText("Simulated visual sensor feed", 24, 34);
+      ctx.fillText("Focus: " + packet.camera.focus, 24, 58);
+      requestAnimationFrame(drawSensor);
+    }
+
+    async function checkBackend() {
+      try {
+        const res = await fetch(API + "/health");
+        const data = await res.json();
+        document.getElementById("backendState").textContent = data.ok ? "online" : "offline";
+        document.getElementById("backendState").style.color = data.ok ? "#00ffcc" : "#ff5577";
+      } catch (e) {
+        document.getElementById("backendState").textContent = "offline";
+        document.getElementById("backendState").style.color = "#ff5577";
+      }
+    }
+
+    async function sendAnalysis() {
+      const cmd = document.getElementById("command").value || "sensor_scan";
+      packet.command = cmd;
+      log("Sending packet to backend: " + cmd, "#ff99ff");
+      try {
+        const res = await fetch(API + "/api/analyze", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(packet)
+        });
+        const data = await res.json();
+        if (!data.ok) {
+          log("Backend error: " + JSON.stringify(data), "#ff5577");
+          return;
+        }
+        const provider = data.result.provider;
+        log("Provider: " + provider, provider === "local_fallback" ? "#ffcc66" : "#00ffcc");
+        log(data.result.analysis, "#eadcff");
+      } catch (e) {
+        log("Backend offline. Start: python3 api/octomind_backend.py", "#ff5577");
+      }
+    }
+
+    function toggleAuto() {
+      autoAnalyze = !autoAnalyze;
+      log("Auto analyze: " + (autoAnalyze ? "enabled" : "disabled"), "#00ffcc");
+    }
+
+    function makeDraggable(win) {
+      const bar = win.querySelector(".titlebar");
+      let dragging = false;
+      let dx = 0;
+      let dy = 0;
+      bar.addEventListener("mousedown", event => {
+        dragging = true;
+        dx = event.clientX - win.offsetLeft;
+        dy = event.clientY - win.offsetTop;
+        bar.style.cursor = "grabbing";
+      });
+      window.addEventListener("mousemove", event => {
+        if (!dragging) return;
+        win.style.left = Math.max(0, event.clientX - dx) + "px";
+        win.style.top = Math.max(0, event.clientY - dy) + "px";
+      });
+      window.addEventListener("mouseup", () => {
+        dragging = false;
+        bar.style.cursor = "grab";
+      });
+    }
+
+    document.querySelectorAll(".window").forEach(makeDraggable);
+    log("OctoMind Webtop Bridge loaded.");
+    log("Camera and sensor simulation is active.");
+    checkBackend();
+    setInterval(checkBackend, 4000);
+    setInterval(() => {
+      if (autoAnalyze) sendAnalysis();
+    }, 12000);
+    drawSensor();
+  </script>
+</body>
+</html>

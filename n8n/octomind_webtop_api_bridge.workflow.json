@@ -1,0 +1,49 @@
+{
+  "name": "OctoMind Webtop API Bridge",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/api/analyze",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"command\":\"n8n_probe\",\"sensor\":{\"signal\":64,\"motion\":33,\"heat\":23.1},\"camera\":{\"mode\":\"simulated\",\"objects\":2,\"focus\":\"stable\"}}"
+      },
+      "id": "api-request",
+      "name": "Send Sensor Packet",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        520,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send Sensor Packet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "octomind-webtop-api-bridge"
+}

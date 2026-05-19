@@ -1,0 +1,22 @@
+OctoMind Webtop API Bridge
+
+Files:
+- api/octomind_backend.py
+- webtop/octomind_webtop.html
+- tests/smoke_api_bridge.py
+- n8n/octomind_webtop_api_bridge.workflow.json
+- .github/workflows/octo-webtop-api-bridge.yml
+
+Run backend:
+python3 api/octomind_backend.py
+
+Open the webtop file manually:
+webtop/octomind_webtop.html
+
+Optional real API providers:
+export OPENAI_API_KEY="..."
+export GEMINI_API_KEY="..."
+export OCTOMIND_AI_PROVIDER="openai" or "gemini" or "auto"
+
+No local n8n install is required.
+No browser window is opened automatically.
