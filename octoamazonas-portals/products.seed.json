@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Plaud Note Pro",
+    "category": "AI Gadgets",
+    "source": "TechTrends smart gadgets list",
+    "buy_url": "https://amzn.to/4tKiR3J",
+    "trend_score": 92,
+    "status": "Approved",
+    "monetization": "affiliate"
+  },
+  {
+    "name": "Limitless Pendant",
+    "category": "AI Wearables",
+    "source": "TechTrends smart gadgets list",
+    "buy_url": "https://amzn.to/4tNVjLk",
+    "trend_score": 91,
+    "status": "Approved",
+    "monetization": "affiliate"
+  },
+  {
+    "name": "DJI Osmo Pocket 4",
+    "category": "Creator Tech",
+    "source": "TechTrends smart gadgets list",
+    "buy_url": "https://amzn.to/4eYG65A",
+    "trend_score": 90,
+    "status": "Approved",
+    "monetization": "affiliate"
+  },
+  {
+    "name": "AIBI Pocket Pet",
+    "category": "AI Companion",
+    "source": "TechTrends smart gadgets list",
+    "buy_url": "https://amzn.to/4wc0re0",
+    "trend_score": 89,
+    "status": "Approved",
+    "monetization": "affiliate"
+  },
+  {
+    "name": "Nebula Capsule Air",
+    "category": "Creator Tech",
+    "source": "TechTriangle 2026 gadgets list",
+    "buy_url": "",
+    "trend_score": 85,
+    "status": "Researching",
+    "monetization": "lead_capture"
+  },
+  {
+    "name": "Tilt Five",
+    "category": "Future Entertainment",
+    "source": "TechTriangle 2026 gadgets list",
+    "buy_url": "",
+    "trend_score": 83,
+    "status": "Researching",
+    "monetization": "lead_capture"
+  },
+  {
+    "name": "LiberLive C1",
+    "category": "Creator Tech",
+    "source": "TechTriangle 2026 gadgets list",
+    "buy_url": "",
+    "trend_score": 80,
+    "status": "Researching",
+    "monetization": "vendor_outreach"
+  }
+]
