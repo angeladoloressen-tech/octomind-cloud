@@ -1,0 +1,13 @@
+{
+  "name": "octomind-cloud-brain",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy --config wrangler.jsonc",
+    "dev": "wrangler dev --config wrangler.jsonc",
+    "tail": "wrangler tail --config wrangler.jsonc"
+  },
+  "devDependencies": {
+    "wrangler": "latest"
+  }
+}
