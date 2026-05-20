@@ -1,0 +1,40 @@
+{
+  "name": "OctoAmazonas - Weekly Future Gadgets Drop",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "weeksInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "weekly_schedule",
+      "name": "Weekly Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const demoProducts = [\n  { name: 'Plaud Note Pro', category: 'AI Gadgets', trend_score: 92 },\n  { name: 'Limitless Pendant', category: 'AI Wearables', trend_score: 91 },\n  { name: 'DJI Osmo Pocket 4', category: 'Creator Tech', trend_score: 90 },\n  { name: 'AIBI Pocket Pet', category: 'AI Companion', trend_score: 89 },\n  { name: 'Halliday DigiWindow Glasses', category: 'Wearables', trend_score: 88 }\n];\nconst subject = 'Weekly Future Gadgets Drop';\nconst html = `<h1>OctoAmazonas Weekly Future Gadgets Drop</h1><p>Top curated gadgets this week:</p><ol>${demoProducts.map(p => `<li><b>${p.name}</b> — ${p.category}, Trend Score ${p.trend_score}/100</li>`).join('')}</ol><p>Want your product featured? Apply for the Octo Launch Pack.</p>`;\nreturn [{ json: { subject, html, products: demoProducts, created_at: new Date().toISOString() } }];"
+      },
+      "id": "build_weekly_drop",
+      "name": "Build Weekly Drop",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Weekly Schedule": {
+      "main": [[{"node": "Build Weekly Drop", "type": "main", "index": 0}]]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "octo-weekly-drop-v1"
+}
