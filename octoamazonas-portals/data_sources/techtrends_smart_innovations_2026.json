@@ -1,0 +1,50 @@
+{
+  "source": {
+    "project": "OctoAmazonas",
+    "source_type": "youtube_description",
+    "channel": "TechTrends",
+    "channel_subscribers": "84.900",
+    "video_title_de": "Intelligente Innovationen, die Sie jetzt schon kaufen können",
+    "video_title_en": "Smart Innovations You Can Actually Buy Right Now",
+    "published_or_seen_date": "2026-04-24",
+    "views": "72.677",
+    "core_signal": "The video gives a compact list of smart gadgets with affiliate links, but comments show demand for missing products like high-tech shoes and assistive leg devices. This is useful for OctoAmazonas product intelligence and missing-link discovery."
+  },
+  "products": [
+    {"rank":1,"timestamp":"00:37","name":"Dyson HushJet Mini","category":"Smart Home","buy_url":"https://amzn.to/3QXhNLo","status":"Researching","trend_score":86,"monetization":"affiliate_candidate"},
+    {"rank":2,"timestamp":"01:23","name":"Insta360 Snap Selfie Screen","category":"Creator Tech","buy_url":"https://amzn.to/4nyxx3X","status":"Researching","trend_score":84,"monetization":"affiliate_candidate"},
+    {"rank":3,"timestamp":"02:17","name":"DJI Power 1000 Mini","category":"Outdoor / Emergency","buy_url":"https://amzn.to/42SF8k5","status":"Researching","trend_score":88,"monetization":"affiliate_candidate"},
+    {"rank":4,"timestamp":"03:18","name":"Shark BlastBoss","category":"Smart Home","buy_url":"https://amzn.to/4dc2dmw","status":"Researching","trend_score":80,"monetization":"affiliate_candidate"},
+    {"rank":5,"timestamp":"04:11","name":"Antigravity A1","category":"Future Mobility","buy_url":"https://amzn.to/3RqfC33","status":"Researching","trend_score":87,"monetization":"affiliate_candidate"},
+    {"rank":6,"timestamp":"05:06","name":"SenseRobot Chess Mini","category":"AI Gadgets","buy_url":"https://amzn.to/4dseHrA","status":"Researching","trend_score":83,"monetization":"affiliate_candidate"},
+    {"rank":7,"timestamp":"06:04","name":"Souler AI Live Speaker","category":"AI Gadgets","buy_url":"https://amzn.to/3QLwd1g","status":"Researching","trend_score":85,"monetization":"affiliate_candidate"},
+    {"rank":8,"timestamp":"06:58","name":"xLean TR1","category":"Health / Mobility","buy_url":"https://amzn.to/4tiEh72","status":"Researching","trend_score":82,"monetization":"affiliate_candidate"},
+    {"rank":9,"timestamp":"07:52","name":"Loona Deskmate","category":"AI Companion","buy_url":"https://amzn.to/4tkfiQQ","status":"Researching","trend_score":89,"monetization":"affiliate_candidate"},
+    {"rank":10,"timestamp":"08:45","name":"COZYTIME LUMO","category":"Smart Home","buy_url":"https://amzn.to/42jJP6s","status":"Researching","trend_score":78,"monetization":"affiliate_candidate"},
+    {"rank":11,"timestamp":"09:38","name":"PowrKnee Exoskeleton","category":"Health / Mobility","buy_url":"https://amzn.to/4tZsyLZ","status":"Researching","trend_score":92,"monetization":"affiliate_candidate","comment_signal":"Viewer explicitly asked for leg-related product help."},
+    {"rank":12,"timestamp":"10:32","name":"UGREEN AI NAS","category":"Creator & Productivity Tech","buy_url":"https://amzn.to/4d9pLbA","status":"Researching","trend_score":86,"monetization":"affiliate_candidate"},
+    {"rank":13,"timestamp":"11:32","name":"CASEGUIDER Smart InkBadge","category":"Productivity / Identity Tech","buy_url":"","status":"Needs Link","trend_score":73,"monetization":"missing_link_lead"},
+    {"rank":14,"timestamp":"12:26","name":"SK05 Pro 2","category":"Wearables","buy_url":"https://amzn.to/4tEwFfz","status":"Researching","trend_score":79,"monetization":"affiliate_candidate"},
+    {"rank":15,"timestamp":"13:23","name":"Humane AI Pin","category":"AI Wearables","buy_url":"https://amzn.to/42lldKn","status":"Risk Review","trend_score":90,"monetization":"affiliate_candidate","note":"High awareness product; verify current availability and buyer sentiment before featuring."},
+    {"rank":16,"timestamp":"14:16","name":"T-Launch Cybertruck Center","category":"Auto Tech","buy_url":"https://amzn.to/4cURldY","status":"Researching","trend_score":81,"monetization":"affiliate_candidate"},
+    {"rank":17,"timestamp":"15:18","name":"Zensbuds AI","category":"AI Wearables","buy_url":"https://amzn.to/49m9Q8T","status":"Researching","trend_score":84,"monetization":"affiliate_candidate"},
+    {"rank":19,"timestamp":"16:19","name":"ClawStage","category":"AI Hardware","buy_url":"https://amzn.to/4tZsSKH","status":"Researching","trend_score":83,"monetization":"affiliate_candidate"},
+    {"rank":20,"timestamp":"17:11","name":"MIHOFIT Smart Elliptical","category":"Fitness Tech","buy_url":"https://amzn.to/4wgecIC","status":"Researching","trend_score":80,"monetization":"affiliate_candidate"},
+    {"rank":21,"timestamp":"18:07","name":"Aiper Scuba V3","category":"Smart Home / Outdoor","buy_url":"https://amzn.to/4etbWr1","status":"Researching","trend_score":82,"monetization":"affiliate_candidate"},
+    {"rank":22,"timestamp":"19:01","name":"Goalker H3 Pro","category":"Sports Tech","buy_url":"https://amzn.to/4f4aLhR","status":"Researching","trend_score":81,"monetization":"affiliate_candidate"},
+    {"rank":23,"timestamp":"19:55","name":"Newbealer SWAN","category":"Home / Beauty Tech","buy_url":"https://amzn.to/4d7Zn1V","status":"Researching","trend_score":76,"monetization":"affiliate_candidate"},
+    {"rank":24,"timestamp":"20:45","name":"Glocusent Mini Sound Machine N18","category":"Sleep Tech","buy_url":"https://amzn.to/3OLml76","status":"Researching","trend_score":74,"monetization":"affiliate_candidate"}
+  ],
+  "comment_signals": [
+    {"comment":"Who came for the high-tech shoes? And didn't find it.","insight":"Missing-product demand. Add a Missing From Video request flow."},
+    {"comment":"I need those for my legs. Can somebody help me?","insight":"Assistive mobility and exoskeleton products may convert better than novelty gadgets."},
+    {"comment":"cool technology","insight":"High curiosity, but needs conversion path through verified buy links and alternatives."}
+  ],
+  "octoamazonas_actions": [
+    "Create a TechTrends landing collection.",
+    "Prioritize PowrKnee Exoskeleton, DJI Power 1000 Mini, Loona Deskmate, UGREEN AI NAS, Humane AI Pin, and Zensbuds AI for verification.",
+    "Create a Missing Product Finder form for viewers who saw a gadget in a video but cannot find the link.",
+    "Add Risk Review label for famous but controversial products before public featuring.",
+    "Build weekly product drop from verified products only."
+  ]
+}
