@@ -79,3 +79,24 @@ node_modules/
 .n8n/
 reports/*.json
 .DS_Store
+
+# Octomind cloud-first local artifact boundary
+.octomind-local/
+.pytest_cache/
+.ruff_cache/
+tmp/
+temp/
+*.pid
+*.db
+*.sqlite
+*.sqlite3
+titanius_logs.db
+gateway_live.log
+runtime/
+logs/
+backups/
+webtop/runtime_config.js
+octomind_brain_url.txt
+octomind-zero-secret-worker/
+hq_agents/
+karargah_sinir_agi.json

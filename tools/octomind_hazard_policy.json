@@ -1,0 +1,30 @@
+{
+  "schema": "octomind.hazard_policy.v2",
+  "created_at": "20260520T140611Z",
+  "default_decision": "deny_unknown_execution",
+  "blocked_files": {
+    "migration_auto.py": "Can run broad git add or git push.",
+    "neural_link.py": "Can modify webhooks or tunnel behavior.",
+    "genesis_all_in_one.py": "Can create GitHub resources or modify SSH config.",
+    "web_gateway.py": "Contains wallet execution path.",
+    "athena_gate_init.py": "Contains shell execution behavior.",
+    "athena_pulse.py": "Can create empty commits and push to trigger external automation."
+  },
+  "blocked_fragments": [
+    "git push",
+    "git add .",
+    "git add -A",
+    "shell=True",
+    "git commit --allow-empty",
+    "wallet.execute",
+    "localhost.run"
+  ],
+  "promotion_requirements": [
+    "dry_run_default",
+    "explicit_apply_flag",
+    "no_secret_output",
+    "no_git_push_without_owner_gate",
+    "smoke_test_passed",
+    "human_owner_approval"
+  ]
+}
