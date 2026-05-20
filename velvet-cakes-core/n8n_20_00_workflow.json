@@ -1,47 +1,23 @@
 {
-  "name": "Velvet Cakes - Saat 20:00 Match Drop",
-  "nodes": [
-    {
-      "parameters": {
-        "rule": {
-          "interval": [
-            {
-              "field": "cronExpression",
-              "expression": "0 20 * * *"
-            }
-          ]
-        }
-      },
-      "name": "Saat 20:00 Tetikleyici",
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.1,
-      "position": [220, 240]
-    },
-    {
-      "parameters": {
-        "command": "echo 'AI Motoru Uyanıyor...' && python3 /home/node/.n8n/agents/auto_matcher.py"
-      },
-      "name": "Eşleşmeleri Gönder",
-      "type": "n8n-nodes-base.executeCommand",
-      "typeVersion": 1,
-      "position": [440, 240]
-    }
-  ],
-  "connections": {
-    "Saat 20:00 Tetikleyici": {
-      "main": [
-        [
-          {
-            "node": "Eşleşmeleri Gönder",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    }
-  },
-  "active": true,
+  "name": "OctoMind Disabled Manual Review Workflow",
+  "active": false,
+  "nodes": [],
+  "connections": {},
   "settings": {
-    "timezone": "Europe/Istanbul"
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "policy": "inactive_unless_manually_reviewed_and_imported",
+    "autostart": false,
+    "background_execution": false,
+    "money_actions": false,
+    "wallet_actions": false,
+    "language": "en"
+  },
+  "athena_policy": {
+    "local_cron_not_installed": true,
+    "manual_import_required": true,
+    "auto_activation_allowed": false,
+    "locked_at": "20260520T112937Z"
   }
 }
