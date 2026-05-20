@@ -1,0 +1,49 @@
+{
+  "name": "OctoAmazonas - Vendor Application Intake",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "octo-vendor-application",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook_vendor_application",
+      "name": "Webhook - Vendor Application",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body || $json;\nconst app = {\n  brand_name: body.brand_name || body.brand || '',\n  product_name: body.product_name || body.product || '',\n  category: body.category || 'Uncategorized',\n  website: body.website || body.url || '',\n  retail_price: body.retail_price || '',\n  wholesale_price: body.wholesale_price || '',\n  commission_offer: body.commission_offer || body.commission || '',\n  contact_email: body.email || body.contact_email || '',\n  fit_reason: body.fit_reason || body.message || '',\n  status: 'New',\n  suggested_package: 'Octo Launch Pack - 199 EUR',\n  created_at: new Date().toISOString()\n};\nlet score = 0;\nif (app.website) score += 20;\nif (app.contact_email) score += 20;\nif (app.commission_offer) score += 20;\nif (app.retail_price) score += 10;\nif (app.fit_reason.length > 30) score += 20;\nif (/ai|smart|wearable|gadget|tool|robot|home/i.test(app.product_name + ' ' + app.category)) score += 10;\napp.qualification_score = Math.min(score, 100);\napp.priority = score >= 70 ? 'High' : score >= 40 ? 'Medium' : 'Low';\nreturn [{ json: app }];"
+      },
+      "id": "normalize_application",
+      "name": "Normalize + Score Application",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { status: 'OK', message: 'Vendor application received', application: $json } }}"
+      },
+      "id": "respond_vendor",
+      "name": "Respond to Vendor",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [520, 0]
+    }
+  ],
+  "connections": {
+    "Webhook - Vendor Application": {
+      "main": [[{"node": "Normalize + Score Application", "type": "main", "index": 0}]]
+    },
+    "Normalize + Score Application": {
+      "main": [[{"node": "Respond to Vendor", "type": "main", "index": 0}]]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "octo-vendor-intake-v1"
+}
