@@ -1,0 +1,43 @@
+{
+  "project": "OctoAmazonas",
+  "positioning": "The curated marketplace for future gadgets",
+  "portals": {
+    "buyer_portal": {
+      "goal": "Customers discover and buy curated future gadgets",
+      "features": ["product catalog", "category filters", "buy now", "compare", "save", "affiliate disclosure"],
+      "primary_metric": "outbound_buy_clicks"
+    },
+    "vendor_portal": {
+      "goal": "Brands submit gadgets for listing or paid launch packages",
+      "features": ["seller application", "product submission", "commission offer", "launch package CTA"],
+      "primary_metric": "qualified_vendor_applications"
+    },
+    "admin_review_portal": {
+      "goal": "Manually review product and vendor submissions",
+      "statuses": ["New", "Reviewing", "Approved", "Featured", "Rejected"],
+      "primary_metric": "approved_products_per_week"
+    },
+    "research_portal": {
+      "goal": "Capture trend products from videos, comments and social sources",
+      "features": ["source capture", "product extraction", "trend score", "missing link queue"],
+      "primary_metric": "research_candidates_added"
+    },
+    "commerce_portal": {
+      "goal": "Sell packages to gadget brands",
+      "packages": ["Affiliate Listing", "Featured Product", "Launch Campaign", "Vendor Storefront", "Premium Trend Report"],
+      "primary_metric": "package_revenue"
+    }
+  },
+  "sales_packages": [
+    {"name": "Affiliate Listing", "price": "Free", "revenue": "commission"},
+    {"name": "Featured Product", "price": "49 EUR/week", "revenue": "placement fee"},
+    {"name": "Launch Campaign", "price": "199 EUR", "revenue": "campaign fee"},
+    {"name": "Vendor Storefront", "price": "499 EUR setup", "revenue": "setup fee + optional monthly"},
+    {"name": "Premium Trend Report", "price": "29 EUR/month", "revenue": "subscription"}
+  ],
+  "n8n_flows": [
+    "vendor_application_intake",
+    "product_research_pipeline",
+    "weekly_future_gadgets_drop"
+  ]
+}
