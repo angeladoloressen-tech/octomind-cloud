@@ -1,0 +1,29 @@
+name: Money OS Audit Loop
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 7 * * *'
+
+jobs:
+  audit-loop:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate Money OS files
+        run: python money_os/validate_money_os.py
+      - name: Generate demo audit report
+        run: python money_os/generate_audit_report.py
+      - name: Render audit site
+        run: python money_os/render_static_site.py
+      - name: Commit generated outputs
+        run: |
+          git config user.name "money-os-bot"
+          git config user.email "money-os-bot@example.invalid"
+          git add money_os/runtime money_os/site || true
+          git diff --cached --quiet || git commit -m "money-os: generate audit loop outputs"
