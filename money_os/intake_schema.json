@@ -1,0 +1,11 @@
+{
+  "name": "money_os_audit_intake",
+  "fields": [
+    {"key": "business", "label": "Unternehmen", "required": true},
+    {"key": "profile", "label": "Website oder Profil", "required": true},
+    {"key": "niche", "label": "Branche", "required": true},
+    {"key": "problem", "label": "Aktuelles Problem", "required": false},
+    {"key": "email", "label": "Kontakt E-Mail", "required": true}
+  ],
+  "approval_required_before_contact": true
+}
