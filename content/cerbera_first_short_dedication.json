@@ -1,0 +1,34 @@
+{
+  "project": "CERBERA First Short",
+  "created_at": "2026-05-22",
+  "status": "private_test_required_before_public",
+  "title_tr": "Hayal Kuran Her Küçük Işığa",
+  "title_en": "For Every Little Light That Dreams",
+  "dedication_tr": "Büyük hayaller kuran tüm küçük ışıklara ithaf edilmiştir.",
+  "dedication_en": "Dedicated to every little light that dares to dream.",
+  "duration_seconds": 24,
+  "format": "vertical_9_16_short",
+  "audience_setting_note": "If the final video is primarily directed to young audiences, set the upload audience correctly in YouTube Studio before public release.",
+  "made_for_kids_candidate": true,
+  "no_comment_cta": true,
+  "no_sales_link": true,
+  "lyrics_tr": "Küçük ışık uyanır / Mor bulutta parıldar / Bir ay çizer kağıttan / Hayal göğe fısıldar",
+  "lyrics_en": "Little light wakes up / In a purple cloud it glows / Draws a moon from paper / And lets a dream float home",
+  "visual_plan": [
+    "0-2s purple spark wakes up",
+    "2-8s paper moon unfolds",
+    "8-16s tiny friendly robot places soft stars",
+    "16-22s cloud workshop glows",
+    "22-24s dedication text appears"
+  ],
+  "simulator": {
+    "hook_score": 82,
+    "retention_score": 74,
+    "loop_score": 80,
+    "safety_score": 96,
+    "originality_score": 78,
+    "overall_score": 82,
+    "decision": "generate_private_mp4_then_review"
+  },
+  "next_step": "Generate vertical MP4, upload private after OAuth, review audience setting, then decide public release."
+}
