@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Revenue Leak Audit</title>
 <style>
-body{font-family:system-ui;margin:0;background:#07111f;color:#f8fafc}main{max-width:980px;margin:auto;padding:56px 22px}.box{border:1px solid #26334d;border-radius:24px;padding:28px;background:#0f172a;margin-bottom:20px}input,textarea{width:100%;padding:14px;margin:8px 0 16px;border-radius:12px;border:1px solid #334155;background:#020617;color:white}button,.button{display:inline-block;padding:14px 22px;border:0;border-radius:999px;font-weight:800;background:#f8fafc;color:#07111f;text-decoration:none;margin:6px 8px 6px 0}.secondary{background:#1e293b;color:#f8fafc}.note{color:#cbd5e1;font-size:14px}li{margin:8px 0}
+body{font-family:system-ui;margin:0;background:#07111f;color:#f8fafc}main{max-width:980px;margin:auto;padding:56px 22px}.box{border:1px solid #26334d;border-radius:24px;padding:28px;background:#0f172a;margin-bottom:20px}input,textarea{width:100%;padding:14px;margin:8px 0 16px;border-radius:12px;border:1px solid #334155;background:#020617;color:white}button,.button{display:inline-block;padding:14px 22px;border:0;border-radius:999px;font-weight:800;background:#f8fafc;color:#07111f;text-decoration:none;margin:6px 8px 6px 0}.secondary{background:#1e293b;color:#f8fafc}.note{color:#cbd5e1;font-size:14px}li{margin:8px 0}.success{color:#86efac}.error{color:#fecaca}
 </style>
 </head>
 <body>
@@ -13,15 +13,15 @@ body{font-family:system-ui;margin:0;background:#07111f;color:#f8fafc}main{max-wi
 <section class="box">
 <h1>Kostenloser Revenue Leak Audit</h1>
 <p>Zeigen Sie uns Ihre Website, Google Profil oder Instagram Seite. Das System findet drei Stellen, an denen Anfragen oder Buchungen verloren gehen koennen.</p>
-<form data-status="endpoint-needed">
+<form id="audit-form" data-status="api-connected-demo-storage">
 <label>Unternehmen</label><input name="business" placeholder="Name des Unternehmens" required>
 <label>Kontakt E-Mail</label><input name="email" placeholder="name@firma.de" required>
 <label>Website oder Profil</label><input name="profile" placeholder="https://..." required>
 <label>Branche</label><input name="niche" placeholder="z.B. Kosmetikstudio, Friseur, Fahrschule" required>
 <label>Aktuelles Problem</label><textarea name="problem" placeholder="Was funktioniert bei Anfragen oder Buchungen nicht gut?"></textarea>
-<button type="button">Audit anfordern</button>
+<button type="submit">Audit anfordern</button>
 </form>
-<p class="note">Status: Formular ist vorbereitet. Ein echter Form/Webhook-Endpunkt muss noch verbunden werden, bevor live Leads gesammelt werden.</p>
+<p id="form-status" class="note">Status: Formular sendet an /api/audit-intake. Storage ist Demo-Modus, bis CRM/Webhook verbunden ist.</p>
 </section>
 <section class="box">
 <h2>Nach dem Audit</h2>
@@ -35,5 +35,29 @@ body{font-family:system-ui;margin:0;background:#07111f;color:#f8fafc}main{max-wi
 <p class="note">Keine Umsatzgarantie. Ziel ist ein klareres Anfrage-, Follow-up- und Auswertungssystem.</p>
 </section>
 </main>
+<script>
+const form = document.getElementById('audit-form');
+const statusEl = document.getElementById('form-status');
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  statusEl.className = 'note';
+  statusEl.textContent = 'Audit Anfrage wird vorbereitet...';
+  const payload = Object.fromEntries(new FormData(form).entries());
+  try {
+    const response = await fetch('/api/audit-intake', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || 'request_failed');
+    statusEl.className = 'success';
+    statusEl.textContent = 'Audit Anfrage empfangen. Naechster Schritt: Report-Generator / CRM verbinden.';
+  } catch (error) {
+    statusEl.className = 'error';
+    statusEl.textContent = 'Fehler: Anfrage konnte noch nicht verarbeitet werden.';
+  }
+});
+</script>
 </body>
 </html>
