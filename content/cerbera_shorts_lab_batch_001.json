@@ -1,0 +1,115 @@
+{
+  "project": "CERBERA Shorts Lab",
+  "batch": "001",
+  "created_at": "2026-05-22",
+  "goal": "Produce first measurable YouTube uploads instead of waiting on perfect channel setup.",
+  "rules": {
+    "create_channel": false,
+    "target_channel": "CERBERA",
+    "target_handle": "@cerberaexe",
+    "first_upload_privacy": "private",
+    "after_review_privacy": "public",
+    "made_for_kids_default": false,
+    "synthetic_content_disclosure": "Use disclosure when content depicts realistic altered/synthetic people, places, events, or voices. Stylized abstract videos should still be transparent in description if AI-generated."
+  },
+  "lanes": [
+    {
+      "name": "CERBERA Signal Shorts",
+      "audience": "AI-curious adults, side-hustle builders, automation learners",
+      "duration_seconds": "20-35",
+      "format": "vertical 9:16",
+      "made_for_kids": false,
+      "monetization_path": "Gumroad lead magnet, automation audit offer, later YouTube Partner Program"
+    },
+    {
+      "name": "Micro Song Lab",
+      "audience": "general/family-safe music experiments, not directed primarily at children",
+      "duration_seconds": "15-25",
+      "format": "vertical lyric loop / simple animation",
+      "made_for_kids": false,
+      "monetization_path": "music packs, sound loops, Gumroad bundle"
+    },
+    {
+      "name": "Kids Songs Branch",
+      "audience": "children only after policy review",
+      "duration_seconds": "30-90",
+      "format": "original educational songs",
+      "made_for_kids": true,
+      "status": "paused until explicit audience setting, originality checks, and human review gate exist"
+    }
+  ],
+  "shorts": [
+    {
+      "id": "cs001",
+      "lane": "CERBERA Signal Shorts",
+      "title": "Your AI System Is Not Broken, It Has No Hands",
+      "hook": "Your AI system is not lazy. It just has no hands yet.",
+      "script": "Your AI system can think, plan, and analyze. But if it cannot log in, upload, sell, or store results, it is just a clever ghost. CERBERA rule one: every idea needs a hand. OAuth, deploy, upload, measure. No hand, no money.",
+      "visual": "Dark sci-fi console, ghost brain turning into robotic hand, purple pulse graph.",
+      "caption": "No hand, no money. Build the bridge first.",
+      "description": "CERBERA decodes automation systems and turns ideas into executable workflows. First rule: connect the hands.",
+      "tags": ["AI automation", "CERBERA", "workflow", "side hustle", "systems"],
+      "cta": "Comment HAND if your AI still cannot execute.",
+      "privacyStatus": "private"
+    },
+    {
+      "id": "cs002",
+      "lane": "CERBERA Signal Shorts",
+      "title": "The Empty Channel Problem",
+      "hook": "A beautiful YouTube channel with zero videos is a museum with locked doors.",
+      "script": "Logo? Nice. Banner? Fine. Bio? Polished. But the algorithm cannot eat decoration. It eats uploads, retention, clicks, and repeat signals. CERBERA is switching from channel design to upload tests.",
+      "visual": "Empty futuristic museum, locked door opens into Shorts upload pipeline.",
+      "caption": "The algorithm eats uploads, not logos.",
+      "description": "A channel becomes real only when upload, measure, repeat starts.",
+      "tags": ["YouTube Shorts", "creator strategy", "automation", "CERBERA"],
+      "cta": "Save this if your channel is still a showroom.",
+      "privacyStatus": "private"
+    },
+    {
+      "id": "cs003",
+      "lane": "CERBERA Signal Shorts",
+      "title": "One Video ID Beats 100 Ideas",
+      "hook": "One video ID is worth more than 100 perfect ideas.",
+      "script": "Plans feel productive. Uploads create evidence. The first CERBERA target is not viral fame. It is a videoId, a timestamp, and analytics after 24 hours. Evidence first, ego later.",
+      "visual": "Hundreds of floating sticky notes collapse into one glowing videoId.",
+      "caption": "Evidence first. Ego later.",
+      "description": "The first target is measurable output: videoId, retention, next experiment.",
+      "tags": ["startup mindset", "YouTube automation", "AI system", "CERBERA"],
+      "cta": "Comment VIDEOID if you want the system to execute.",
+      "privacyStatus": "private"
+    },
+    {
+      "id": "ms001",
+      "lane": "Micro Song Lab",
+      "title": "Tiny Robot Wake Up Song",
+      "hook": "A tiny robot wakes up and chooses one brave task.",
+      "lyrics": "Wake up little spark, tap tap start / One small task with a chrome-bright heart / Beep once, breathe twice, roll into light / Tiny robot, build the night",
+      "style": "gentle synth-pop, 90 BPM, warm bells, no copyrighted melody",
+      "visual": "Small friendly robot powering on inside a purple cloud workshop.",
+      "caption": "One small task. Start.",
+      "description": "Original micro-song experiment by CERBERA. Family-safe, not directed primarily at children.",
+      "tags": ["original song", "micro song", "AI music", "CERBERA"],
+      "privacyStatus": "private"
+    },
+    {
+      "id": "ms002",
+      "lane": "Micro Song Lab",
+      "title": "Cloud Factory Chorus",
+      "hook": "A cloud factory sings while machines make ideas real.",
+      "lyrics": "Clouds go hum, wheels go round / Ideas fall like silver sound / Click, connect, upload, fly / Build a ladder through the sky",
+      "style": "playful electronic loop, 100 BPM, clean percussion, original melody",
+      "visual": "Cloud factory conveyor belt turning lightbulbs into tiny rockets.",
+      "caption": "Click. Connect. Upload. Fly.",
+      "description": "Original CERBERA micro-song for automation builders and dream mechanics.",
+      "tags": ["micro song", "automation", "AI music", "shorts"],
+      "privacyStatus": "private"
+    }
+  ],
+  "success_metrics": {
+    "first_gate": "Any successful private upload returns videoId.",
+    "second_gate": "3 public Shorts published.",
+    "measure_after_hours": 24,
+    "track": ["videoId", "title", "privacyStatus", "views", "averageViewDuration", "likes", "comments", "subscriberDelta"]
+  },
+  "next_system_action": "After YouTube OAuth is completed, call /youtube/upload-test with a generated vertical MP4 and metadata from this batch."
+}
