@@ -1,0 +1,10 @@
+name = "octomind-brain"
+main = "worker.js"
+compatibility_date = "2026-05-22"
+
+[[kv_namespaces]]
+binding = "LEADS"
+id = "e99423b4edcd43db8ef8fd8ade30e10b"
+
+[triggers]
+crons = ["0 * * * *"]
