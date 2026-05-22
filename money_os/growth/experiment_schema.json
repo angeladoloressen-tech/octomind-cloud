@@ -1,0 +1,25 @@
+{
+  "name": "money_os_growth_experiment",
+  "version": 1,
+  "fields": [
+    "id",
+    "created_at",
+    "bottleneck",
+    "hypothesis",
+    "experiment",
+    "channel",
+    "asset",
+    "metric",
+    "target",
+    "result",
+    "decision",
+    "learning"
+  ],
+  "allowed_decisions": [
+    "keep",
+    "improve",
+    "stop",
+    "needs_more_data"
+  ],
+  "rule": "one bottleneck, one experiment, one metric"
+}
