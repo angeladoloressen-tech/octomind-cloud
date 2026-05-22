@@ -2,15 +2,20 @@
   "setup_offer": {
     "name": "AI Revenue Autopilot Setup",
     "amount_eur": 499,
-    "payment_link": "REPLACE_WITH_STRIPE_OR_GUMROAD_SETUP_LINK"
+    "payment_link": "https://buy.stripe.com/bJe9AT4VSgOi84XgDv6Na0s",
+    "stripe_product_id": "prod_UYuQSqlWhXfpNU",
+    "stripe_price_id": "price_1TZn32Gup9HWwEMCdwrEfevQ"
   },
   "monthly_retainer": {
-    "name": "AI Revenue Autopilot Betreuung",
+    "name": "AI Revenue Autopilot Monthly Support",
     "amount_eur": 149,
-    "payment_link": "REPLACE_WITH_STRIPE_OR_GUMROAD_MONTHLY_LINK"
+    "payment_link": "https://buy.stripe.com/cNi28rdso8hM84X0Ex6Na0t",
+    "stripe_product_id": "prod_UYwGs4GCWrfN7m",
+    "stripe_price_id": "price_1TZoRMGup9HWwEMCGGvLg8a1"
   },
   "safety": {
     "no_live_charge_without_user_approval": true,
-    "no_secret_in_repo": true
+    "no_secret_in_repo": true,
+    "links_are_public_checkout_urls": true
   }
 }
