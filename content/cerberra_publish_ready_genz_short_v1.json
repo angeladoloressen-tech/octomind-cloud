@@ -1,0 +1,94 @@
+{
+  "project": "CERBERRA Publish-Ready Gen Z Short",
+  "version": "v1",
+  "created_at": "2026-05-22",
+  "operator_chat_language": "Turkish",
+  "public_output_language": "English",
+  "status": "ready_for_mp4_render_then_private_upload",
+  "truth_note": "This package is publish-ready as creative + metadata. Actual publishing still requires OAuth, MP4 render, private upload, and review.",
+  "platform_fit": {
+    "format": "YouTube Short",
+    "orientation": "vertical_9_16",
+    "duration_seconds": 24,
+    "style": "Gen Z cinematic micro-myth, fast enough to retain, soft enough for family-safe dedication",
+    "audience": "general audience and family-safe viewers; if final creative is primarily directed to children, mark Made for Kids before public release"
+  },
+  "viral_simulation_model": {
+    "model_name": "CERBERRA_SHORTS_SCORE_V1",
+    "scoring_logic": "Scores concepts for hook clarity, retention beats, loopability, emotional safety, originality, brand fit, and policy safety. It does not guarantee virality.",
+    "weights": {
+      "first_2_seconds_hook": 0.22,
+      "visual_pattern_interrupt": 0.16,
+      "retention_beats": 0.2,
+      "loopability": 0.14,
+      "shareability": 0.1,
+      "brand_fit": 0.1,
+      "policy_safety": 0.08
+    }
+  },
+  "video": {
+    "id": "cerberra_001_little_light_protocol_genz_cut",
+    "title": "POV: A Tiny Dream Gets a Guardian",
+    "alternate_titles": [
+      "The Little Light Protocol",
+      "When Your Small Dream Finds a Guardian",
+      "Tiny Dream, Big Sky"
+    ],
+    "thumbnail_text": "TINY DREAM. BIG SKY.",
+    "hook_text": "POV: your tiny dream just got a guardian.",
+    "dedication": "Dedicated to every little light brave enough to dream past the dark.",
+    "script_voiceover": [
+      "POV: your tiny dream just got a guardian.",
+      "In the cloud factory, even the smallest spark gets protected.",
+      "Silver paws. Paper moon. Violet sky.",
+      "No dream is too small when it learns how to fly.",
+      "CERBERRA watches the night until your light becomes a signal."
+    ],
+    "lyrics_optional_music_layer": [
+      "Little light, wake in the cloud,",
+      "Silver paws are guarding you now,",
+      "Fold a moon from paper and wire,",
+      "Tiny dreams can teach stars fire."
+    ],
+    "visual_style_prompt": "Vertical 9:16 premium animated short. Deep violet cloud factory, tiny glowing spark, protective silver robotic wolf, paper moon, soft stars, cinematic Gen Z pacing, warm mythic atmosphere, safe and hopeful, no real children, no frightening imagery, no cheap cartoon look.",
+    "shotlist": [
+      { "time": "0.0-2.0", "scene": "Tiny violet spark wakes in a dark cloud factory.", "overlay": "POV: your tiny dream just got a guardian", "purpose": "hook" },
+      { "time": "2.0-5.0", "scene": "Silver robotic wolf paw shields the spark from digital wind.", "overlay": "protected energy only", "purpose": "pattern interrupt" },
+      { "time": "5.0-9.0", "scene": "Spark folds a glowing paper moon.", "overlay": "build the impossible", "purpose": "satisfying action" },
+      { "time": "9.0-14.0", "scene": "Paper moon rises through violet gears and soft clouds.", "overlay": "tiny dreams can teach stars fire", "purpose": "peak line" },
+      { "time": "14.0-20.0", "scene": "Moon becomes a lantern over a sky full of sparks.", "overlay": "your light becomes a signal", "purpose": "emotional payoff" },
+      { "time": "20.0-24.0", "scene": "CERBERRA constellation appears, loop fades back to tiny spark.", "overlay": "CERBERRA", "purpose": "brand stamp and loop" }
+    ],
+    "metadata": {
+      "description": "A gentle original CERBERRA micro-short dedicated to every little light brave enough to dream past the dark. Built as a private-first release with safety and audience review before public publishing.",
+      "hashtags": ["#CERBERRA", "#POV", "#TinyDream", "#OriginalShort", "#Shorts"],
+      "tags": ["CERBERRA", "POV short", "original animation", "tiny dream", "guardian wolf", "cloud factory", "family safe", "YouTube Shorts"],
+      "categoryId": "1",
+      "privacyStatus_first": "private",
+      "selfDeclaredMadeForKids_review_required": true,
+      "containsSyntheticMedia": true
+    }
+  },
+  "simulation_result": {
+    "first_2_seconds_hook": 91,
+    "visual_pattern_interrupt": 88,
+    "retention_beats": 84,
+    "loopability": 81,
+    "shareability": 77,
+    "brand_fit": 96,
+    "policy_safety": 89,
+    "overall_score": 87,
+    "decision": "Render MP4 and upload private. Public release only after review."
+  },
+  "release_checklist": [
+    "Render 24s 9:16 MP4.",
+    "Confirm audio is original or licensed.",
+    "Confirm no real child faces and no scary imagery.",
+    "If primarily child-directed, set Made for Kids.",
+    "Do not add comment bait or sales links if Made for Kids.",
+    "Upload private first.",
+    "Review on mobile.",
+    "Publish only after review passes.",
+    "Measure after 24 hours."
+  ]
+}
