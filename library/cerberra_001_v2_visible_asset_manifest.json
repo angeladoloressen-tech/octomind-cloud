@@ -1,0 +1,30 @@
+{
+  "asset_id": "CERBERRA_001_V2_VISIBLE",
+  "created_at": "2026-05-22",
+  "status": "local_mp4_created_for_manual_review_and_upload",
+  "operator_language": "Turkish",
+  "public_language": "English",
+  "title": "POV: A Tiny Dream Gets a Guardian",
+  "video_filename": "CERBERRA_001_V2_VISIBLE_FANTASY_CUT.mp4",
+  "thumbnail_filename": "CERBERRA_001_V2_VISIBLE_thumbnail.png",
+  "package_filename": "CERBERRA_001_V2_VISIBLE_publish_package.zip",
+  "recommended_first_upload": "private",
+  "improvements_over_v1": [
+    "Much larger on-screen captions",
+    "Visible fantasy scenes",
+    "Protective robotic wolf silhouette",
+    "Portal rings and star particles",
+    "Paper moon and glowing spark",
+    "Neon Gen Z caption boxes",
+    "Original pulsed bell audio"
+  ],
+  "description": "A cinematic CERBERRA fantasy short: a tiny violet dream gets protected by a silver guardian in the cloud factory. Original visuals and audio. First upload recommended as Private for review.",
+  "hashtags": ["#CERBERRA", "#POV", "#TinyDream", "#FantasyShort", "#Shorts"],
+  "review_required": [
+    "Watch full video on mobile before publishing.",
+    "If primarily child-directed, set Made for Kids correctly before public release.",
+    "Do not add comment bait or sales links if Made for Kids.",
+    "Confirm original audio and visuals are acceptable."
+  ],
+  "note": "The binary MP4 package was generated in the ChatGPT sandbox and provided to the operator for manual upload. This manifest records the V2 library metadata in GitHub."
+}
