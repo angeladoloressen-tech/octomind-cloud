@@ -1,0 +1,127 @@
+{
+  "project": "CERBERRA First English Short",
+  "version": "v1",
+  "created_at": "2026-05-22",
+  "language_policy": "English only for titles, scripts, captions, descriptions, prompts, and metadata.",
+  "brand_soul": {
+    "name": "CERBERRA",
+    "archetype": "guardian wolf of the cloud factory",
+    "tone": "mythic, warm, precise, cinematic, never childish in a cheap way",
+    "visual_signature": ["deep violet", "soft silver", "cloud machinery", "tiny sparks", "protective robotic wolf", "gentle cosmic workshop"],
+    "core_message": "Small sparks can build impossible systems when they are protected, measured, and given hands."
+  },
+  "safety_and_platform_rules": {
+    "first_upload_privacy": "private",
+    "public_release_requires_review": true,
+    "made_for_kids_candidate": true,
+    "if_primary_audience_is_children": "Set YouTube audience to Made for Kids before public release.",
+    "no_comment_cta": true,
+    "no_sales_link": true,
+    "no_child_data_collection": true,
+    "no_dark_patterns": true,
+    "no_real_child_faces": true,
+    "ai_transparency_note": "Use clear description language if AI tools generated visuals, music, or voice."
+  },
+  "first_short": {
+    "id": "cerberra_001_little_light_protocol",
+    "title": "The Little Light Protocol",
+    "dedication": "Dedicated to every child who still believes a tiny dream can light a whole sky.",
+    "duration_seconds": 24,
+    "format": "vertical 9:16 YouTube Short",
+    "genre": "gentle cinematic micro-song",
+    "music_direction": "soft synth bells, warm toy piano, quiet pulse, 86 BPM, original melody only",
+    "voice_direction": "whisper-warm narrator, calm guardian tone, no exaggerated cartoon voice",
+    "lyrics": [
+      "Little light, wake in the cloud,",
+      "Silver paws are guarding you now.",
+      "Fold a moon from paper and wire,",
+      "Tiny dreams can teach stars fire."
+    ],
+    "spoken_intro": "For every little light that dreams beyond the dark.",
+    "closing_line": "CERBERRA watches the sky until your dream learns to fly.",
+    "description": "A gentle original CERBERRA micro-song dedicated to every child who dreams. Private test first. Public release only after audience and safety review.",
+    "hashtags": ["#CERBERRA", "#OriginalSong", "#LittleLight", "#Dreams", "#Shorts"],
+    "metadata_tags": ["original song", "gentle micro song", "dreams", "family safe", "CERBERRA", "shorts"],
+    "thumbnail_text": "LITTLE LIGHT PROTOCOL",
+    "upload_defaults": {
+      "privacyStatus": "private",
+      "categoryId": "10",
+      "selfDeclaredMadeForKids": true,
+      "containsSyntheticMedia": true
+    }
+  },
+  "shotlist": [
+    {
+      "time": "0.0-2.0",
+      "visual": "A tiny violet spark opens one eye inside a dark cloud workshop.",
+      "text_overlay": "For every little light...",
+      "retention_job": "instant curiosity"
+    },
+    {
+      "time": "2.0-6.0",
+      "visual": "A silver robotic wolf paw gently shields the spark from a gust of digital wind.",
+      "text_overlay": "You are guarded.",
+      "retention_job": "emotional safety"
+    },
+    {
+      "time": "6.0-11.0",
+      "visual": "The spark folds a glowing paper moon from stardust-blue paper.",
+      "text_overlay": "Build your moon.",
+      "retention_job": "simple magical action"
+    },
+    {
+      "time": "11.0-17.0",
+      "visual": "The paper moon rises through tiny gears and soft purple clouds.",
+      "text_overlay": "Tiny dreams can teach stars fire.",
+      "retention_job": "peak line"
+    },
+    {
+      "time": "17.0-22.0",
+      "visual": "The moon becomes a warm lantern above a quiet sky of small sparks.",
+      "text_overlay": "Your dream learns to fly.",
+      "retention_job": "emotional resolution"
+    },
+    {
+      "time": "22.0-24.0",
+      "visual": "CERBERRA silhouette appears as a guardian constellation.",
+      "text_overlay": "CERBERRA",
+      "retention_job": "loopable brand stamp"
+    }
+  ],
+  "image_generation_prompt": "Vertical 9:16 cinematic frame for a gentle original micro-song. A tiny violet spark inside a dark cloud factory, protected by a silver robotic wolf paw. Soft purple clouds, paper moon, tiny stars, warm magical light, premium animation look, safe and comforting, no real children, no scary elements, no text, no logos.",
+  "video_generation_prompt": "Create a 24-second vertical 9:16 animated short. Style: premium soft sci-fi lullaby, deep violet and silver, gentle cloud workshop, tiny spark character, protective robotic wolf presence, paper moon rising into a lantern sky. Mood: safe, mythic, warm, hopeful. No real children, no frightening imagery, no brand logos except final text CERBERRA if text is supported. Original music only.",
+  "retention_simulator": {
+    "score_name": "CERBERRA_RETENTION_SCORE",
+    "score_range": "0-100",
+    "features": {
+      "first_two_seconds_clarity": 84,
+      "visual_novelty": 88,
+      "emotional_safety": 97,
+      "loop_potential": 79,
+      "lyrics_memorability": 76,
+      "brand_fit": 93,
+      "policy_safety": 91
+    },
+    "overall_score": 87,
+    "decision": "Generate private MP4, review audience setting, then decide public release.",
+    "rewrite_if": [
+      "The first frame feels too dark or scary.",
+      "The wolf looks aggressive instead of protective.",
+      "The music sounds like an existing copyrighted lullaby.",
+      "The video feels directly commercial or asks children to comment."
+    ]
+  },
+  "production_queue": [
+    "Generate key visual from image_generation_prompt.",
+    "Generate or assemble 24-second vertical MP4.",
+    "Use first_short metadata for private upload.",
+    "Review private upload for safety, audience setting, and originality.",
+    "Publish only after review passes."
+  ],
+  "success_gate": {
+    "minimum_result": "private YouTube videoId",
+    "next_result": "public release after review",
+    "measure_after_hours": 24,
+    "metrics": ["views", "average view duration", "rewatches", "likes", "subscribers gained"]
+  }
+}
