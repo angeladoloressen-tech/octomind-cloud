@@ -17,8 +17,16 @@ jobs:
           python-version: '3.11'
       - name: Validate Money OS files
         run: python money_os/validate_money_os.py
-      - name: Generate demo audit report
+      - name: Prepare sample intake when missing
+        run: |
+          mkdir -p money_os/runtime
+          test -f money_os/runtime/latest_intake.json || cp money_os/sample_intake.json money_os/runtime/latest_intake.json
+      - name: Generate audit report
         run: python money_os/generate_audit_report.py
+      - name: Generate delivery pack
+        run: python money_os/delivery_pack_generator.py
+      - name: Generate monthly review
+        run: python money_os/monthly_review_generator.py
       - name: Render audit site
         run: python money_os/render_static_site.py
       - name: Commit generated outputs
