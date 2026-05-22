@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Revenue Leak Audit</title>
 <style>
-body{font-family:system-ui;margin:0;background:#07111f;color:#f8fafc}main{max-width:900px;margin:auto;padding:56px 22px}.box{border:1px solid #26334d;border-radius:24px;padding:28px;background:#0f172a}input,textarea{width:100%;padding:14px;margin:8px 0 16px;border-radius:12px;border:1px solid #334155;background:#020617;color:white}button{padding:14px 22px;border:0;border-radius:999px;font-weight:800}
+body{font-family:system-ui;margin:0;background:#07111f;color:#f8fafc}main{max-width:980px;margin:auto;padding:56px 22px}.box{border:1px solid #26334d;border-radius:24px;padding:28px;background:#0f172a;margin-bottom:20px}input,textarea{width:100%;padding:14px;margin:8px 0 16px;border-radius:12px;border:1px solid #334155;background:#020617;color:white}button,.button{display:inline-block;padding:14px 22px;border:0;border-radius:999px;font-weight:800;background:#f8fafc;color:#07111f;text-decoration:none;margin:6px 8px 6px 0}.secondary{background:#1e293b;color:#f8fafc}.note{color:#cbd5e1;font-size:14px}li{margin:8px 0}
 </style>
 </head>
 <body>
@@ -13,14 +13,26 @@ body{font-family:system-ui;margin:0;background:#07111f;color:#f8fafc}main{max-wi
 <section class="box">
 <h1>Kostenloser Revenue Leak Audit</h1>
 <p>Zeigen Sie uns Ihre Website, Google Profil oder Instagram Seite. Das System findet drei Stellen, an denen Anfragen oder Buchungen verloren gehen koennen.</p>
-<form>
-<label>Unternehmen</label><input name="business" placeholder="Name des Unternehmens">
-<label>Website oder Profil</label><input name="profile" placeholder="https://...">
-<label>Branche</label><input name="niche" placeholder="z.B. Kosmetikstudio, Friseur, Fahrschule">
+<form data-status="endpoint-needed">
+<label>Unternehmen</label><input name="business" placeholder="Name des Unternehmens" required>
+<label>Kontakt E-Mail</label><input name="email" placeholder="name@firma.de" required>
+<label>Website oder Profil</label><input name="profile" placeholder="https://..." required>
+<label>Branche</label><input name="niche" placeholder="z.B. Kosmetikstudio, Friseur, Fahrschule" required>
 <label>Aktuelles Problem</label><textarea name="problem" placeholder="Was funktioniert bei Anfragen oder Buchungen nicht gut?"></textarea>
 <button type="button">Audit anfordern</button>
 </form>
-<p>Nach dem Audit kann ein Setup-Angebot angezeigt werden.</p>
+<p class="note">Status: Formular ist vorbereitet. Ein echter Form/Webhook-Endpunkt muss noch verbunden werden, bevor live Leads gesammelt werden.</p>
+</section>
+<section class="box">
+<h2>Nach dem Audit</h2>
+<ul>
+<li>3 moegliche Umsatz- oder Anfrage-Lecks</li>
+<li>klare Verbesserungsempfehlung</li>
+<li>optional: Umsetzung als AI Revenue Autopilot Setup</li>
+</ul>
+<a class="button" href="https://buy.stripe.com/bJe9AT4VSgOi84XgDv6Na0s">Setup buchen - 499 EUR</a>
+<a class="button secondary" href="https://buy.stripe.com/cNi28rdso8hM84X0Ex6Na0t">Betreuung - 149 EUR/Monat</a>
+<p class="note">Keine Umsatzgarantie. Ziel ist ein klareres Anfrage-, Follow-up- und Auswertungssystem.</p>
 </section>
 </main>
 </body>
