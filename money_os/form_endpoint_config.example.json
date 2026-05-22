@@ -1,0 +1,16 @@
+{
+  "status": "endpoint_needed",
+  "recommended_options": [
+    "Make webhook",
+    "Tally form",
+    "Google Form",
+    "Vercel serverless endpoint"
+  ],
+  "selected_endpoint": "REPLACE_WITH_APPROVED_FORM_OR_WEBHOOK_URL",
+  "required_fields": ["business", "email", "profile", "niche"],
+  "safety": {
+    "do_not_collect_leads_before_privacy_approval": true,
+    "do_not_send_messages_without_approval": true,
+    "do_not_store_secrets_in_repo": true
+  }
+}
