@@ -1,0 +1,33 @@
+{
+  "status": "draft",
+  "rule": "one bottleneck, one test, one metric",
+  "experiments": [
+    {
+      "id": "exp_001_audit_headline",
+      "bottleneck": "visitors may not understand the audit value fast enough",
+      "hypothesis": "a sharper headline will increase audit requests",
+      "asset": "audit_page.html",
+      "metric": "form_submit_rate",
+      "target": "first measurable improvement after public launch",
+      "decision": "needs_data"
+    },
+    {
+      "id": "exp_002_trust_block",
+      "bottleneck": "buyers need trust before clicking setup offer",
+      "hypothesis": "adding a clear no-guarantee and process block improves trust",
+      "asset": "audit_page.html",
+      "metric": "setup_link_click_rate",
+      "target": "first measurable improvement after public launch",
+      "decision": "needs_data"
+    },
+    {
+      "id": "exp_003_single_channel",
+      "bottleneck": "no active traffic channel",
+      "hypothesis": "one focused channel beats many scattered channels",
+      "asset": "traffic_plan.md",
+      "metric": "qualified_audit_requests",
+      "target": "first real audit request",
+      "decision": "needs_approval"
+    }
+  ]
+}
