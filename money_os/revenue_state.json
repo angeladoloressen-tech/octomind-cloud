@@ -1,0 +1,19 @@
+{
+  "mode": "money_os",
+  "entry_offer": "Revenue Leak Audit",
+  "core_offer": "AI Revenue Autopilot Setup",
+  "setup_price_eur": 499,
+  "monthly_support_eur": 149,
+  "confirmed_revenue_eur": 0,
+  "payment_links_ready": true,
+  "audit_page_ready": true,
+  "api_endpoint_ready_demo_mode": true,
+  "workflow_ready": true,
+  "subagents_ready": true,
+  "public_deploy_ready": false,
+  "lead_storage_ready": false,
+  "legal_approval_ready": false,
+  "active_traffic_ready": false,
+  "current_bottleneck": "no approved public lead capture and no active traffic channel",
+  "next_required_approval": "approve legal identity and privacy text before public launch"
+}
