@@ -1,0 +1,42 @@
+{
+  "channel_name": "LantanaRain Kids",
+  "created_at": "2026-05-22",
+  "operator_language": "Turkish",
+  "public_language": "English with tiny Latin sparkle",
+  "tagline": "Colorful songs for kind hearts.",
+  "latin_signature": "Voces Lantanae",
+  "handle_suggestions": ["@LantanaRainKids", "@LantanaRainSongs", "@LantanaRainFamily"],
+  "positioning": "Family-safe, child-friendly original songs about colors, feelings, kindness, belonging, and loving families.",
+  "safety_rules": {
+    "made_for_kids_review_required": true,
+    "no_comment_bait": true,
+    "no_sales_links_to_children": true,
+    "no_child_data_collection": true,
+    "no_scary_or_disturbing_visuals": true,
+    "original_music_only": true,
+    "lantana_as_metaphor_only": true,
+    "do_not_show_children_eating_or_touching_lantana": true
+  },
+  "visual_identity": {
+    "palette": {
+      "sun_petal": "#FFD85E",
+      "coral_petal": "#FF6B7A",
+      "orange_petal": "#FF9D3D",
+      "leaf_green": "#64D97B",
+      "sky_blue": "#65C7FF",
+      "violet_song": "#9B72FF",
+      "soft_cream": "#FFF8DF",
+      "night_ink": "#221743"
+    },
+    "motifs": ["soft flower rain", "rainbow notes", "cloud garden", "kind hearts", "simple symbolic families"]
+  },
+  "episode_001": {
+    "title": "Every Color Falls Like Rain",
+    "latin_line": "Omnis color cantat.",
+    "meaning": "Every color sings.",
+    "recommended_first_upload": "Private",
+    "metadata_title": "Every Color Falls Like Rain | LantanaRain Kids"
+  },
+  "local_package_created": "LantanaRain_Kids_Complete_Channel_Kit.zip",
+  "note": "Binary assets were generated in the ChatGPT sandbox and provided to the operator for manual setup/upload."
+}
