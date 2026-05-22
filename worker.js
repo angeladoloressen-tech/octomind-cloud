@@ -1,8 +1,12 @@
 const cors = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, x-admin-token"
+  "Access-Control-Allow-Headers": "Content-Type, x-admin-token, authorization"
 };
+
+const YOUTUBE_UPLOAD_SCOPE = "https://www.googleapis.com/auth/youtube.upload";
+const YOUTUBE_REFRESH_KEY = "secret:youtube_refresh_token";
+const YOUTUBE_STATE_PREFIX = "oauth:youtube:state:";
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data, null, 2), {
@@ -31,6 +35,237 @@ function escapeHtml(value = "") {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function requiredEnv(env, keys) {
+  return keys.filter((key) => !env[key]);
+}
+
+function hasEnv(env, key) {
+  return Boolean(env[key]);
+}
+
+function bytesToBase64(bytes) {
+  let binary = "";
+  for (let i = 0; i < bytes.length; i += 0x8000) {
+    binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+  }
+  return btoa(binary);
+}
+
+function base64ToBytes(base64) {
+  const binary = atob(base64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+  return bytes;
+}
+
+async function deriveSecretKey(env) {
+  if (!env.ADMIN_TOKEN) throw new Error("ADMIN_TOKEN is required for encrypted token storage");
+  const enc = new TextEncoder();
+  const material = await crypto.subtle.importKey("raw", enc.encode(env.ADMIN_TOKEN), "PBKDF2", false, ["deriveKey"]);
+  return crypto.subtle.deriveKey(
+    { name: "PBKDF2", salt: enc.encode("octomind-youtube-bridge-v1"), iterations: 100000, hash: "SHA-256" },
+    material,
+    { name: "AES-GCM", length: 256 },
+    false,
+    ["encrypt", "decrypt"]
+  );
+}
+
+async function encryptSecret(value, env) {
+  const enc = new TextEncoder();
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const key = await deriveSecretKey(env);
+  const cipher = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, enc.encode(value));
+  return JSON.stringify({ alg: "AES-GCM", iv: bytesToBase64(iv), data: bytesToBase64(new Uint8Array(cipher)) });
+}
+
+async function decryptSecret(box, env) {
+  const parsed = JSON.parse(box);
+  const key = await deriveSecretKey(env);
+  const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv: base64ToBytes(parsed.iv) }, key, base64ToBytes(parsed.data));
+  return new TextDecoder().decode(plain);
+}
+
+async function getStoredYoutubeRefreshToken(env) {
+  if (env.YOUTUBE_REFRESH_TOKEN) return env.YOUTUBE_REFRESH_TOKEN;
+  if (!env.LEADS) return null;
+  const encrypted = await env.LEADS.get(YOUTUBE_REFRESH_KEY);
+  if (!encrypted) return null;
+  return decryptSecret(encrypted, env);
+}
+
+async function youtubeStatus(env) {
+  const encryptedToken = env.LEADS ? Boolean(await env.LEADS.get(YOUTUBE_REFRESH_KEY)) : false;
+  return {
+    service: "cerbera-youtube-upload-bridge",
+    target_channel: "CERBERA",
+    target_handle: "@cerberaexe",
+    create_channel: false,
+    mode: "youtube_upload_operator",
+    oauth: {
+      client_id: hasEnv(env, "YOUTUBE_CLIENT_ID"),
+      client_secret: hasEnv(env, "YOUTUBE_CLIENT_SECRET"),
+      redirect_uri: hasEnv(env, "YOUTUBE_REDIRECT_URI"),
+      refresh_token_secret: hasEnv(env, "YOUTUBE_REFRESH_TOKEN"),
+      encrypted_refresh_token_in_kv: encryptedToken,
+      state_store: hasEnv(env, "LEADS"),
+      admin_token: hasEnv(env, "ADMIN_TOKEN")
+    },
+    ready_for_oauth_start: requiredEnv(env, ["YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET", "YOUTUBE_REDIRECT_URI", "ADMIN_TOKEN"]).length === 0 && Boolean(env.LEADS),
+    ready_for_upload: requiredEnv(env, ["YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET", "ADMIN_TOKEN"]).length === 0 && (hasEnv(env, "YOUTUBE_REFRESH_TOKEN") || encryptedToken)
+  };
+}
+
+async function createYoutubeAuthUrl(request, env) {
+  if (!isAdmin(request, env)) return html("<h1>Unauthorized</h1>", 401);
+  const missing = requiredEnv(env, ["YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET", "YOUTUBE_REDIRECT_URI", "ADMIN_TOKEN"]);
+  if (!env.LEADS) missing.push("LEADS_KV_BINDING");
+  if (missing.length) return json({ ok: false, missing, next: "Add the missing values as Cloudflare Worker secrets/bindings." }, 400);
+
+  const state = crypto.randomUUID();
+  await env.LEADS.put(YOUTUBE_STATE_PREFIX + state, JSON.stringify({ created_at: new Date().toISOString() }), { expirationTtl: 600 });
+  const params = new URLSearchParams({
+    client_id: env.YOUTUBE_CLIENT_ID,
+    redirect_uri: env.YOUTUBE_REDIRECT_URI,
+    response_type: "code",
+    scope: YOUTUBE_UPLOAD_SCOPE,
+    access_type: "offline",
+    prompt: "consent",
+    include_granted_scopes: "true",
+    state
+  });
+  const authUrl = "https://accounts.google.com/o/oauth2/v2/auth?" + params.toString();
+  return html(`<!doctype html><html><head><meta charset="utf-8"><title>CERBERA YouTube OAuth</title><style>${styles()}</style></head><body><div class="wrap"><section class="card"><div class="eyebrow">CERBERA YouTube Bridge</div><h1>Connect YouTube upload permission</h1><p>This one-time consent gives the system upload permission for the selected YouTube channel. Choose the CERBERA channel in Google.</p><p><a class="button" href="${escapeHtml(authUrl)}">Open Google consent</a></p><pre>${escapeHtml(JSON.stringify({ scope: YOUTUBE_UPLOAD_SCOPE, target_handle: "@cerberaexe", expires_in_minutes: 10 }, null, 2))}</pre></section></div></body></html>`);
+}
+
+async function exchangeYoutubeCode(code, env) {
+  const body = new URLSearchParams({
+    code,
+    client_id: env.YOUTUBE_CLIENT_ID,
+    client_secret: env.YOUTUBE_CLIENT_SECRET,
+    redirect_uri: env.YOUTUBE_REDIRECT_URI,
+    grant_type: "authorization_code"
+  });
+  const res = await fetch("https://oauth2.googleapis.com/token", {
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded" },
+    body
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error_description || data.error || "OAuth token exchange failed");
+  return data;
+}
+
+async function handleYoutubeCallback(request, env) {
+  const url = new URL(request.url);
+  const code = url.searchParams.get("code");
+  const state = url.searchParams.get("state");
+  if (!code || !state) return html("<h1>Missing code or state</h1>", 400);
+  if (!env.LEADS) return html("<h1>Missing LEADS KV binding</h1>", 500);
+  const stateKey = YOUTUBE_STATE_PREFIX + state;
+  const stateRecord = await env.LEADS.get(stateKey);
+  if (!stateRecord) return html("<h1>OAuth state expired or invalid</h1>", 400);
+  await env.LEADS.delete(stateKey);
+
+  try {
+    const tokenData = await exchangeYoutubeCode(code, env);
+    if (tokenData.refresh_token) {
+      await env.LEADS.put(YOUTUBE_REFRESH_KEY, await encryptSecret(tokenData.refresh_token, env));
+    }
+    return html(`<!doctype html><html><head><meta charset="utf-8"><title>CERBERA YouTube Connected</title><style>${styles()}</style></head><body><div class="wrap"><section class="card"><div class="eyebrow">CERBERA YouTube Bridge</div><h1>Connection result</h1><pre>${escapeHtml(JSON.stringify({ ok: true, refresh_token_stored_encrypted: Boolean(tokenData.refresh_token), access_token_received: Boolean(tokenData.access_token), token_type: tokenData.token_type || null, expires_in: tokenData.expires_in || null, next: "/youtube/status then /youtube/upload-test" }, null, 2))}</pre></section></div></body></html>`);
+  } catch (error) {
+    return html(`<h1>OAuth failed</h1><pre>${escapeHtml(error.message)}</pre>`, 500);
+  }
+}
+
+async function getYoutubeAccessToken(env) {
+  const refreshToken = await getStoredYoutubeRefreshToken(env);
+  if (!refreshToken) throw new Error("No YouTube refresh token. Open /auth/youtube/start first.");
+  const body = new URLSearchParams({
+    client_id: env.YOUTUBE_CLIENT_ID,
+    client_secret: env.YOUTUBE_CLIENT_SECRET,
+    refresh_token: refreshToken,
+    grant_type: "refresh_token"
+  });
+  const res = await fetch("https://oauth2.googleapis.com/token", {
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded" },
+    body
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok || !data.access_token) throw new Error(data.error_description || data.error || "Could not refresh YouTube access token");
+  return data.access_token;
+}
+
+function concatBytes(parts) {
+  const total = parts.reduce((sum, part) => sum + part.length, 0);
+  const out = new Uint8Array(total);
+  let offset = 0;
+  for (const part of parts) {
+    out.set(part, offset);
+    offset += part.length;
+  }
+  return out;
+}
+
+async function bytesFromUploadPayload(payload) {
+  if (payload.videoBase64) {
+    return { bytes: base64ToBytes(payload.videoBase64), contentType: payload.contentType || "video/mp4", source: "videoBase64" };
+  }
+  if (payload.videoUrl) {
+    const videoRes = await fetch(payload.videoUrl);
+    if (!videoRes.ok) throw new Error(`Could not fetch videoUrl: ${videoRes.status}`);
+    return { bytes: new Uint8Array(await videoRes.arrayBuffer()), contentType: videoRes.headers.get("content-type") || payload.contentType || "video/mp4", source: "videoUrl" };
+  }
+  throw new Error("Missing videoUrl or videoBase64. Provide a small test video source.");
+}
+
+async function uploadYoutubeVideo(request, env) {
+  if (!isAdmin(request, env)) return json({ ok: false, status: "UNAUTHORIZED" }, 401);
+  const missing = requiredEnv(env, ["YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET", "ADMIN_TOKEN"]);
+  if (missing.length) return json({ ok: false, missing }, 400);
+  const payload = await request.json().catch(() => ({}));
+  try {
+    const accessToken = await getYoutubeAccessToken(env);
+    const { bytes, contentType, source } = await bytesFromUploadPayload(payload);
+    const boundary = "cerbera_upload_" + crypto.randomUUID().replaceAll("-", "");
+    const metadata = {
+      snippet: {
+        title: payload.title || `CERBERA Autopilot Test ${new Date().toISOString()}`,
+        description: payload.description || "Private CERBERA YouTube Upload Bridge test.",
+        tags: payload.tags || ["CERBERA", "autopilot", "test"],
+        categoryId: payload.categoryId || "22"
+      },
+      status: {
+        privacyStatus: payload.privacyStatus || "private",
+        selfDeclaredMadeForKids: false,
+        containsSyntheticMedia: payload.containsSyntheticMedia ?? true
+      }
+    };
+    const enc = new TextEncoder();
+    const multipart = concatBytes([
+      enc.encode(`--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${JSON.stringify(metadata)}\r\n`),
+      enc.encode(`--${boundary}\r\nContent-Type: ${contentType}\r\n\r\n`),
+      bytes,
+      enc.encode(`\r\n--${boundary}--`)
+    ]);
+    const uploadRes = await fetch("https://www.googleapis.com/upload/youtube/v3/videos?part=snippet,status&uploadType=multipart", {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${accessToken}`,
+        "content-type": `multipart/related; boundary=${boundary}`
+      },
+      body: multipart
+    });
+    const text = await uploadRes.text();
+    const data = JSON.parse(text || "{}");
+    if (!uploadRes.ok) return json({ ok: false, status: uploadRes.status, error: data }, uploadRes.status);
+    return json({ ok: true, channel: "CERBERA", handle: "@cerberaexe", privacyStatus: metadata.status.privacyStatus, source, videoId: data.id, youtube_response: data });
+  } catch (error) {
+    return json({ ok: false, error: error.message, next: "Complete OAuth first, then POST a small test videoUrl or videoBase64." }, 400);
+  }
 }
 
 async function getMarketScan() {
@@ -91,7 +326,7 @@ function styles() {
 }
 
 function landingPage() {
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Octomind Revenue Systems</title><style>${styles()}</style></head><body><div class="wrap"><header class="nav"><div class="brand"><div class="mark">O</div><span>OCTOMIND</span></div><div class="navlinks"><span>Automation</span><span>Lead Systems</span><span>Revenue Operations</span></div></header><main class="hero"><div class="eyebrow">Revenue Automation Studio</div><h1>Automated lead capture for small business workflows.</h1><p class="sub">Octomind builds focused automation systems that capture demand, qualify opportunities and turn operational friction into structured revenue signals.</p><div class="status"><span class="chip">Live Worker</span><span class="chip">KV Lead Storage</span><span class="chip">Admin Inbox</span><span class="chip">Manual Payment Approval</span></div></main><section class="grid section"><div class="card"><h3>AI Lead Scanner</h3><p>For local businesses that need a simple way to find, qualify and organize customer opportunities.</p><span class="price">Starting at 99€</span></div><div class="card"><h3>Automation Fix Sprint</h3><p>Rapid diagnosis and repair for broken workflows, forms, automations and small business systems.</p><span class="price">Starting at 149€</span></div><div class="card"><h3>Revenue Bot Prototype</h3><p>A compact prototype that captures leads, routes requests and creates a clear sales follow-up path.</p><span class="price">Starting at 299€</span></div></section><section class="card section"><h2>Request a system review</h2><p class="muted">Submit your business problem. The request is stored securely in the Octomind lead inbox.</p><form id="leadForm"><div class="formgrid"><input name="name" placeholder="Name or business name" required><input name="contact" placeholder="Email, WhatsApp or Instagram" required></div><select name="offer"><option>AI Lead Scanner - 99€</option><option>Automation Fix Sprint - 149€</option><option>Revenue Bot Prototype - 299€</option></select><textarea name="problem" placeholder="Describe the workflow, customer problem or revenue bottleneck" rows="5" required></textarea><button>Submit request</button></form><pre id="result">Ready.</pre></section><section class="card section"><h2>System signal</h2><p class="muted">Internal scan endpoint for monitoring market data and operational signals.</p><button class="secondary" onclick="scan()">Run scan</button><pre id="scanBox">/scan ready.</pre></section></div><script>document.getElementById("leadForm").addEventListener("submit",async e=>{e.preventDefault();const payload=Object.fromEntries(new FormData(e.target).entries());const res=await fetch("/lead",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)});document.getElementById("result").textContent=JSON.stringify(await res.json(),null,2)});async function scan(){const res=await fetch("/scan");document.getElementById("scanBox").textContent=JSON.stringify(await res.json(),null,2)}</script></body></html>`;
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Octomind Revenue Systems</title><style>${styles()}</style></head><body><div class="wrap"><header class="nav"><div class="brand"><div class="mark">O</div><span>OCTOMIND</span></div><div class="navlinks"><span>Automation</span><span>Lead Systems</span><span>Revenue Operations</span></div></header><main class="hero"><div class="eyebrow">Revenue Automation Studio</div><h1>Automated lead capture for small business workflows.</h1><p class="sub">Octomind builds focused automation systems that capture demand, qualify opportunities and turn operational friction into structured revenue signals.</p><div class="status"><span class="chip">Live Worker</span><span class="chip">KV Lead Storage</span><span class="chip">Admin Inbox</span><span class="chip">CERBERA YouTube Bridge</span></div></main><section class="grid section"><div class="card"><h3>AI Lead Scanner</h3><p>For local businesses that need a simple way to find, qualify and organize customer opportunities.</p><span class="price">Starting at 99€</span></div><div class="card"><h3>Automation Fix Sprint</h3><p>Rapid diagnosis and repair for broken workflows, forms, automations and small business systems.</p><span class="price">Starting at 149€</span></div><div class="card"><h3>Revenue Bot Prototype</h3><p>A compact prototype that captures leads, routes requests and creates a clear sales follow-up path.</p><span class="price">Starting at 299€</span></div></section><section class="card section"><h2>Request a system review</h2><p class="muted">Submit your business problem. The request is stored securely in the Octomind lead inbox.</p><form id="leadForm"><div class="formgrid"><input name="name" placeholder="Name or business name" required><input name="contact" placeholder="Email, WhatsApp or Instagram" required></div><select name="offer"><option>AI Lead Scanner - 99€</option><option>Automation Fix Sprint - 149€</option><option>Revenue Bot Prototype - 299€</option></select><textarea name="problem" placeholder="Describe the workflow, customer problem or revenue bottleneck" rows="5" required></textarea><button>Submit request</button></form><pre id="result">Ready.</pre></section><section class="card section"><h2>System signal</h2><p class="muted">Internal scan endpoint for monitoring market data, runtime readiness and operational signals.</p><button class="secondary" onclick="scan()">Run scan</button> <button class="secondary" onclick="yt()">YouTube status</button><pre id="scanBox">/scan ready.</pre></section></div><script>document.getElementById("leadForm").addEventListener("submit",async e=>{e.preventDefault();const payload=Object.fromEntries(new FormData(e.target).entries());const res=await fetch("/lead",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)});document.getElementById("result").textContent=JSON.stringify(await res.json(),null,2)});async function scan(){const res=await fetch("/scan");document.getElementById("scanBox").textContent=JSON.stringify(await res.json(),null,2)}async function yt(){const res=await fetch("/youtube/status");document.getElementById("scanBox").textContent=JSON.stringify(await res.json(),null,2)}</script></body></html>`;
 }
 
 function adminPage(leads, token) {
@@ -104,7 +339,11 @@ export default {
     if (request.method === "OPTIONS") return new Response(null, { headers: cors });
     const url = new URL(request.url);
     if (url.pathname === "/") return html(landingPage());
-    if (url.pathname === "/health") return json({ status: "OK", service: "octomind-revenue-systems", timestamp: new Date().toISOString(), storage: env.LEADS ? "KV_READY" : "NO_KV_BINDING", admin: env.ADMIN_TOKEN ? "ADMIN_READY" : "NO_ADMIN_TOKEN", cloud_policy: "NO_DESKTOP_NO_LOCAL_DOUBLE_CLICK" });
+    if (url.pathname === "/health") return json({ status: "OK", service: "octomind-revenue-systems", timestamp: new Date().toISOString(), storage: env.LEADS ? "KV_READY" : "NO_KV_BINDING", admin: env.ADMIN_TOKEN ? "ADMIN_READY" : "NO_ADMIN_TOKEN", youtube: await youtubeStatus(env), cloud_policy: "NO_DESKTOP_NO_LOCAL_DOUBLE_CLICK" });
+    if (url.pathname === "/youtube/status") return json(await youtubeStatus(env));
+    if (url.pathname === "/auth/youtube/start") return createYoutubeAuthUrl(request, env);
+    if (url.pathname === "/auth/youtube/callback") return handleYoutubeCallback(request, env);
+    if (url.pathname === "/youtube/upload-test" && request.method === "POST") return uploadYoutubeVideo(request, env);
     if (url.pathname === "/offer") return json({ offers: [{ name: "AI Lead Scanner", price_eur: 99 }, { name: "Automation Fix Sprint", price_eur: 149 }, { name: "Revenue Bot Prototype", price_eur: 299 }] });
     if (url.pathname === "/scan") return json(await getMarketScan());
     if (url.pathname === "/lead" && request.method === "POST") {
@@ -126,6 +365,9 @@ export default {
       if (!isAdmin(request, env)) return json({ status: "UNAUTHORIZED" }, 401);
       return json({ status: "OK", ...(await cleanupTestLeads(env)) });
     }
-    return json({ status: "NOT_FOUND", available: ["/", "/health", "/offer", "/scan", "/lead", "/admin", "/admin/leads", "/admin/cleanup-test"] }, 404);
+    return json({ status: "NOT_FOUND", available: ["/", "/health", "/youtube/status", "/auth/youtube/start", "/auth/youtube/callback", "/youtube/upload-test", "/offer", "/scan", "/lead", "/admin", "/admin/leads", "/admin/cleanup-test"] }, 404);
+  },
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(Promise.resolve({ status: "SCHEDULED_READY", target: "CERBERA" }));
   }
 };
