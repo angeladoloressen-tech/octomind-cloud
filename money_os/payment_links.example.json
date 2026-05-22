@@ -1,0 +1,16 @@
+{
+  "setup_offer": {
+    "name": "AI Revenue Autopilot Setup",
+    "amount_eur": 499,
+    "payment_link": "REPLACE_WITH_STRIPE_OR_GUMROAD_SETUP_LINK"
+  },
+  "monthly_retainer": {
+    "name": "AI Revenue Autopilot Betreuung",
+    "amount_eur": 149,
+    "payment_link": "REPLACE_WITH_STRIPE_OR_GUMROAD_MONTHLY_LINK"
+  },
+  "safety": {
+    "no_live_charge_without_user_approval": true,
+    "no_secret_in_repo": true
+  }
+}
