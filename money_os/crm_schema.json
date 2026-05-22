@@ -1,0 +1,27 @@
+{
+  "name": "money_os_inbound_leads",
+  "status": "schema_ready_storage_needed",
+  "columns": [
+    "created_at",
+    "business",
+    "email",
+    "profile",
+    "niche",
+    "problem",
+    "audit_status",
+    "offer_status",
+    "payment_status",
+    "delivery_status",
+    "notes"
+  ],
+  "allowed_statuses": {
+    "audit_status": ["new", "generated", "reviewed", "sent"],
+    "offer_status": ["not_offered", "offered", "declined", "accepted"],
+    "payment_status": ["unpaid", "paid_setup", "paid_retainer", "refunded"],
+    "delivery_status": ["not_started", "draft", "approved", "delivered"]
+  },
+  "safety": {
+    "store_only_opt_in_leads": true,
+    "manual_approval_before_outbound_contact": true
+  }
+}
