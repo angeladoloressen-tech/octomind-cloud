@@ -1,0 +1,16 @@
+{
+  "created_by": "Money OS via Stripe connector",
+  "livemode": true,
+  "balance": {
+    "available_eur": 0,
+    "pending_eur": 0,
+    "connect_reserved_eur": 0
+  },
+  "known_customers_count_sample": 0,
+  "known_subscriptions_count_sample": 0,
+  "recent_product_count_sample": 10,
+  "confirmed_revenue_eur": 0,
+  "status": "payment_infrastructure_exists_but_no_verified_revenue",
+  "main_problem": "many products exist, but there is no active public lead source and no verified payment yet",
+  "next_system_focus": "single audit funnel plus payment operations cockpit"
+}
