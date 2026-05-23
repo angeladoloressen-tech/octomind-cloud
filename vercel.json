@@ -1,5 +1,7 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
+  "installCommand": "",
   "rewrites": [
     { "source": "/", "destination": "/money_os/audit_page.html" },
     { "source": "/audit", "destination": "/money_os/audit_page.html" }
