@@ -1,0 +1,9 @@
+{
+  "status": "created_from_gmail_scan",
+  "signal": "Gmail contains Octomind-related drafts, but no confirmed inbound customer order was detected in the sampled results.",
+  "sample_count": 5,
+  "drafts_detected": true,
+  "confirmed_customer_email_detected": false,
+  "action": "keep drafts as assets, but do not send without approval",
+  "rule": "approved sending only"
+}
