@@ -1,0 +1,56 @@
+{
+  "name": "Octomind Deploy Verifier Plan",
+  "version": "0.1.0",
+  "recorded_at": "2026-05-23",
+  "current_truth": {
+    "stripe_available_eur": 0,
+    "stripe_pending_eur": 0,
+    "payment_intents_count": 0,
+    "subscriptions_count": 0,
+    "workflow_runs_visible_for_latest_blocker_commit": 0,
+    "confirmed_replies_or_route_signals": 1,
+    "status": "YELLOW_RED"
+  },
+  "purpose": "Verify and repair cloud deployment without giving the operator Mac, terminal, Finder, Desktop, or double-click work.",
+  "evidence_required_to_mark_deploy_green": [
+    "github_workflow_run_success",
+    "cloudflare_worker_version_changed",
+    "runtime_health_endpoint_returns_octomind_os_reality_dashboard",
+    "runtime_reality_endpoint_returns_status",
+    "admin_dashboard_loads_reality_block"
+  ],
+  "repair_sequence": [
+    {
+      "step": 1,
+      "action": "Check GitHub workflow visibility and statuses",
+      "owner": "system",
+      "operator_work": "none"
+    },
+    {
+      "step": 2,
+      "action": "If no workflow exists, keep deploy blocker open and mark portal as repo-ready but live-unconfirmed",
+      "owner": "system",
+      "operator_work": "none"
+    },
+    {
+      "step": 3,
+      "action": "If workflow exists but fails, classify failure as missing secret, permission, syntax, or Cloudflare API issue",
+      "owner": "system",
+      "operator_work": "approval_only_if_platform_requires"
+    },
+    {
+      "step": 4,
+      "action": "If workflow succeeds, check runtime /health and /reality before marking GREEN",
+      "owner": "system",
+      "operator_work": "none"
+    }
+  ],
+  "fallback_when_blocked": [
+    "keep_direct_stripe_routes_active",
+    "continue_revenue_experiments",
+    "store blocker records in repo",
+    "do not call setup success",
+    "do not assign local work to operator"
+  ],
+  "next_system_action": "Create a runtime verification issue and continue revenue experiments independently of deploy confirmation."
+}
