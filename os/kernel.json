@@ -1,0 +1,48 @@
+{
+  "name": "Octomind OS Reality Revenue Kernel",
+  "version": "0.2.0",
+  "mode": "cloud_first_one_person_company_os",
+  "truth_state": {
+    "revenue_eur_available": 0,
+    "payment_intents_count": 0,
+    "subscriptions_count": 0,
+    "status": "RED_YELLOW",
+    "reason": "Stripe balance, payment intents and subscriptions currently show no revenue evidence. Setup is not success."
+  },
+  "prime_directives": [
+    "operator_does_not_receive_technical_tasks",
+    "cloud_is_source_of_truth",
+    "evidence_beats_optimism",
+    "no_passive_waiting",
+    "create_path_if_no_path_exists"
+  ],
+  "system_calls": [
+    "intake.create",
+    "lead.qualify",
+    "offer.select",
+    "payment.route",
+    "payment.check",
+    "delivery.create",
+    "experiment.score",
+    "outreach.prepare",
+    "blocker.log",
+    "status.set"
+  ],
+  "evidence_required": [
+    "payment_received",
+    "payment_intent_created",
+    "subscription_created",
+    "real_non_test_lead",
+    "reply_received",
+    "payment_click",
+    "confirmed_deploy",
+    "booked_call"
+  ],
+  "no_wait_rule": {
+    "no_money": "sharpen_offer_or_segment",
+    "no_replies": "change_segment_or_channel",
+    "no_clicks": "change_message",
+    "blocked_send": "create_alternative_channel_asset",
+    "blocked_deploy": "keep_direct_payment_routes_live_and_mark_portal_unconfirmed"
+  }
+}
