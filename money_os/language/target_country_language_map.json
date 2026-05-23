@@ -1,0 +1,63 @@
+{
+  "status": "active_language_map",
+  "master_language": "en",
+  "country_targets": [
+    {
+      "country": "United States",
+      "language": "en",
+      "currency_test": "USD",
+      "primary_channels": ["Instagram", "LinkedIn", "Google Business", "marketplaces"],
+      "note": "English-first, higher ticket tests possible after proof."
+    },
+    {
+      "country": "United Kingdom",
+      "language": "en",
+      "currency_test": "GBP",
+      "primary_channels": ["Instagram", "LinkedIn", "Google Business"],
+      "note": "English-first with local wording."
+    },
+    {
+      "country": "Germany",
+      "language": "de",
+      "currency_test": "EUR",
+      "primary_channels": ["Instagram", "Kleinanzeigen", "Google Business", "LinkedIn"],
+      "note": "German copy plus Turkish variant for Turkish-speaking local owners."
+    },
+    {
+      "country": "Turkey",
+      "language": "tr",
+      "currency_test": "EUR or TRY after payment decision",
+      "primary_channels": ["Instagram", "WhatsApp opt-in", "local business profiles"],
+      "note": "Turkish copy for beauty and local service businesses."
+    },
+    {
+      "country": "France",
+      "language": "fr",
+      "currency_test": "EUR",
+      "primary_channels": ["Instagram", "Google Business", "local directories"],
+      "note": "French-localized version after English master."
+    },
+    {
+      "country": "Spain",
+      "language": "es",
+      "currency_test": "EUR",
+      "primary_channels": ["Instagram", "Google Business", "local directories"],
+      "note": "Spanish-localized version after English master."
+    },
+    {
+      "country": "Netherlands",
+      "language": "nl",
+      "currency_test": "EUR",
+      "primary_channels": ["Instagram", "Google Business", "LinkedIn"],
+      "note": "Dutch-localized version after English master."
+    },
+    {
+      "country": "Italy",
+      "language": "it",
+      "currency_test": "EUR",
+      "primary_channels": ["Instagram", "Google Business", "local directories"],
+      "note": "Italian-localized version after English master."
+    }
+  ],
+  "rule": "English master first, then country-localized variants. Do not create separate products per country."
+}
