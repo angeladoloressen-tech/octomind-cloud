@@ -1,0 +1,48 @@
+{
+  "status": "launch_phase",
+  "payment_links_connected": false,
+  "routes": [
+    {
+      "offer": "Product Verification Report",
+      "price_eur": 19,
+      "route": "checkout_request",
+      "provider_needed": "Stripe or Gumroad",
+      "trigger": "Buyer asks to find or verify a gadget from a video"
+    },
+    {
+      "offer": "Featured Product",
+      "price_eur": 49,
+      "route": "checkout_request",
+      "provider_needed": "Stripe or Gumroad",
+      "trigger": "Approved brand asks for short paid visibility"
+    },
+    {
+      "offer": "Octo Launch Pack",
+      "price_eur": 199,
+      "route": "checkout_request",
+      "provider_needed": "Stripe or Gumroad",
+      "trigger": "Brand wants product page and launch placement after demo interest"
+    },
+    {
+      "offer": "Vendor Storefront",
+      "price_eur": 499,
+      "route": "checkout_request",
+      "provider_needed": "Stripe or Gumroad",
+      "trigger": "Brand has multiple products"
+    },
+    {
+      "offer": "Viral Product Intelligence Report",
+      "price_eur": 2500,
+      "route": "invoice_request",
+      "provider_needed": "Stripe invoice or bank invoice",
+      "trigger": "Agency publisher ecommerce team or aggregator requests research"
+    },
+    {
+      "offer": "Octo Product Truth Pilot",
+      "price_eur": 25000,
+      "route": "enterprise_invoice_request",
+      "provider_needed": "Stripe invoice or bank invoice with legal review",
+      "trigger": "Qualified enterprise buyer asks for pilot or procurement route"
+    }
+  ]
+}
