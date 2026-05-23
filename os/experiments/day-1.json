@@ -1,0 +1,35 @@
+{
+  "name": "Day 1 Active Experiments",
+  "status": "RED_YELLOW",
+  "rule": "Every experiment must create measurable evidence. Waiting is not an experiment.",
+  "experiments": [
+    {
+      "id": "exp_audit_49",
+      "name": "First paid audit",
+      "offer": "Octomind Quick Automation Audit",
+      "price_eur": 49,
+      "route": "/buy?offer=audit",
+      "target_segment": "small creators and small businesses with messy lead/payment workflows",
+      "success_signal": ["payment_intent_created", "payment_received", "reply_received", "payment_click"],
+      "kill_rule": "Kill or rewrite if no evidence appears after assets and route are confirmed."
+    },
+    {
+      "id": "exp_ai_builder_wedge",
+      "name": "AI builder revenue wedge",
+      "offer": "Industry Wedge Sprint",
+      "target_segment": "AI builders who can build apps but cannot package or sell them",
+      "success_signal": ["reply_received", "booked_call", "payment_route_request"],
+      "kill_rule": "Kill if no replies from platform ecosystem contacts."
+    },
+    {
+      "id": "exp_retainer_299",
+      "name": "Monthly retainer proof",
+      "offer": "Octomind Monthly Automation Retainer",
+      "price_eur_monthly": 299,
+      "route": "https://buy.stripe.com/aFacN5agc8hMdph4UN6Na0y",
+      "target_segment": "businesses with existing lead flow but weak follow-up",
+      "success_signal": ["subscription_created", "serious_reply", "booked_call"],
+      "kill_rule": "Do not push retainer before a real pain signal exists."
+    }
+  ]
+}
