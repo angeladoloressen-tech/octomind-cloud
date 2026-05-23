@@ -1,0 +1,27 @@
+{
+  "status": "usd_payment_links_ready_not_publicly_promoted",
+  "core_offer": {
+    "name": "AI Revenue Autopilot Setup",
+    "currency": "USD",
+    "amount_usd": 599,
+    "stripe_product_id": "prod_UYuQSqlWhXfpNU",
+    "stripe_price_id": "price_1TaJzbGup9HWwEMCaIEKsQYp",
+    "payment_link_id": "plink_1TaK0PGup9HWwEMCpJ098ORc",
+    "payment_link": "https://buy.stripe.com/aFa6oH5ZW55A2KD5YR6Na0D"
+  },
+  "monthly_support": {
+    "name": "AI Revenue Autopilot Monthly Support",
+    "currency": "USD",
+    "amount_usd": 179,
+    "stripe_product_id": "prod_UYwGs4GCWrfN7m",
+    "stripe_price_id": "price_1TaKArGup9HWwEMC0fT2B9mr",
+    "payment_link_id": "plink_1TaKHNGup9HWwEMCH11zB7ZR",
+    "payment_link": "https://buy.stripe.com/14A14nbkg41w70Tdrj6Na0E"
+  },
+  "safety": {
+    "no_customer_message_sent": true,
+    "no_public_launch_triggered": true,
+    "no_money_movement_triggered": true,
+    "confirmed_revenue_usd": 0
+  }
+}
