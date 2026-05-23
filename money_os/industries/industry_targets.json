@@ -1,0 +1,55 @@
+{
+  "status": "draft_targets_not_launched",
+  "core_funnel": "Revenue Leak Audit -> AI Revenue Autopilot Setup -> Monthly Support",
+  "targets": [
+    {
+      "industry": "beauty_studios",
+      "examples": ["nail salons", "hair salons", "beauty studios"],
+      "pain": "missed booking requests and weak follow-up",
+      "audit_angle": "booking leakage and Instagram-to-booking friction",
+      "traffic_channels": ["Instagram organic", "Kleinanzeigen", "local profile link"],
+      "score": 8
+    },
+    {
+      "industry": "driving_schools",
+      "examples": ["Fahrschulen"],
+      "pain": "inquiry overload and slow response",
+      "audit_angle": "student inquiry response and follow-up gaps",
+      "traffic_channels": ["Google profile", "local search", "organic post"],
+      "score": 7
+    },
+    {
+      "industry": "cleaning_companies",
+      "examples": ["Gebaeudereinigung", "home cleaning", "office cleaning"],
+      "pain": "quote requests not structured",
+      "audit_angle": "quote form and response pipeline",
+      "traffic_channels": ["Kleinanzeigen", "Google profile", "partner referrals"],
+      "score": 8
+    },
+    {
+      "industry": "physio_and_wellness",
+      "examples": ["physiotherapy", "massage", "wellness studios"],
+      "pain": "appointment gaps and low retention",
+      "audit_angle": "booking, reminder, and retention leaks",
+      "traffic_channels": ["local search", "Instagram", "referrals"],
+      "score": 7
+    },
+    {
+      "industry": "small_b2b_agencies",
+      "examples": ["automation agencies", "no-code agencies", "marketing studios"],
+      "pain": "scattered tools and weak lead-to-proposal flow",
+      "audit_angle": "AI operations and proposal workflow leakage",
+      "traffic_channels": ["LinkedIn permission-based", "communities", "partner route"],
+      "score": 9
+    },
+    {
+      "industry": "local_trades",
+      "examples": ["handymen", "electricians", "repair services"],
+      "pain": "missed calls and unstructured job requests",
+      "audit_angle": "lead intake and quote follow-up leakage",
+      "traffic_channels": ["Kleinanzeigen", "Google profile", "local referrals"],
+      "score": 8
+    }
+  ],
+  "rule": "pick one industry at a time and test through the same core funnel"
+}
