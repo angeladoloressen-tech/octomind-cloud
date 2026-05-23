@@ -1,0 +1,54 @@
+{
+  "name": "Day 2 No-Deploy Revenue Experiment",
+  "recorded_at": "2026-05-23",
+  "status": "YELLOW_RED",
+  "truth": {
+    "stripe_available_eur": 0,
+    "stripe_pending_eur": 0,
+    "payment_intents_count": 0,
+    "subscriptions_count": 0,
+    "workflow_runs_visible": 0,
+    "deploy_confirmed": false,
+    "real_signal": "PLAUD affiliate program route response exists"
+  },
+  "decision": "Do not depend on portal deploy for revenue. Use direct payment routes and partner/application routes while deploy remains unconfirmed.",
+  "active_routes": [
+    {
+      "id": "audit_49",
+      "goal": "first paid audit",
+      "route": "https://buy.stripe.com/4gMeVdbkg0Pk84X5YR6Na0u",
+      "metric": "payment_intent_or_payment"
+    },
+    {
+      "id": "retainer_299",
+      "goal": "recurring revenue proof",
+      "route": "https://buy.stripe.com/aFacN5agc8hMdph4UN6Na0y",
+      "metric": "subscription_created"
+    },
+    {
+      "id": "plaud_affiliate_route",
+      "goal": "affiliate application path and creator angle",
+      "route": "PLAUD Impact application and creator@plaud.ai",
+      "metric": "accepted_program_or_human_reply"
+    }
+  ],
+  "agent_orders": [
+    {
+      "agent": "Reality Auditor",
+      "order": "Keep status non-green until money, subscription, real lead, payment click, deploy confirmation or booked call exists."
+    },
+    {
+      "agent": "Wedge Finder",
+      "order": "Prioritize AI productivity gadgets, creator-commerce tools, and AI builders because current reply signal points there."
+    },
+    {
+      "agent": "Offer Sharpener",
+      "order": "Rewrite generic automation into a narrow promise: turn product attention into affiliate or paid workflow revenue."
+    },
+    {
+      "agent": "Blocker Router",
+      "order": "If Gmail sending or deploy is blocked, create assets and application-route records instead of operator tasks."
+    }
+  ],
+  "operator_work": "none"
+}
