@@ -1,0 +1,26 @@
+{
+  "blocker": "github_actions_deploy_unconfirmed",
+  "recorded_at": "2026-05-23",
+  "latest_checked_commit": "a6d901b79350ab6522421a14a1e08c6fb76844ca",
+  "workflow_runs_visible": 0,
+  "stripe_truth": {
+    "available_eur": 0,
+    "pending_eur": 0,
+    "payment_intents_count": 0,
+    "subscriptions_count": 0
+  },
+  "gmail_truth": {
+    "real_signal_count": 1,
+    "signal": "PLAUD affiliate auto-response / route signal"
+  },
+  "status": "YELLOW_RED",
+  "system_decision": "Do not mark deploy as confirmed. Keep Stripe routes live. Keep Reality Dashboard repo changes as source-ready, not live-proven.",
+  "operator_work": "none",
+  "fallback_paths": [
+    "direct_stripe_links_remain_live",
+    "repo_source_of_truth_remains_updated",
+    "admin_reality_dashboard_waits_for_confirmed_deploy",
+    "issue_tracker_records_blocker_and_next_cloud_owned_actions"
+  ],
+  "next_system_owned_action": "Create a deployment verifier/repair plan and continue revenue experiments without asking the operator for terminal or desktop work."
+}
