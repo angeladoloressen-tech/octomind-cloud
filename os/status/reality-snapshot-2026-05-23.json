@@ -1,0 +1,23 @@
+{
+  "snapshot_at": "2026-05-23",
+  "status": "YELLOW",
+  "why_not_green": [
+    "stripe_available_eur_is_zero",
+    "stripe_pending_eur_is_zero",
+    "payment_intents_are_empty",
+    "subscriptions_are_empty",
+    "deploy_confirmation_not_proven"
+  ],
+  "evidence": {
+    "stripe_available_eur": 0,
+    "stripe_pending_eur": 0,
+    "payment_intents_count": 0,
+    "subscriptions_count": 0,
+    "real_reply_signals_count": 1,
+    "reply_signal": "PLAUD affiliate auto-response / route signal",
+    "security_noise_detected": true
+  },
+  "operating_mode": "active_experiments_not_waiting",
+  "next_action_owned_by_system": "build dashboard and route active experiments toward measurable replies, clicks, payment intents or payments",
+  "operator_work": "none"
+}
