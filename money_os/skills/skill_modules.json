@@ -1,0 +1,59 @@
+{
+  "status": "active_skill_map",
+  "modules": [
+    {
+      "id": "skill_lead_capture",
+      "name": "Lead Capture Design",
+      "purpose": "turn visitors into opt-in audit requests",
+      "outputs": ["form fields", "CTA", "lead validation", "source tracking"]
+    },
+    {
+      "id": "skill_audit_diagnosis",
+      "name": "Revenue Leak Diagnosis",
+      "purpose": "find 3 clear business leaks in a profile, website, or workflow",
+      "outputs": ["leak list", "priority", "fix recommendation"]
+    },
+    {
+      "id": "skill_offer_clarity",
+      "name": "Offer Clarity",
+      "purpose": "translate diagnosis into one paid next step",
+      "outputs": ["offer block", "pricing anchor", "scope", "next action"]
+    },
+    {
+      "id": "skill_payment_ops",
+      "name": "Payment Operations",
+      "purpose": "keep Stripe products, prices, links, and verified payments visible",
+      "outputs": ["payment status", "product sprawl flag", "verified revenue"]
+    },
+    {
+      "id": "skill_delivery_pack",
+      "name": "Delivery Pack Generation",
+      "purpose": "turn a paid setup into practical client materials",
+      "outputs": ["intake", "response templates", "CRM columns", "test plan"]
+    },
+    {
+      "id": "skill_retention",
+      "name": "Retention Loop",
+      "purpose": "convert setup clients into monthly support",
+      "outputs": ["monthly review", "improvement queue", "support offer"]
+    },
+    {
+      "id": "skill_traffic_asset",
+      "name": "Traffic Asset Creation",
+      "purpose": "create approved posts, listings, and visuals for one channel",
+      "outputs": ["Canva asset", "post draft", "marketplace draft"]
+    },
+    {
+      "id": "skill_cashflow_cockpit",
+      "name": "Cashflow Cockpit",
+      "purpose": "show the money truth and next revenue action",
+      "outputs": ["confirmed revenue", "pending revenue", "bottleneck", "next action"]
+    },
+    {
+      "id": "skill_compliance_gate",
+      "name": "Compliance Gate",
+      "purpose": "block launch, data collection, or outreach until approvals exist",
+      "outputs": ["approval flags", "launch status", "blocked actions"]
+    }
+  ]
+}
