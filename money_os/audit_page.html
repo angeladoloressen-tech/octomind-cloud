@@ -1,38 +1,55 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Revenue Leak Audit</title>
+<title>Free Revenue Leak Audit</title>
 <style>
-body{font-family:system-ui;margin:0;background:#07111f;color:#f8fafc}main{max-width:980px;margin:auto;padding:56px 22px}.box{border:1px solid #26334d;border-radius:24px;padding:28px;background:#0f172a;margin-bottom:20px}input,textarea{width:100%;padding:14px;margin:8px 0 16px;border-radius:12px;border:1px solid #334155;background:#020617;color:white}button,.button{display:inline-block;padding:14px 22px;border:0;border-radius:999px;font-weight:800;background:#f8fafc;color:#07111f;text-decoration:none;margin:6px 8px 6px 0}.secondary{background:#1e293b;color:#f8fafc}.note{color:#cbd5e1;font-size:14px}li{margin:8px 0}.success{color:#86efac}.error{color:#fecaca}
+body{font-family:system-ui;margin:0;background:#07111f;color:#f8fafc}main{max-width:980px;margin:auto;padding:56px 22px}.box{border:1px solid #26334d;border-radius:24px;padding:28px;background:#0f172a;margin-bottom:20px}input,textarea,select{width:100%;padding:14px;margin:8px 0 16px;border-radius:12px;border:1px solid #334155;background:#020617;color:white}button,.button{display:inline-block;padding:14px 22px;border:0;border-radius:999px;font-weight:800;background:#f8fafc;color:#07111f;text-decoration:none;margin:6px 8px 6px 0}.secondary{background:#1e293b;color:#f8fafc}.note{color:#cbd5e1;font-size:14px}li{margin:8px 0}.success{color:#86efac}.error{color:#fecaca}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.pill{display:inline-block;border:1px solid #334155;border-radius:999px;padding:6px 10px;color:#cbd5e1;font-size:13px;margin:4px 4px 10px 0}
 </style>
 </head>
 <body>
 <main>
 <section class="box">
-<h1>Kostenloser Revenue Leak Audit</h1>
-<p>Zeigen Sie uns Ihre Website, Google Profil oder Instagram Seite. Das System findet drei Stellen, an denen Anfragen oder Buchungen verloren gehen koennen.</p>
+<span class="pill">English-first</span><span class="pill">Demo storage</span><span class="pill">No revenue guarantee</span>
+<h1>Free Revenue Leak Audit</h1>
+<p>Send your website, Google profile, or Instagram profile. Money OS identifies three places where inquiries, bookings, or repeat appointments may be slipping away.</p>
 <form id="audit-form" data-status="api-connected-demo-storage">
-<label>Unternehmen</label><input name="business" placeholder="Name des Unternehmens" required>
-<label>Kontakt E-Mail</label><input name="email" placeholder="name@firma.de" required>
-<label>Website oder Profil</label><input name="profile" placeholder="https://..." required>
-<label>Branche</label><input name="niche" placeholder="z.B. Kosmetikstudio, Friseur, Fahrschule" required>
-<label>Aktuelles Problem</label><textarea name="problem" placeholder="Was funktioniert bei Anfragen oder Buchungen nicht gut?"></textarea>
-<button type="submit">Audit anfordern</button>
+<label>Business name</label><input name="business" placeholder="Business name" required>
+<label>Contact email</label><input name="email" placeholder="name@company.com" required>
+<label>Website or profile</label><input name="profile" placeholder="https://..." required>
+<label>Industry</label><input name="niche" placeholder="Beauty studio, clinic, hotel, agency, local service" required>
+<label>Target country</label><select name="country"><option>United States</option><option>United Kingdom</option><option>Germany</option><option>Turkey</option><option>Greece</option><option>Dubai / UAE</option><option>Other</option></select>
+<label>Current problem</label><textarea name="problem" placeholder="Where do inquiries, bookings, payments, or follow-ups break down?"></textarea>
+<button type="submit">Request audit</button>
 </form>
-<p id="form-status" class="note">Status: Formular sendet an /api/audit-intake. Storage ist Demo-Modus, bis CRM/Webhook verbunden ist.</p>
+<p id="form-status" class="note">Status: form posts to /api/audit-intake. Storage is demo mode until privacy and backend approval are complete.</p>
 </section>
 <section class="box">
-<h2>Nach dem Audit</h2>
+<h2>What the audit checks</h2>
+<div class="grid">
+<div><h3>Lead path</h3><p>Is the next step clear from the profile, page, or offer?</p></div>
+<div><h3>Follow-up</h3><p>Do inquiries get a structured response before they disappear?</p></div>
+<div><h3>Payment path</h3><p>Is the paid next step simple, trusted, and easy to understand?</p></div>
+</div>
+</section>
+<section class="box">
+<h2>After the audit</h2>
 <ul>
-<li>3 moegliche Umsatz- oder Anfrage-Lecks</li>
-<li>klare Verbesserungsempfehlung</li>
-<li>optional: Umsetzung als AI Revenue Autopilot Setup</li>
+<li>3 possible inquiry or revenue leaks</li>
+<li>one practical improvement recommendation</li>
+<li>optional setup as AI Revenue Autopilot</li>
 </ul>
-<a class="button" href="https://buy.stripe.com/bJe9AT4VSgOi84XgDv6Na0s">Setup buchen - 499 EUR</a>
-<a class="button secondary" href="https://buy.stripe.com/cNi28rdso8hM84X0Ex6Na0t">Betreuung - 149 EUR/Monat</a>
-<p class="note">Keine Umsatzgarantie. Ziel ist ein klareres Anfrage-, Follow-up- und Auswertungssystem.</p>
+<a class="button" href="https://buy.stripe.com/aFa6oH5ZW55A2KD5YR6Na0D">Book setup - 599 USD</a>
+<a class="button secondary" href="https://buy.stripe.com/14A14nbkg41w70Tdrj6Na0E">Support - 179 USD/month</a>
+<a class="button secondary" href="https://buy.stripe.com/bJe9AT4VSgOi84XgDv6Na0s">Setup - 499 EUR</a>
+<a class="button secondary" href="https://buy.stripe.com/cNi28rdso8hM84X0Ex6Na0t">Support - 149 EUR/month</a>
+<p class="note">No revenue, booking, follower, or growth guarantee. The goal is a clearer inquiry, follow-up, payment, and delivery process.</p>
+</section>
+<section class="box">
+<h2>Deutsch Kurzversion</h2>
+<p>Kostenloser Revenue Leak Audit: Senden Sie Website, Google Profil oder Instagram Profil. Das System findet drei Stellen, an denen Anfragen, Buchungen oder Wiederholungstermine verloren gehen koennen.</p>
+<p class="note">Keine Umsatzgarantie. Public Launch erst nach Legal, Privacy, Storage und Traffic Approval.</p>
 </section>
 </main>
 <script>
@@ -41,7 +58,7 @@ const statusEl = document.getElementById('form-status');
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
   statusEl.className = 'note';
-  statusEl.textContent = 'Audit Anfrage wird vorbereitet...';
+  statusEl.textContent = 'Preparing audit request...';
   const payload = Object.fromEntries(new FormData(form).entries());
   try {
     const response = await fetch('/api/audit-intake', {
@@ -52,10 +69,10 @@ form.addEventListener('submit', async (event) => {
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || 'request_failed');
     statusEl.className = 'success';
-    statusEl.textContent = 'Audit Anfrage empfangen. Naechster Schritt: Report-Generator / CRM verbinden.';
+    statusEl.textContent = 'Audit request received in demo mode. Next step: connect approved storage/CRM.';
   } catch (error) {
     statusEl.className = 'error';
-    statusEl.textContent = 'Fehler: Anfrage konnte noch nicht verarbeitet werden.';
+    statusEl.textContent = 'Request could not be processed yet. Storage/API approval is still required.';
   }
 });
 </script>
