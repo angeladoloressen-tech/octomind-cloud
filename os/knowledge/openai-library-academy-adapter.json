@@ -1,0 +1,41 @@
+{
+  "name": "OpenAI Library and Academy Adapter",
+  "version": "0.1.0",
+  "purpose": "Teach Octomind OS to use OpenAI official learning resources, docs, cookbook patterns, SDKs, agents, tools, evals and academy content as source material for system improvement.",
+  "status": "SOURCE_ADAPTER_INSTALLED_REPO_READY_LIVE_UNCONFIRMED",
+  "sources": {
+    "openai_academy": {
+      "url": "https://academy.openai.com/",
+      "use_for": ["AI literacy", "industry trend scanning", "events and learning signals", "small business and organization education ideas", "operator-free learning ingestion"],
+      "rules": ["Extract concepts into experiments, not tutorials for the operator.", "Convert events/content into OS tasks, offer angles, and wedge hypotheses.", "Do not make the operator manually study content unless they explicitly ask."]
+    },
+    "openai_platform_docs": {
+      "url": "https://developers.openai.com/api/docs/",
+      "use_for": ["Responses API", "Agents SDK", "Tools", "File search", "Webhooks", "Evals", "Production and safety practices", "SDK and CLI references"],
+      "rules": ["Use docs before guessing API behavior.", "Prefer connector/cloud execution before local execution.", "Apply safety, evals and observability before marking agents production-ready."]
+    },
+    "openai_cookbook": {
+      "url": "https://cookbook.openai.com/",
+      "use_for": ["Implementation examples", "Agent patterns", "Evals patterns", "RAG patterns", "Optimization recipes"],
+      "rules": ["Adapt examples into Octomind OS modules.", "Do not copy blindly; convert into measurable experiments.", "Record every borrowed pattern as an OS experiment or kernel improvement."]
+    }
+  },
+  "os_modules_to_create": [
+    {"id": "academy_scanner", "job": "Find Academy content/events relevant to small business, AI operations, Codex, agents and revenue automation.", "output": "learning_signal"},
+    {"id": "cookbook_translator", "job": "Translate official Cookbook patterns into Octomind OS experiments, not operator homework.", "output": "implementation_pattern"},
+    {"id": "docs_guardian", "job": "Check OpenAI official docs before API architecture or agent claims.", "output": "verified_design_constraint"},
+    {"id": "evals_operator", "job": "Turn every agent into a measurable workflow with pass/fail criteria.", "output": "eval_spec"}
+  ],
+  "reality_rules": [
+    "OpenAI docs are not revenue by themselves.",
+    "Academy learning is not progress unless converted into a shipped experiment or offer improvement.",
+    "Cookbook examples are not product unless deployed, measured, and connected to money or evidence.",
+    "No local Mac tasks for operator."
+  ],
+  "next_system_actions": [
+    "Create OpenAI Academy learning queue as OS tasks.",
+    "Create OpenAI Cookbook-to-Octomind pattern queue.",
+    "Add eval-first rule to Revenue Agent Mesh.",
+    "Create RAG plan for official docs and project canon once a cloud storage/search connector is available."
+  ]
+}
