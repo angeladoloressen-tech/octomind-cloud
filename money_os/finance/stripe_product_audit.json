@@ -1,0 +1,18 @@
+{
+  "status": "audit_created",
+  "livemode": true,
+  "sample_product_count": 36,
+  "customers_sample_count": 0,
+  "subscriptions_sample_count": 0,
+  "available_balance_eur": 0,
+  "pending_balance_eur": 0,
+  "diagnosis": "product_sprawl_without_verified_revenue",
+  "active_products_to_focus": [
+    "Revenue Leak Audit",
+    "AI Revenue Autopilot Setup",
+    "AI Revenue Autopilot Monthly Support",
+    "Cashflow Cockpit",
+    "Payment Link OS"
+  ],
+  "rule": "do not create more products until one active funnel produces verified payments"
+}
