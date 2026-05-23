@@ -1,0 +1,27 @@
+name: Money OS Launch Gate
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'money_os/launch/**'
+      - 'vercel.json'
+
+jobs:
+  launch-gate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check launch status
+        run: python money_os/launch/check_launch_status.py
+      - name: Commit launch status
+        run: |
+          git config user.name "money-os-launch-gate"
+          git config user.email "money-os-launch-gate@example.invalid"
+          git add money_os/runtime/launch_status.json || true
+          git diff --cached --quiet || git commit -m "launch: update Money OS launch status"
