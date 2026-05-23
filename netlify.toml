@@ -1,0 +1,33 @@
+[build]
+  publish = "octoamazonas-site"
+  command = ""
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[redirects]]
+  from = "/checkout"
+  to = "/checkout.html"
+  status = 200
+
+[[redirects]]
+  from = "/intelligence"
+  to = "/high-ticket.html"
+  status = 200
+
+[[redirects]]
+  from = "/sample"
+  to = "/report-sample.html"
+  status = 200
+
+[[redirects]]
+  from = "/thanks"
+  to = "/thank-you.html"
+  status = 200
