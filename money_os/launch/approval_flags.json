@@ -1,0 +1,13 @@
+{
+  "APPROVED_IMPRESSUM": false,
+  "APPROVED_PRIVACY": false,
+  "APPROVED_CONTACT_EMAIL": false,
+  "APPROVED_STORAGE_BACKEND": false,
+  "APPROVED_DEPLOY_TARGET": false,
+  "APPROVED_TRAFFIC_CHANNEL": false,
+  "PUBLIC_LAUNCH_ALLOWED": false,
+  "REAL_LEAD_COLLECTION_ALLOWED": false,
+  "OUTBOUND_MESSAGES_ALLOWED": false,
+  "MONEY_MOVEMENT_ALLOWED": false,
+  "notes": "Launch remains blocked until all required approvals are true."
+}
