@@ -3,11 +3,11 @@ name: Deploy Octomind Worker
 on:
   push:
     branches: [main]
-    paths:
-      - "worker.js"
-      - "wrangler.toml"
-      - ".github/workflows/deploy-worker.yml"
   workflow_dispatch:
+
+concurrency:
+  group: octomind-worker-deploy
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -18,9 +18,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Reality preflight
+        shell: bash
+        run: |
+          echo "Octomind Reality Mode deploy preflight"
+          test -f worker.js
+          test -f wrangler.toml
+          echo "worker.js and wrangler.toml exist"
+
       - name: Deploy Worker with Wrangler
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
+
+      - name: Reality postflight
+        shell: bash
+        run: |
+          echo "Deploy command completed. GitHub workflow success is deploy evidence. Runtime /health must still be checked separately."
