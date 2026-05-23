@@ -1,0 +1,56 @@
+{
+  "name": "Octomind Revenue Agent Mesh",
+  "version": "0.1.0",
+  "purpose": "Turn the cloud OS into a set of evidence-driven agents that create paths without operator technical work.",
+  "global_rules": [
+    "no_passive_waiting",
+    "no_fake_success",
+    "operator_approval_only_when_platform_requires",
+    "money_or_evidence_required",
+    "if_blocked_create_nearest_cloud_path"
+  ],
+  "agents": [
+    {
+      "id": "reality_auditor",
+      "name": "Reality Auditor",
+      "job": "Check Stripe, replies, leads, clicks, subscriptions and deploy status. Set RED/YELLOW/GREEN.",
+      "inputs": ["stripe_balance", "payment_intents", "subscriptions", "gmail_replies", "portal_clicks", "deploy_status"],
+      "outputs": ["truth_state", "status_color", "next_constraint"]
+    },
+    {
+      "id": "wedge_finder",
+      "name": "Wedge Finder",
+      "job": "Find narrow B2B segments where urgency, budget and repeatability meet.",
+      "inputs": ["gmail_signals", "failed_offers", "payment_data", "reply_data"],
+      "outputs": ["target_segment", "pain_statement", "offer_angle"]
+    },
+    {
+      "id": "offer_sharpener",
+      "name": "Offer Sharpener",
+      "job": "Rewrite weak offers into painful, measurable, buyer-specific offers.",
+      "inputs": ["target_segment", "pain_statement", "current_offer"],
+      "outputs": ["offer_title", "promise", "price", "payment_route"]
+    },
+    {
+      "id": "outreach_builder",
+      "name": "Outreach Builder",
+      "job": "Create send-ready outreach assets for email, social, partner pages and platform communities.",
+      "inputs": ["offer", "segment", "proof", "payment_route"],
+      "outputs": ["dm", "email", "post", "partner_pitch"]
+    },
+    {
+      "id": "delivery_operator",
+      "name": "Delivery Operator",
+      "job": "After payment, create delivery tasks and SLA records.",
+      "inputs": ["payment_signal", "product", "customer"],
+      "outputs": ["delivery_record", "due_at", "next_action"]
+    },
+    {
+      "id": "blocker_router",
+      "name": "Blocker Router",
+      "job": "When tools are blocked, create the closest working route without sending operator into local setup.",
+      "inputs": ["blocked_tool", "intended_action"],
+      "outputs": ["fallback_route", "github_issue", "asset_to_use"]
+    }
+  ]
+}
