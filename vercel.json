@@ -4,7 +4,8 @@
   "installCommand": "",
   "rewrites": [
     { "source": "/", "destination": "/money_os/audit_page.html" },
-    { "source": "/audit", "destination": "/money_os/audit_page.html" }
+    { "source": "/audit", "destination": "/money_os/audit_page.html" },
+    { "source": "/moneygate", "destination": "/money_os/audit_page.html" }
   ],
   "headers": [
     {
