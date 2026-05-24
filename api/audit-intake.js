@@ -3,9 +3,7 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  if (req.method === 'OPTIONS') {
-    return res.status(204).end();
-  }
+  if (req.method === 'OPTIONS') return res.status(204).end();
 
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST, OPTIONS');
@@ -32,14 +30,16 @@ export default async function handler(req, res) {
     audit_status: 'received_demo_mode',
     offer_status: 'not_offered',
     payment_status: 'unpaid',
-    delivery_status: 'not_started'
+    delivery_status: 'blocked_until_moneygate_verification',
+    moneygate_state: 'lead_created_demo',
+    next_checkout_paths: ['usd_setup', 'eur_setup']
   };
 
   return res.status(202).json({
     ok: true,
-    status: 'received_demo_mode_storage_not_connected',
-    message: 'Audit request received in demo mode. No permanent lead storage is active yet.',
-    next_step: 'Connect approved storage backend before public lead collection.',
+    status: 'received_demo_mode_moneygate_attached',
+    message: 'Audit request received in demo mode. MoneyGate state attached. No permanent storage is active yet.',
+    next_step: 'Connect approved storage before public lead collection.',
     lead
   });
 }
