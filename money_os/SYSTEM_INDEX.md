@@ -5,6 +5,9 @@ Status: active.
 ## Root
 
 - `money_os/KERNEL.md` is the root brain.
+- `money_os/OPERATING_STATE.json` is the current state file.
+- `money_os/orchestrator/ACTIVE_QUEUE.json` is the execution queue.
+- `money_os/orchestrator/GUARD.md` is the anti-mess guard.
 - All modules must obey the kernel.
 
 ## Critical path
@@ -18,6 +21,14 @@ Status: active.
 7. Stripe verified payment
 
 ## Active files by module
+
+### Orchestrator
+
+- `money_os/KERNEL.md`
+- `money_os/SYSTEM_INDEX.md`
+- `money_os/OPERATING_STATE.json`
+- `money_os/orchestrator/ACTIVE_QUEUE.json`
+- `money_os/orchestrator/GUARD.md`
 
 ### Launch
 
