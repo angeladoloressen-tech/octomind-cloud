@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Octomind Cloud Command Center Diagnostic</title>
+  <meta name="description" content="48-hour diagnostic for AI, CRM, automation and operations teams whose workflows, approvals, docs, APIs and handoffs have become scattered." />
+  <style>
+    :root { color-scheme: dark; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: radial-gradient(circle at top left, #25205f 0, #080814 42%, #030306 100%); color:#f4f4fb; line-height:1.55; }
+    main { max-width:980px; margin:0 auto; padding:56px 22px 72px; }
+    .eyebrow { color:#9ad7ff; letter-spacing:.12em; text-transform:uppercase; font-size:13px; font-weight:700; }
+    h1 { font-size:clamp(40px, 7vw, 76px); line-height:.94; margin:18px 0 20px; max-width:900px; }
+    h2 { font-size:28px; margin-top:44px; }
+    p { color:#d7d7e7; font-size:18px; max-width:760px; }
+    .hero { padding:42px 0; }
+    .panel { border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.06); border-radius:24px; padding:24px; box-shadow:0 24px 80px rgba(0,0,0,.35); backdrop-filter:blur(14px); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:16px; margin-top:24px; }
+    .card { border:1px solid rgba(255,255,255,.12); border-radius:18px; padding:18px; background:rgba(0,0,0,.25); }
+    .card strong { color:#fff; display:block; margin-bottom:8px; }
+    .price { font-size:44px; font-weight:800; margin:10px 0 0; }
+    .muted { color:#aaaac4; font-size:15px; }
+    ul { color:#d7d7e7; font-size:17px; padding-left:20px; }
+    label { display:block; margin:14px 0 6px; font-weight:700; }
+    input, textarea, select { width:100%; box-sizing:border-box; border-radius:12px; border:1px solid rgba(255,255,255,.16); padding:13px 14px; background:rgba(255,255,255,.08); color:#fff; font:inherit; }
+    textarea { min-height:130px; resize:vertical; }
+    button { margin-top:18px; border:0; border-radius:999px; padding:14px 22px; background:#f4f4fb; color:#080814; font-weight:800; cursor:pointer; font-size:16px; }
+    .note { margin-top:18px; font-size:14px; color:#aeb1ce; }
+    .footer { margin-top:48px; color:#8f91ac; font-size:14px; }
+    .hidden { display:none; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="eyebrow">Octomind · First Euro Diagnostic</div>
+      <h1>Your AI and automation work should not live scattered across tools.</h1>
+      <p>Octomind offers a 48-hour Cloud Command Center Diagnostic for AI, CRM, automation and operations teams whose workflows, approvals, docs, APIs and handoffs have become fragmented.</p>
+    </section>
+
+    <section class="panel">
+      <div class="eyebrow">Offer</div>
+      <h2>Cloud Command Center Diagnostic</h2>
+      <div class="price">490 EUR</div>
+      <p class="muted">Delivered within 48 hours after scope and payment confirmation.</p>
+      <div class="grid">
+        <div class="card"><strong>System map</strong>Current tools, workflows, docs, handoffs, APIs and operating fragments.</div>
+        <div class="card"><strong>Gap notes</strong>Runtime, memory, approval, safety and delivery gaps.</div>
+        <div class="card"><strong>Action plan</strong>A practical seven-day path toward a clearer command layer.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Who this is for</h2>
+      <ul>
+        <li>CRM and HubSpot implementation teams</li>
+        <li>Automation and no-code agencies</li>
+        <li>AI workflow consultants</li>
+        <li>Founder-led teams with too many tools and not enough operating structure</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>What Octomind looks for</h2>
+      <div class="grid">
+        <div class="card"><strong>Tool sprawl</strong>Work spread across CRM, docs, APIs, automations and local notes.</div>
+        <div class="card"><strong>Approval fog</strong>Unclear ownership before workflows affect clients or customers.</div>
+        <div class="card"><strong>Delivery friction</strong>Too much depends on one person remembering the operating details.</div>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:42px;">
+      <div class="eyebrow">Request diagnostic</div>
+      <h2>Send a short operating snapshot</h2>
+      <form name="diagnostic-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+        <input type="hidden" name="form-name" value="diagnostic-request" />
+        <p class="hidden"><label>Do not fill this out: <input name="bot-field" /></label></p>
+        <label for="name">Name</label>
+        <input id="name" name="name" autocomplete="name" required />
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required />
+        <label for="company">Company / project</label>
+        <input id="company" name="company" autocomplete="organization" />
+        <label for="team_type">Team type</label>
+        <select id="team_type" name="team_type">
+          <option>CRM / HubSpot agency</option>
+          <option>Automation / no-code agency</option>
+          <option>AI workflow consultant</option>
+          <option>Founder-led team</option>
+          <option>Other</option>
+        </select>
+        <label for="message">Where is your system most scattered?</label>
+        <textarea id="message" name="message" placeholder="Tools, workflows, approvals, APIs, docs, handoffs, reporting, client delivery..." required></textarea>
+        <button type="submit">Request diagnostic scope</button>
+      </form>
+      <p class="note">No payment details are collected here. Scope and payment route are confirmed separately. No secrets are requested.</p>
+    </section>
+
+    <p class="footer">Octomind is an experimental Autonomous Company OS project focused on cloud-first operating layers, approval-led automation and practical AI operations reset work.</p>
+  </main>
+</body>
+</html>
