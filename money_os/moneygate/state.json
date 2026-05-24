@@ -1,0 +1,54 @@
+{
+  "status": "active_not_live",
+  "last_checked": "2026-05-24",
+  "verified_money": {
+    "stripe_available_eur": 0,
+    "stripe_pending_eur": 0,
+    "payment_intents_sample": 0,
+    "confirmed_revenue": 0
+  },
+  "launch_state": {
+    "vercel_team_exists": true,
+    "vercel_projects": 0,
+    "public_launch_allowed": false,
+    "real_lead_collection_allowed": false,
+    "outbound_messages_allowed": false,
+    "money_movement_allowed": false
+  },
+  "active_paths": {
+    "usd_setup": {
+      "amount": 599,
+      "currency": "USD",
+      "link": "https://buy.stripe.com/aFa6oH5ZW55A2KD5YR6Na0D",
+      "delivery_trigger": "paid_setup_delivery_pack"
+    },
+    "usd_support": {
+      "amount": 179,
+      "currency": "USD",
+      "interval": "month",
+      "link": "https://buy.stripe.com/14A14nbkg41w70Tdrj6Na0E",
+      "delivery_trigger": "monthly_support_loop"
+    },
+    "eur_setup": {
+      "amount": 499,
+      "currency": "EUR",
+      "link": "https://buy.stripe.com/bJe9AT4VSgOi84XgDv6Na0s",
+      "delivery_trigger": "paid_setup_delivery_pack"
+    },
+    "eur_support": {
+      "amount": 149,
+      "currency": "EUR",
+      "interval": "month",
+      "link": "https://buy.stripe.com/cNi28rdso8hM84X0Ex6Na0t",
+      "delivery_trigger": "monthly_support_loop"
+    }
+  },
+  "next_commercial_action": "fix deploy target and storage before public traffic; use approved drafts only for named routes",
+  "blocked": [
+    "public_launch",
+    "real_lead_collection",
+    "unapproved_outreach",
+    "money_movement",
+    "unverified_revenue_claims"
+  ]
+}
