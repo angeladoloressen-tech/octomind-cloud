@@ -1,45 +1,99 @@
 # MoneyGate
 
-Status: active, not publicly launched.
+Status: active core module, not publicly launched.
 
 ## Purpose
 
-MoneyGate is the single payment and revenue gate for Money OS.
+MoneyGate is the single commercial gate for Money OS.
 
 It connects:
 
-- offer
-- country / currency
-- Stripe payment link
-- verified revenue check
-- launch approval state
-- product sprawl guard
+1. Offer
+2. Country and currency
+3. Stripe payment link
+4. Payment verification
+5. Lead or customer state
+6. Delivery trigger
+7. Revenue report
+8. Next commercial action
 
 ## Why this exists
 
-Before MoneyGate, the system had payment links and offers, but no central money gate. That made revenue flow messy.
+Before MoneyGate, Money OS had payment links, funnel pages, funding drafts, market files, and launch notes, but no single gate that decided:
+
+- what can be sold
+- where checkout happens
+- whether payment is verified
+- what happens after payment
+- what the system must do next
 
 ## Prime rule
 
-No new product is allowed into MoneyGate unless it supports the core funnel.
+No product, payment link, outreach message, or delivery action is active unless MoneyGate recognizes it.
+
+## Current verified money state
+
+- Stripe available balance: 0 EUR
+- Stripe pending balance: 0 EUR
+- Payment intents sample: empty
+- Confirmed revenue: 0
 
 ## Core funnel
 
 Free Revenue Leak Audit -> AI Revenue Autopilot Setup -> Monthly Support.
 
-## Active offers
+## Active money paths
 
-### Setup
+### Path A: USD setup
 
-- USD: 599
-- EUR: 499
+Offer: AI Revenue Autopilot Setup
+Amount: 599 USD
+Payment link: https://buy.stripe.com/aFa6oH5ZW55A2KD5YR6Na0D
+Delivery trigger: paid setup delivery pack
 
-### Monthly support
+### Path B: USD monthly support
 
-- USD: 179 / month
-- EUR: 149 / month
+Offer: AI Revenue Autopilot Monthly Support
+Amount: 179 USD / month
+Payment link: https://buy.stripe.com/14A14nbkg41w70Tdrj6Na0E
+Delivery trigger: monthly review and support loop
+
+### Path C: EUR setup
+
+Offer: AI Revenue Autopilot Setup
+Amount: 499 EUR
+Payment link: https://buy.stripe.com/bJe9AT4VSgOi84XgDv6Na0s
+Delivery trigger: paid setup delivery pack
+
+### Path D: EUR monthly support
+
+Offer: AI Revenue Autopilot Monthly Support
+Amount: 149 EUR / month
+Payment link: https://buy.stripe.com/cNi28rdso8hM84X0Ex6Na0t
+Delivery trigger: monthly review and support loop
+
+### Path E: Believer / finance route
+
+Offer: serious believer, sponsor, accelerator, grant, or pilot conversation
+Amount: not fixed
+Payment link: none by default
+Delivery trigger: conversation, application, or legal review
 
 ## Gate states
+
+- not_seen
+- clicked
+- lead_created
+- checkout_started
+- paid_pending
+- paid_verified
+- delivery_started
+- delivery_completed
+- support_offered
+- support_active
+- lost
+
+## Mode states
 
 ### Draft mode
 
@@ -58,16 +112,31 @@ Only allowed after:
 - approved storage backend
 - approved traffic channel
 
-## Verified revenue rule
+## Revenue rule
 
 Revenue is only real when Stripe, bank, or accounting confirms it.
 
-## Current truth
+## Delivery rule
 
-Stripe available balance: 0 EUR.
-Stripe pending balance: 0 EUR.
-No confirmed MoneyGate revenue yet.
+No customer delivery starts without verified payment or explicitly approved free-pilot status.
+
+## Product sprawl rule
+
+No new product is allowed into MoneyGate unless it supports the core funnel or replaces a weaker active path.
+
+## Outreach rule
+
+No outreach can include a payment link unless:
+
+1. the route is approved
+2. the recipient is verified
+3. the message is personalized
+4. the send action is explicitly approved
+
+## Current bottleneck
+
+MoneyGate has payment paths, but no active traffic, no deployed public funnel, no storage backend, and no verified payment.
 
 ## Next action
 
-Use MoneyGate as the only checkout router. Do not scatter payment links across random drafts.
+Register MoneyGate in the system index, active queue, and operating state. Use MoneyGate as the only checkout router.
