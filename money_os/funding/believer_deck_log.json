@@ -1,0 +1,21 @@
+{
+  "status": "created_not_sent",
+  "canva_design": {
+    "id": "DAHKjSepDBw",
+    "title": "Octomind: One-Person Digital Company OS",
+    "edit_url": "https://www.canva.com/d/TPfgntu1dFg4LGP",
+    "view_url": "https://www.canva.com/d/my8KcSTy-J3ZXGE",
+    "slides": 6
+  },
+  "gmail_draft": {
+    "subject": "Draft: Looking for one serious believer for Octomind",
+    "status": "verified_draft_not_sent"
+  },
+  "ask_range": "25k to 100k EUR or USD",
+  "safety": {
+    "no_message_sent": true,
+    "no_funding_claimed": true,
+    "no_equity_terms_promised": true,
+    "no_debt_terms_promised": true
+  }
+}
