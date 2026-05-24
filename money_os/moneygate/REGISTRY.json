@@ -1,0 +1,27 @@
+{
+  "module": "MoneyGate",
+  "status": "active",
+  "kernel_link": "money_os/KERNEL.md",
+  "module_file": "money_os/moneygate/MONEYGATE.md",
+  "purpose": "single commercial gate for offers, checkout, verification, delivery trigger and revenue reporting",
+  "active_paths": [
+    "USD setup 599",
+    "USD monthly support 179",
+    "EUR setup 499",
+    "EUR monthly support 149",
+    "believer finance route"
+  ],
+  "current_truth": {
+    "confirmed_revenue": 0,
+    "stripe_available_eur": 0,
+    "stripe_pending_eur": 0,
+    "payment_intents_sample": 0
+  },
+  "rules": [
+    "no counted revenue without Stripe bank or accounting confirmation",
+    "no delivery without verified payment or approved free pilot",
+    "no public traffic until launch gate opens",
+    "no outreach without approval",
+    "no new product without kernel approval"
+  ]
+}
