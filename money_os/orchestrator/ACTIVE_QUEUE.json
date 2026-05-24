@@ -1,0 +1,59 @@
+{
+  "status": "active",
+  "purpose": "One command queue for Money OS so modules stop acting like separate files.",
+  "kernel": "money_os/KERNEL.md",
+  "system_index": "money_os/SYSTEM_INDEX.md",
+  "current_truth": {
+    "stripe_available_eur": 0,
+    "stripe_pending_eur": 0,
+    "stripe_payment_intents_sample": 0,
+    "vercel_team_exists": true,
+    "vercel_project_state": "unknown_or_empty_latest_checks",
+    "public_launch_allowed": false,
+    "outbound_messages_allowed": false,
+    "money_movement_allowed": false
+  },
+  "queue": [
+    {
+      "id": "Q1",
+      "name": "Fix deploy target",
+      "module": "launch",
+      "state": "blocked",
+      "why": "Vercel team exists but no active project is confirmed.",
+      "next_action": "prepare project connection path and keep public launch blocked"
+    },
+    {
+      "id": "Q2",
+      "name": "Select storage backend",
+      "module": "launch",
+      "state": "blocked",
+      "why": "Audit intake endpoint is demo mode only.",
+      "next_action": "prepare Make, Google Sheets, Supabase, or Vercel storage decision"
+    },
+    {
+      "id": "Q3",
+      "name": "Prepare approved ecosystem outreach",
+      "module": "funding",
+      "state": "draft_ready_not_sent",
+      "why": "Hub71 and Dubai Digital Economy drafts exist but must not be sent without verified route and approval.",
+      "next_action": "turn drafts into approval checklist"
+    },
+    {
+      "id": "Q4",
+      "name": "Find named paid pilot targets",
+      "module": "funding",
+      "state": "research",
+      "why": "Paid pilot is the most direct path to first revenue.",
+      "next_action": "identify named UAE, Turkey, Greece operators from public business routes"
+    },
+    {
+      "id": "Q5",
+      "name": "Keep product sprawl blocked",
+      "module": "payments",
+      "state": "active_guard",
+      "why": "More products do not solve zero revenue.",
+      "next_action": "promote only Revenue Leak Audit -> Setup -> Support"
+    }
+  ],
+  "rule": "Only the top unblocked queue item should drive new work."
+}
