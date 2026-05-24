@@ -1,0 +1,34 @@
+{
+  "queue": [
+    {
+      "id": "Q0",
+      "name": "Moneygate truth check",
+      "status": "active",
+      "action": "Check Stripe balance and payment intents before any progress claim."
+    },
+    {
+      "id": "Q1",
+      "name": "Collapse to one first sale offer",
+      "status": "active",
+      "action": "Use 49 EUR Signal Audit as the primary sale; use 19 EUR First Signal Check only as fallback."
+    },
+    {
+      "id": "Q2",
+      "name": "Named prospect conversion",
+      "status": "active",
+      "action": "Use existing sent threads and relevant private routes. No new broad asset building."
+    },
+    {
+      "id": "Q3",
+      "name": "Delivery readiness",
+      "status": "ready",
+      "action": "When payment appears, stop outreach and deliver the audit immediately."
+    },
+    {
+      "id": "Q4",
+      "name": "Deployment target",
+      "status": "blocked",
+      "action": "Vercel has no projects and Replit needs reauthentication. Use GitHub and Airtable as control plane until deploy target is connected."
+    }
+  ]
+}
