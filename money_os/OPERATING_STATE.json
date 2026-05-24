@@ -1,0 +1,26 @@
+{
+  "status": "active",
+  "kernel": "money_os/KERNEL.md",
+  "system_index": "money_os/SYSTEM_INDEX.md",
+  "last_verified_state": {
+    "stripe_available_eur": 0,
+    "stripe_pending_eur": 0,
+    "stripe_customers_sample": 0,
+    "vercel_team_exists": true,
+    "vercel_projects": 0,
+    "public_launch_allowed": false,
+    "real_lead_collection_allowed": false,
+    "outbound_messages_allowed": false,
+    "money_movement_allowed": false
+  },
+  "active_priority": [
+    "fix_deploy_target",
+    "select_storage_backend",
+    "prepare_approved_outreach",
+    "identify_named_paid_pilot_targets",
+    "reach_first_verified_revenue_or_finance"
+  ],
+  "core_funnel": "Free Revenue Leak Audit -> AI Revenue Autopilot Setup -> Monthly Support",
+  "finance_funnel": "Believer packet -> ecosystem route or paid pilot -> verified finance signal",
+  "anti_mess_rule": "No new file or module without kernel registration or index entry."
+}
