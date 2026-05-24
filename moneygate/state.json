@@ -1,0 +1,30 @@
+{
+  "system": "Moneygate Control Plane",
+  "version": "0.2.0",
+  "canonical_brain": "Airtable Signal Workflow Board",
+  "status": "active_not_earning_yet",
+  "cash_truth": {
+    "stripe_available_eur": 0,
+    "stripe_pending_eur": 0,
+    "payment_intents": 0,
+    "last_checked": "2026-05-24"
+  },
+  "active_gate": {
+    "name": "Signal Audit",
+    "price_eur": 49,
+    "role": "primary first sale offer"
+  },
+  "fallback_gate": {
+    "name": "First Signal Check",
+    "price_eur": 19,
+    "role": "low friction entry"
+  },
+  "upper_stage_rule": "Stop building scattered assets. Run one canonical route: lead -> moneygate -> payment -> delivery -> pulse.",
+  "blockers": [
+    "no confirmed buyer reply",
+    "no checkout event",
+    "Vercel projects empty",
+    "Replit requires reauthentication"
+  ],
+  "next_action": "Select named prospects from existing sent threads and drive them to the 49 EUR Signal Audit or 19 EUR fallback."
+}
