@@ -1,5 +1,10 @@
 import React, { useMemo, useState } from 'react';
 
+const paymentLinks = {
+  firstSignalCheck: 'https://buy.stripe.com/7sYcN5gEA41wetl9b36Na0J',
+  signalAudit: 'https://buy.stripe.com/4gM28rbkg41wcld9b36Na0K',
+};
+
 const initialLeads = [
   {
     id: 1,
@@ -24,16 +29,19 @@ const offers = [
     name: 'First Signal Check',
     price: '19 EUR',
     text: 'Small diagnostic for one missed lead, reply path, or payment signal.',
+    link: paymentLinks.firstSignalCheck,
   },
   {
     name: 'Signal Audit',
     price: '49 EUR',
     text: 'Broader review of inquiry, booking, affiliate, or follow-up flow.',
+    link: paymentLinks.signalAudit,
   },
   {
     name: 'Command Center Diagnostic',
     price: '490 EUR',
     text: 'Scoped map of workflow, revenue leaks, next actions, and risk notes.',
+    link: '#',
   },
 ];
 
@@ -50,7 +58,9 @@ function classifyLead(text) {
 
 function buildFollowUp(lead, offer) {
   if (!lead.trim()) return 'Add a lead note first.';
-  return `Hi, thanks for the context. Based on what you shared, the safest next step is a small scoped check: ${offer}. I can review the signal path, identify the first leak, and return a concise next-action note. No broad implementation is included unless scoped separately.`;
+  const selected = offers.find((item) => item.name === offer);
+  const paymentLine = selected?.link && selected.link !== '#' ? ` Payment link: ${selected.link}` : '';
+  return `Hi, thanks for the context. Based on what you shared, the safest next step is a small scoped check: ${offer}. I can review the signal path, identify the first leak, and return a concise next-action note. No broad implementation is included unless scoped separately.${paymentLine}`;
 }
 
 export default function App() {
@@ -128,7 +138,11 @@ export default function App() {
               <p className="text-cyan-300 font-semibold">{offer.price}</p>
               <h3 className="text-xl font-bold mt-2">{offer.name}</h3>
               <p className="text-slate-300 mt-3">{offer.text}</p>
-              <button className="mt-5 rounded-xl bg-cyan-300 text-slate-950 px-4 py-2 font-semibold">Payment CTA</button>
+              {offer.link !== '#' ? (
+                <a className="inline-block mt-5 rounded-xl bg-cyan-300 text-slate-950 px-4 py-2 font-semibold" href={offer.link} target="_blank" rel="noreferrer">Pay / Start</a>
+              ) : (
+                <button className="mt-5 rounded-xl bg-slate-700 text-slate-300 px-4 py-2 font-semibold">Manual scope</button>
+              )}
             </article>
           ))}
         </section>
