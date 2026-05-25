@@ -1,0 +1,51 @@
+name: Creative Packet Generator
+
+on:
+  workflow_dispatch:
+    inputs:
+      product:
+        description: Product name
+        required: true
+        default: PLAUD Note Pro
+      category:
+        description: Product category
+        required: true
+        default: AI productivity gadget
+      route:
+        description: Monetization route
+        required: true
+        default: affiliate
+      audience:
+        description: Target audience
+        required: true
+        default: creators, founders, and meeting-heavy professionals
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate creative packet
+        run: |
+          python scripts/generate_creative_packet.py \
+            --product "${{ github.event.inputs.product }}" \
+            --category "${{ github.event.inputs.category }}" \
+            --route "${{ github.event.inputs.route }}" \
+            --audience "${{ github.event.inputs.audience }}"
+
+      - name: Commit generated packet
+        run: |
+          git config user.name "octosupercomputer-bot"
+          git config user.email "actions@github.com"
+          git add outputs/creative_packets/*.md
+          git commit -m "Generate creative packet for ${{ github.event.inputs.product }}" || echo "No changes to commit"
+          git push
