@@ -3,6 +3,8 @@ import React, { useMemo, useState } from 'react';
 const paymentLinks = {
   firstSignalCheck: 'https://buy.stripe.com/7sYcN5gEA41wetl9b36Na0J',
   signalAudit: 'https://buy.stripe.com/4gM28rbkg41wcld9b36Na0K',
+  revenueSprint: 'https://buy.stripe.com/aFafZh740eGaad55YR6Na0L',
+  commandCenter: 'https://buy.stripe.com/dRm4gz5ZWapUetlfzr6Na0M',
 };
 
 const initialLeads = [
@@ -38,10 +40,16 @@ const offers = [
     link: paymentLinks.signalAudit,
   },
   {
-    name: 'Command Center Diagnostic',
+    name: 'Octomind Revenue Sprint',
+    price: '149 EUR',
+    text: 'Focused sprint to set up a simple offer, lead capture, and payment-ready sales flow.',
+    link: paymentLinks.revenueSprint,
+  },
+  {
+    name: 'Cloud Command Center Diagnostic',
     price: '490 EUR',
-    text: 'Scoped map of workflow, revenue leaks, next actions, and risk notes.',
-    link: '#',
+    text: 'Scoped 48-hour audit and setup map for offer route, payment path, automation map, and launch-priority report.',
+    link: paymentLinks.commandCenter,
   },
 ];
 
@@ -59,8 +67,8 @@ function classifyLead(text) {
 function buildFollowUp(lead, offer) {
   if (!lead.trim()) return 'Add a lead note first.';
   const selected = offers.find((item) => item.name === offer);
-  const paymentLine = selected?.link && selected.link !== '#' ? ` Payment link: ${selected.link}` : '';
-  return `Hi, thanks for the context. Based on what you shared, the safest next step is a small scoped check: ${offer}. I can review the signal path, identify the first leak, and return a concise next-action note. No broad implementation is included unless scoped separately.${paymentLine}`;
+  const paymentLine = selected?.link ? ` Payment link: ${selected.link}` : '';
+  return `Hi, thanks for the context. Based on what you shared, the safest next step is a scoped offer: ${offer}. I can review the signal path, identify the first leak, and return a concise next-action note. No guaranteed revenue claims and no broad implementation unless scoped separately.${paymentLine}`;
 }
 
 export default function App() {
@@ -132,17 +140,13 @@ export default function App() {
           </div>
         </section>
 
-        <section className="grid md:grid-cols-3 gap-4">
+        <section className="grid md:grid-cols-4 gap-4">
           {offers.map((offer) => (
             <article key={offer.name} className="rounded-3xl bg-slate-900 border border-slate-800 p-6">
               <p className="text-cyan-300 font-semibold">{offer.price}</p>
               <h3 className="text-xl font-bold mt-2">{offer.name}</h3>
               <p className="text-slate-300 mt-3">{offer.text}</p>
-              {offer.link !== '#' ? (
-                <a className="inline-block mt-5 rounded-xl bg-cyan-300 text-slate-950 px-4 py-2 font-semibold" href={offer.link} target="_blank" rel="noreferrer">Pay / Start</a>
-              ) : (
-                <button className="mt-5 rounded-xl bg-slate-700 text-slate-300 px-4 py-2 font-semibold">Manual scope</button>
-              )}
+              <a className="inline-block mt-5 rounded-xl bg-cyan-300 text-slate-950 px-4 py-2 font-semibold" href={offer.link} target="_blank" rel="noreferrer">Pay / Start</a>
             </article>
           ))}
         </section>
