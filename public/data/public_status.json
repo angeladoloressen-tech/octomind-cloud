@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-06-20T19:30:00Z",
+  "portal_status": "BOOTSTRAP_REVIEW",
+  "core_mode": "PRIVATE_LOCAL_FIRST",
+  "paid_api_mode": "DISABLED",
+  "human_approval": "REQUIRED",
+  "external_execution": "DISABLED_BY_DEFAULT",
+  "publication_policy": "SANITIZED_PUBLIC_EXPORTS_ONLY",
+  "public_note": "This portal publishes approved summaries only. Private runtime state, secrets, customer data, and raw internal logs are not exposed.",
+  "public_metrics": {
+    "qualified_opportunities": 0,
+    "monetization_experiments": 0,
+    "governed_releases": 1
+  },
+  "release_ledger": [
+    {
+      "id": "AION-PUBLIC-0001",
+      "status": "DRAFT",
+      "title": "AION Observatory bootstrap",
+      "summary": "A static GitHub public portal was initialized without paid APIs, external databases, customer data, or automatic outreach."
+    }
+  ],
+  "next_controlled_milestones": [
+    "Approve the public/private repository boundary and retire conflicting cloud-first claims.",
+    "Publish a sanitized system map generated from verified local state reports.",
+    "Add the first evidence-backed opportunity record with provenance and human approval.",
+    "Add a governed monetization experiment with cost-to-serve and gross-margin fields.",
+    "Enable GitHub Pages only after secret scanning and manual review pass."
+  ]
+}
