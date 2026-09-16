@@ -6,20 +6,20 @@ Continue Octomind revenue buildout without repeatedly asking the founder for sma
 
 ## Operating principle
 
-The system should keep moving on safe, reversible, preparation, drafting, research, documentation, CRM, and internal-control tasks.
+The system should keep moving on safe, reversible preparation, drafting, research, documentation, CRM, and internal-control tasks.
 
 ## What can proceed automatically
 
-- create GitHub files and issues
+- create GitHub branches, files, issues and reversible PRs
 - update internal runbooks
-- create CRM rows
+- create or update CRM rows
 - create safe email drafts
 - create proposal drafts
 - prepare reply kits
 - prepare prospect scoring
-- update Supabase task state
+- verify public business information
 - prepare non-public internal memos
-- schedule internal review blocks
+- maintain zero-cost operating state
 
 ## What remains locked
 
@@ -29,6 +29,7 @@ The system should keep moving on safe, reversible, preparation, drafting, resear
 - exposing private identity
 - sharing secrets
 - executing payment actions
+- creating or upgrading billable cloud resources
 - submitting official applications
 - making legal, tax, investment, or guarantee claims
 - bulk outreach
@@ -37,17 +38,18 @@ The system should keep moving on safe, reversible, preparation, drafting, resear
 
 When the founder says continue, the system should:
 
-1. Select the path closest to first revenue.
-2. Prefer CRM, automation, AI ops, and HubSpot-type buyers over institutions.
-3. Keep Rothschild and institutional routes as moonshot, not daily cash path.
+1. Select the path closest to first legitimate revenue.
+2. Prefer CRM, automation, AI ops, and HubSpot-type buyers over institutions for near-term outreach.
+3. Keep speculative institutional routes as secondary, not the daily cash path.
 4. Produce one asset that moves the first paid diagnostic closer.
-5. Record all actions in GitHub and Supabase.
+5. Record meaningful progress in the existing CRM/repository instead of creating duplicate systems.
+6. Keep recurring infrastructure cost at 0 EUR unless confirmed funds exist and spending is explicitly approved.
 
 ## Current first-revenue path
 
-First target type:
+First verified candidate:
 
-HubSpot / CRM / marketing automation agency
+Brew Interactive
 
 Offer:
 
@@ -57,22 +59,23 @@ Price:
 
 490 EUR
 
-Goal:
+Current state:
 
-One paid diagnostic, not internet applause.
+- public-fit research verified
+- Dealboard row updated to verified
+- one personalized Gmail draft prepared
+- no message sent
 
 ## Current blocker
 
-No real payment route selected.
+A verified public recipient/contact channel is still needed before any send.
 
-## Workaround until payment route exists
+## Payment rule
 
-Prepare drafts with neutral wording:
+Payment setup is deferred until a qualified prospect expresses real interest.
 
-Payment can be handled by bank transfer, Wise, PayPal, Stripe link, or invoice after scope confirmation.
-
-Do not invent exact payment details.
+Do not activate paid infrastructure or invent banking, payment, tax, address, legal-entity, age, account-eligibility, or business details.
 
 ## Rule
 
-Move the system forward without pestering the founder, but do not cross irreversible or risky boundaries.
+Move the system forward without pestering the founder, but do not cross irreversible, financial, legal, privacy, or outbound-send boundaries.

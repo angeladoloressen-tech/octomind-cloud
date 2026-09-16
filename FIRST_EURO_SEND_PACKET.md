@@ -2,14 +2,14 @@
 
 ## Purpose
 
-Compress the system into one revenue action: one verified prospect, one personalized message, one clear diagnostic offer, one payment route, one follow-up.
+Compress the system into one revenue action: one verified prospect, one personalized message, one clear diagnostic offer, one reply path, then one legitimate payment route only when interest is qualified.
 
 ## Offer
 
 Cloud Command Center Diagnostic
 
 Price: 490 EUR
-Delivery: 48 hours after payment confirmation
+Delivery: 48 hours after scope and payment confirmation
 
 ## Output
 
@@ -23,52 +23,61 @@ Delivery: 48 hours after payment confirmation
 
 Automation, CRM, AI, no-code, or operations agencies whose delivery is scattered across tools, workflows, approvals, docs, APIs, and client handoff.
 
-## First recommended prospect type
+## First verified prospect
 
-HubSpot / CRM / marketing automation agency.
+Brew Interactive
 
-Reason:
+Why it fits:
 
-- clear workflow pain
-- clear CRM and automation context
-- easier to understand AI Ops Reset
-- closer to 490 EUR diagnostic decision than large institutions
+- public positioning around one connected growth system
+- HubSpot Platinum Solutions Partner
+- Salesforce Partner
+- marketing automation capability
+- AI-powered lead generation / outbound capability
+
+Personalization angle:
+
+Ask where cross-tool delivery creates the most operational friction across CRM automation, AI outbound, approvals, reporting, documentation and client handoff.
 
 ## First-send rule
 
 Do not send five emails at once.
 
-Send only one message after manual review.
+Prepare and, after explicit send approval, send only one message to one verified public business contact channel.
 
-## Payment blocker
+## Payment timing
 
-A real payment route must exist before serious closing.
+A payment route is **not required before the first conversation**.
 
-Fastest acceptable placeholder:
+Do not spend money or activate paid infrastructure merely to make outreach possible.
 
-Payment by bank transfer, Wise, PayPal, Stripe link, or invoice.
-
-No exact bank, PayPal, Wise, Stripe, tax, or address details should be invented. Use placeholders until the founder provides the real method.
+A legitimate payment or invoice route is required only before accepting payment and starting paid delivery. Never invent bank, PayPal, Wise, Stripe, tax, address, age, legal-entity or business details.
 
 ## Send checklist
 
 Before sending:
 
 - public website reviewed
+- recipient/contact channel is publicly verified
 - personalization hook is accurate
 - private identity details are not disclosed
 - no private data was scraped
 - message is not desperate
 - no guarantee claims
-- payment route placeholder is replaced or invoice process is ready
 - follow-up draft exists
+
+Before accepting payment:
+
+- legitimate payment/invoice route exists
+- any required legal/tax/guardian or account-eligibility requirements are satisfied
+- delivery terms are clear
 
 ## Message structure
 
 1. Public signal
 2. Operational pain hypothesis
-3. Octomind command layer
-4. 490 EUR diagnostic
+3. Octomind diagnostic
+4. 490 EUR price
 5. One question
 6. No pressure
 
@@ -81,4 +90,4 @@ Stop after second follow-up unless the prospect replies.
 ## Success definition
 
 The goal is not to impress the internet.
-The goal is one paid diagnostic.
+The goal is one qualified conversation, then one legitimate paid diagnostic.
