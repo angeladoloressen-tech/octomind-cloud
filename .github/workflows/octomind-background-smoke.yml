@@ -2,8 +2,6 @@ name: Octomind Background Smoke
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "17 */6 * * *"
 
 permissions:
   contents: read
@@ -17,7 +15,7 @@ jobs:
 
       - name: Inspect project
         run: |
-          echo "octomind_background_smoke=started"
+          echo "octomind_background_smoke=manual"
           pwd
           find . -maxdepth 2 -type f | sort | head -120
 
@@ -35,7 +33,6 @@ jobs:
         run: |
           python --version
           if [ -f requirements.txt ]; then
-            python -m pip install --upgrade pip
             python -m pip install -r requirements.txt
           fi
           python - <<'PYSMOKE'
@@ -43,10 +40,11 @@ jobs:
           from pathlib import Path
           result = {
               "status": "ok",
-              "mode": "github_background_smoke",
+              "mode": "zero_cost_manual_smoke",
               "has_package_json": Path("package.json").exists(),
               "has_requirements": Path("requirements.txt").exists(),
               "has_src": Path("src").exists(),
+              "scheduled_background_runs": False,
           }
           print(json.dumps(result, indent=2))
           PYSMOKE
