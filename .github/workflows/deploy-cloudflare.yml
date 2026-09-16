@@ -2,12 +2,6 @@ name: Deploy Octomind Cloud Brain
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - "cloudflare/**"
-      - ".github/workflows/deploy-cloudflare.yml"
 
 permissions:
   contents: read
@@ -22,7 +16,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Check credentials
+        id: credentials
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -n "$CLOUDFLARE_API_TOKEN" ] && [ -n "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+            echo "Cloudflare credentials available."
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "Zero-cost mode: Cloudflare deploy skipped because credentials are not configured."
+          fi
+
       - name: Setup Node
+        if: steps.credentials.outputs.ready == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -30,9 +40,11 @@ jobs:
           cache-dependency-path: cloudflare/package.json
 
       - name: Install dependencies
-        run: npm install
+        if: steps.credentials.outputs.ready == 'true'
+        run: npm install --no-audit --no-fund
 
       - name: Deploy Cloudflare Worker
+        if: steps.credentials.outputs.ready == 'true'
         run: npx wrangler deploy --config wrangler.jsonc
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
