@@ -1,8 +1,6 @@
 name: Deploy Octomind Worker
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 concurrency:
@@ -21,12 +19,28 @@ jobs:
       - name: Reality preflight
         shell: bash
         run: |
-          echo "Octomind Reality Mode deploy preflight"
+          echo "Octomind zero-cost manual deploy preflight"
           test -f worker.js
           test -f wrangler.toml
           echo "worker.js and wrangler.toml exist"
 
+      - name: Check credentials
+        id: credentials
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -n "$CLOUDFLARE_API_TOKEN" ] && [ -n "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+            echo "Cloudflare credentials available."
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "Zero-cost mode: deploy skipped because Cloudflare credentials are not configured."
+          fi
+
       - name: Deploy Worker with Wrangler
+        if: steps.credentials.outputs.ready == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -36,4 +50,8 @@ jobs:
       - name: Reality postflight
         shell: bash
         run: |
-          echo "Deploy command completed. GitHub workflow success is deploy evidence. Runtime /health must still be checked separately."
+          if [ "${{ steps.credentials.outputs.ready }}" = "true" ]; then
+            echo "Deploy command completed. Runtime /health must still be checked separately."
+          else
+            echo "No deployment was attempted. Zero-cost mode remains intact."
+          fi
