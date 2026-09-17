@@ -18,18 +18,22 @@ This file turns Octomind from scattered assets into a staged revenue engine whil
 | Key | Stage | Status | Blocker | Next action |
 |---|---|---|---|---|
 | buyer_path | targeting | verified | none | Brew Interactive selected as first verified CRM / marketing automation candidate |
-| first_send | outreach | draft_ready | exact public recipient/contact channel not yet verified | keep one personalized Gmail draft ready; send only with explicit approval and verified public contact |
+| first_send | outreach | ready_for_send_review | explicit send approval | personalized Gmail draft is addressed to the verified public business contact; one-page scope is ready in Drive; do not send automatically |
 | reply_qualify | sales | ready | no reply yet | ask one operational-friction question and qualify interest |
 | moneygate | payment | deferred_until_interest | no real payment route selected | resolve only after a qualified prospect wants the diagnostic; do not buy or activate paid infrastructure first |
-| web_capture | lead_capture | optional | Netlify deployment not required for first outreach | use static asset only if a zero-cost public route is available; do not block outreach on hosting |
-| delivery | fulfillment | template_ready | no paid diagnostic yet | deliver after scope and legitimate payment confirmation |
-| upsell | expansion | planned | no first diagnostic yet | consider build sprint only after the diagnostic creates value |
+| web_capture | lead_capture | optional | none for first outreach | use a static asset only if a zero-cost public route is useful; do not block outreach on hosting |
+| delivery | fulfillment | scope_and_template_ready | no paid diagnostic yet | deliver only after scope and legitimate payment confirmation |
+| upsell | expansion | planned | no first diagnostic yet | consider a build sprint only after the diagnostic creates value |
 
 ## First verified candidate
 
 Brew Interactive
 
-Public-fit signals verified 2026-09-16:
+Verified public business contact:
+
+- info@brewinteractive.com
+
+Public-fit signals verified from Brew's public website:
 
 - HubSpot Platinum Solutions Partner
 - Salesforce Partner
@@ -40,6 +44,12 @@ Public-fit signals verified 2026-09-16:
 Personalization angle:
 
 Governance and handoff across CRM, AI outbound, reporting, approvals, documentation and multiple tools without adding another costly infrastructure layer.
+
+Prepared assets:
+
+- personalized Gmail outreach draft: ready, not sent
+- one-page Cloud Command Center Diagnostic scope: ready in the private Drive workspace
+- Dealboard Manual Approval Queue: updated
 
 ## MoneyGate rule
 
@@ -58,4 +68,4 @@ Until confirmed revenue exists and spending is explicitly approved:
 
 ## Current upper-stage move
 
-Verify one public contact channel for Brew Interactive, then use the already-prepared personalized draft after explicit send approval.
+The first-send package is complete. Keep the message unsent until explicit send approval. While waiting, do not create more infrastructure; prepare only reply handling and delivery readiness that can be done at 0 EUR.
