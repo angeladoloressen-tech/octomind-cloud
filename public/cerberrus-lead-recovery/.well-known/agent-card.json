@@ -1,0 +1,61 @@
+{
+  "name": "CERBERRUS Lead Recovery Agent",
+  "description": "A2A-native CRM and sales-operations diagnostic for AI agents. Detect stale leads, slow first-response time, unassigned leads, incomplete follow-up coverage and weak pipeline structure from supplied evidence. The lead-recovery-assessment skill is deterministic, machine-readable and zero-payment. Paid lead-recovery intake exists but checkout remains fail-closed until the merchant boundary is verified.",
+  "version": "0.1.0",
+  "provider": {
+    "organization": "CERBERRUS",
+    "url": "https://github.com/angeladoloressen-tech/octomind-cloud"
+  },
+  "supportedInterfaces": [
+    {
+      "url": "https://vlgibwclecuhnnrgycnx.supabase.co/functions/v1/cerberrus-network-api/a2a",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "extendedAgentCard": false
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "lead-recovery-assessment",
+      "name": "Lead Recovery Assessment",
+      "description": "Run an immediate zero-payment deterministic CRM lead-flow diagnostic over supplied evidence. Returns risk score, risk band, evidence-linked signals, missing inputs and prioritized actions. No payment is created and no revenue outcome is predicted.",
+      "tags": ["crm", "sales-ops", "lead-recovery", "pipeline-recovery", "stale-leads", "response-sla", "follow-up", "deterministic-diagnostic", "free-assessment", "machine-readable"],
+      "examples": [
+        "Assess this lead flow: 120 leads, 35 stale, average first response 180 minutes, follow-up coverage 52%.",
+        "Find CRM leakage caused by stale leads, slow response and incomplete follow-up."
+      ],
+      "inputModes": ["text/plain", "application/json"],
+      "outputModes": ["application/json"]
+    },
+    {
+      "id": "lead-recovery-quote",
+      "name": "Lead Recovery Quote",
+      "description": "Return machine-readable pricing and readiness for the 48h lead-recovery skill without creating a payment.",
+      "tags": ["crm", "sales-ops", "lead-recovery", "quote", "machine-to-machine"],
+      "examples": ["Quote the 48h lead-recovery skill."],
+      "inputModes": ["text/plain", "application/json"],
+      "outputModes": ["application/json"]
+    },
+    {
+      "id": "lead-recovery-48h",
+      "name": "48h Lead-Recovery Sprint",
+      "description": "Record a paid-skill intake request for CRM lead recovery. Checkout remains closed pending the one-time merchant boundary, so no charge is created by intake.",
+      "tags": ["crm", "sales-ops", "lead-recovery", "pipeline", "paid-service", "a2a"],
+      "examples": ["Create a lead-recovery sprint request."],
+      "inputModes": ["text/plain", "application/json"],
+      "outputModes": ["application/json", "text/plain"]
+    }
+  ]
+}
