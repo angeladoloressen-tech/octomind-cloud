@@ -1,15 +1,16 @@
 {
   "name": "cds-distribution-engine",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "type": "module",
   "scripts": {
     "audit": "node index.mjs sample-assets.json",
     "audit:public": "node index.mjs public-assets.json",
     "audit:json": "node index.mjs sample-assets.json --json",
-    "test": "node test.mjs && node test-adapters.mjs && node test-router.mjs && node test-opportunity.mjs",
+    "test": "node test.mjs && node test-adapters.mjs && node test-router.mjs && node test-opportunity.mjs && node test-market-cell.mjs",
     "test:adapters": "node test-adapters.mjs",
     "test:router": "node test-router.mjs",
-    "test:opportunity": "node test-opportunity.mjs"
+    "test:opportunity": "node test-opportunity.mjs",
+    "test:market-cell": "node test-market-cell.mjs"
   }
 }
