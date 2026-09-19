@@ -23,6 +23,21 @@ Missing layers produce one prioritized action:
 - `CONVERT`
 - `HOLD_UNPUBLISHED` when first-publication rights are at risk
 
+## Source adapters
+
+`adapters/` normalizes snapshots from:
+
+- Gmail — sent pitches are activity; inbound human replies become intent signals requiring review.
+- Jotform — newsletter submissions become retention; research/project/service requests become intent.
+- GitHub — stars/watches/forks are audience signals; commits and merged PRs are activity only.
+- Site analytics — views, returning visitors and CTA clicks when a real analytics snapshot is available.
+
+Missing analytics are reported as `unavailable`; they are never silently converted to zero traffic.
+
+## Privacy boundary
+
+The public repository contains adapter code and synthetic fixtures only. Raw emails, sender addresses, form answers and other private connector data must not be committed. Connected tools should convert private data to anonymous counts/signals at runtime.
+
 ## Revenue truth rule
 
 Only events with `type=payment` and `verified=true` count as revenue. Pitches, views, followers, inquiries and hypothetical prices do not.
@@ -33,12 +48,9 @@ Only events with `type=payment` and `verified=true` count as revenue. Pitches, v
 cd distribution-engine
 npm test
 npm run audit
-npm run audit:json
+node index.mjs sample-sources.json
+node index.mjs sample-sources.json --json
 ```
-
-## Next adapters
-
-The core is deliberately dependency-free. Planned adapters can feed it signals from Gmail, Jotform, GitHub, site analytics and publishing platforms without changing the decision engine.
 
 ## Design principle
 
