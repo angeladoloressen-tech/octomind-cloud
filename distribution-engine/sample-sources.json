@@ -1,0 +1,40 @@
+{
+  "adapterOptions": {
+    "ownAddresses": ["owner@example.com"]
+  },
+  "assets": [
+    {
+      "id": "example-essay",
+      "title": "Example Essay",
+      "strategic": true,
+      "canonicalHome": true,
+      "discoveryPath": true,
+      "audienceCapture": false,
+      "valuePath": true
+    }
+  ],
+  "sources": {
+    "gmail": {
+      "messages": [
+        {"from_": "owner@example.com", "subject": "PITCH — Example", "labels": ["SENT"]},
+        {"from_": "editor@example.org", "subject": "Re: PITCH — Example", "labels": ["INBOX"]}
+      ]
+    },
+    "jotform": {
+      "forms": [
+        {"id": "newsletter", "role": "newsletter", "status": "ENABLED", "submission_count": 3},
+        {"id": "research", "role": "research_inquiry", "status": "ENABLED", "submission_count": 1}
+      ]
+    },
+    "github": {
+      "repo": {"private": false, "stargazers_count": 2, "subscribers_count": 1, "forks_count": 1},
+      "commits": 4,
+      "mergedPullRequests": 1
+    },
+    "site": {
+      "views": 80,
+      "returningVisitors": 9,
+      "ctaClicks": 5
+    }
+  }
+}
