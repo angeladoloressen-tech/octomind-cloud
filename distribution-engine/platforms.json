@@ -1,0 +1,48 @@
+{
+  "platforms": [
+    {
+      "id": "github-pages",
+      "name": "GitHub Pages",
+      "roles": ["canonical", "archive", "discovery"],
+      "assetKinds": ["essay", "research", "software", "portfolio", "documentation"],
+      "strengths": ["persistent-web", "versioned-source", "custom-domain"],
+      "directRevenue": false,
+      "eligibility": "available-on-public-repositories",
+      "currentStatus": "supported-but-not-enabled-on-octomind-cloud",
+      "source": "https://docs.github.com/en/pages"
+    },
+    {
+      "id": "zenodo",
+      "name": "Zenodo",
+      "roles": ["archive", "citation", "discovery"],
+      "assetKinds": ["research", "publication", "software", "dataset", "presentation"],
+      "strengths": ["doi", "persistent-identifier", "research-discovery"],
+      "directRevenue": false,
+      "eligibility": "account-required",
+      "currentStatus": "connector-not-available",
+      "source": "https://help.zenodo.org/docs/get-started/quickstart/"
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face Hub",
+      "roles": ["discovery", "demo", "technical-proof"],
+      "assetKinds": ["dataset", "software", "research", "benchmark", "demo"],
+      "strengths": ["ai-community", "dataset-viewer", "spaces", "git-versioning"],
+      "directRevenue": false,
+      "eligibility": "account-required",
+      "currentStatus": "connector-not-available",
+      "source": "https://huggingface.co/docs/hub/index"
+    },
+    {
+      "id": "linkedin-newsletter",
+      "name": "LinkedIn Newsletter",
+      "roles": ["discovery", "audience-capture", "professional-distribution"],
+      "assetKinds": ["essay", "research", "case-study", "announcement"],
+      "strengths": ["subscriber-notifications", "professional-network", "shareable-newsletter-page"],
+      "directRevenue": false,
+      "eligibility": "account-and-age-eligibility-must-be-verified",
+      "currentStatus": "not-connected",
+      "source": "https://www.linkedin.com/help/linkedin/answer/a521736"
+    }
+  ]
+}
