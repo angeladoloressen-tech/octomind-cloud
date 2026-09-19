@@ -1,0 +1,55 @@
+{
+  "schema": "cds.discovery-depth-conversion.v1",
+  "version": "0.1",
+  "date": "2026-09-19",
+  "objective": "Turn useful discovery into distinctive intellectual depth, inspectable evidence, owned audience, and legitimate value paths.",
+  "loop": ["discover", "use", "understand", "verify", "follow", "convert", "return"],
+  "asset_formula": [
+    "useful_question",
+    "demonstrable_example",
+    "one_original_concept",
+    "evidence_link",
+    "one_primary_cta"
+  ],
+  "layers": {
+    "discovery": {
+      "purpose": "earn first contact",
+      "formats": ["searchable video", "short clip", "visual card", "concise post"],
+      "rule": "The hook must work for someone who has never heard of Critical Digital Synthesis."
+    },
+    "depth": {
+      "purpose": "create memory and differentiation",
+      "concepts": ["Normative Compression", "Compressed Power", "Source-of-Constraint Transparency", "Utility Is Not Authorization", "Digital Iceberg"],
+      "rule": "Introduce at most one core concept per discovery asset."
+    },
+    "evidence": {
+      "purpose": "make claims inspectable",
+      "routes": ["source", "protocol", "ledger", "reproducible test", "essay", "documented limitation"],
+      "rule": "Never present pending experiments as completed evidence."
+    },
+    "conversion": {
+      "purpose": "give interested users one clear next action",
+      "routes": ["follow updates", "read canonical essay", "inspect protocol", "research inquiry", "AI transparency review", "talk/workshop inquiry"],
+      "rule": "One primary CTA per asset."
+    }
+  },
+  "comment_demand_classes": ["question", "alternative", "confusion", "objection", "use_case", "retention_signal", "qualified_inquiry"],
+  "idea_score": {
+    "scale_per_dimension": "0-2",
+    "dimensions": ["immediate_usefulness", "curiosity", "demonstrability", "search_longevity", "cds_differentiation", "evidence_availability", "conversion_path"],
+    "max": 14,
+    "default_publish_threshold": 10
+  },
+  "atomization": {
+    "one_core_idea": {
+      "searchable_video": 1,
+      "short_clips": "2-4",
+      "visual_concept_card": 1,
+      "concise_article_or_post": 1,
+      "canonical_evidence_link": 1,
+      "audience_capture_cta": 1
+    }
+  },
+  "anti_slop_requirement": ["original test/result", "original framework", "original visual analysis", "direct source comparison", "personal creative work", "documented experiment", "new evidence-grounded synthesis"],
+  "truth_boundary": "Attention and engagement are not revenue. Only verified payment counts as revenue."
+}
