@@ -35,15 +35,25 @@ Missing layers produce one prioritized action:
 
 `market-cell-engine.mjs` converts the useful part of the microsite idea into a policy-safe experiment system.
 
-It does **not** approve mass deployment merely because pages are cheap to generate. Each proposed cell must have:
-
-- standalone user value,
-- real local/topic evidence,
-- measurable demand,
-- a clear conversion path,
-- maintainability.
+It does **not** approve mass deployment merely because pages are cheap to generate. Each proposed cell must have standalone user value, real local/topic evidence, measurable demand, a clear conversion path and maintainability.
 
 The engine blocks scaling when cells are near-duplicates, funnel to the same destination, are designed to conceal a portfolio footprint, or primarily exist to manipulate rankings. The default mode is `PROVE_ONE_CELL`; scale is unlocked only after independently useful cells produce enough known outcomes and intent signals.
+
+## Catalog Portfolio Engine
+
+`catalog-portfolio-engine.mjs` converts the useful lesson from high-volume self-publishing into an evidence-first product-catalog loop.
+
+It does **not** treat book count as success. Every catalog concept is gated by:
+
+- customer-demand evidence,
+- buyer-pain evidence,
+- differentiation,
+- quality review,
+- metadata/content integrity,
+- platform/account eligibility,
+- AI-generation disclosure readiness when applicable.
+
+The default path is `RESEARCH_DEMAND` → `PILOT_ONE_PRODUCT` → `ITERATE_SINGLE_PRODUCT`. Catalog expansion is unlocked only after known outcomes show real sales/reader value; otherwise the engine returns `STOP_OR_REPOSITION`. For minors, KDP use requires parent/guardian involvement under Amazon's current rules; the engine must never bypass that requirement.
 
 ## Privacy boundary
 
@@ -64,4 +74,4 @@ npm run audit:public
 
 ## Design principle
 
-The engine does not auto-publish, auto-send pitches, accept contracts, buy services, mass-deploy sites or perform payment actions. It creates a prioritized, rights-aware and evidence-aware action queue for explicit execution.
+The engine does not auto-publish, auto-send pitches, accept contracts, buy services, mass-deploy sites, open restricted accounts, bypass identity/age requirements or perform payment actions. It creates a prioritized, rights-aware and evidence-aware action queue for explicit execution.
