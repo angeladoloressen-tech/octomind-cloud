@@ -1,0 +1,44 @@
+{
+  "assets": [
+    {
+      "id": "who-authorized-machine",
+      "title": "Who Authorized the Machine?",
+      "kind": "essay",
+      "status": "published",
+      "canonicalHome": true,
+      "discoveryPath": true,
+      "audienceCapture": false,
+      "valueRole": "credibility",
+      "strategic": true,
+      "evergreen": true
+    },
+    {
+      "id": "when-machine-says-no",
+      "title": "When the Machine Says No",
+      "kind": "editorial",
+      "status": "pitching",
+      "canonicalHome": true,
+      "discoveryPath": true,
+      "audienceCapture": true,
+      "valuePath": true,
+      "firstPublicationRightsActive": true,
+      "fullManuscriptPublic": false,
+      "strategic": true
+    },
+    {
+      "id": "cds-method",
+      "title": "Normative Compression Method",
+      "kind": "research",
+      "status": "published",
+      "canonicalHome": true,
+      "discoveryPath": false,
+      "audienceCapture": false,
+      "valueRole": "credibility",
+      "strategic": true
+    }
+  ],
+  "revenueEvents": [
+    {"type": "pitch", "amount": 300, "verified": false},
+    {"type": "inquiry", "amount": 149, "verified": false}
+  ]
+}
