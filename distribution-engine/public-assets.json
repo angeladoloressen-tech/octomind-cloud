@@ -1,0 +1,42 @@
+{
+  "assets": [
+    {
+      "id": "who-authorized-machine",
+      "title": "Who Authorized the Machine?",
+      "kind": "essay",
+      "status": "published",
+      "canonicalHome": "https://neon-echo-p3s9ab5.shipstatic.com",
+      "discoveryPath": "https://github.com/angeladoloressen-tech/octomind-cloud/blob/main/docs/critical-digital-synthesis/discover/who-authorized-the-machine.md",
+      "audienceCapture": "https://form.jotform.com/262611805684056",
+      "valueRole": "credibility",
+      "strategic": true,
+      "evergreen": true
+    },
+    {
+      "id": "when-machine-says-no",
+      "title": "When the Machine Says No",
+      "kind": "editorial",
+      "status": "pitching",
+      "canonicalHome": "https://spectral-mote-53xyn7e.shipstatic.com",
+      "discoveryPath": "https://spectral-mote-53xyn7e.shipstatic.com",
+      "audienceCapture": "https://form.jotform.com/262611805684056",
+      "valuePath": "paid editorial commission",
+      "firstPublicationRightsActive": true,
+      "fullManuscriptPublic": false,
+      "strategic": true
+    },
+    {
+      "id": "cds-method",
+      "title": "Normative Compression Method",
+      "kind": "research",
+      "status": "published",
+      "canonicalHome": "https://mapped-logic-sp9yvt7.shipstatic.com",
+      "discoveryPath": "https://github.com/angeladoloressen-tech/octomind-cloud/blob/main/docs/critical-digital-synthesis/discover/normative-compression.md",
+      "audienceCapture": "https://form.jotform.com/262611805684056",
+      "valueRole": "credibility",
+      "strategic": true,
+      "evergreen": true
+    }
+  ],
+  "events": []
+}
