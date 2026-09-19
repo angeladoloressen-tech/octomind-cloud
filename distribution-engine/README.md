@@ -25,36 +25,29 @@ Missing layers produce one prioritized action:
 
 ## Source adapters
 
-`adapters/` normalizes snapshots from:
-
-- Gmail — sent pitches are activity; inbound human replies become intent signals requiring review.
-- Jotform — newsletter submissions become retention; research/project/service requests become intent.
-- GitHub — stars/watches/forks are audience signals; commits and merged PRs are activity only.
-- Site analytics — views, returning visitors and CTA clicks when a real analytics snapshot is available.
-
-Missing analytics are reported as `unavailable`; they are never silently converted to zero traffic.
+`adapters/` normalizes snapshots from Gmail, Jotform, GitHub and available site analytics. Missing analytics remain `unavailable`; they are never silently converted to zero.
 
 ## Predictive Opportunity Engine
 
-`opportunity-engine.mjs` ranks asset × platform actions from aggregate outcome signals:
+`opportunity-engine.mjs` ranks asset × platform actions using aggregate attention, retention, intent, commercial evidence, verified revenue, effort, cash cost, rights risk and eligibility. It begins in evidence-aware heuristic mode and only marks the history ready for an external tabular model after enough labeled aggregate outcomes exist.
 
-- attention
-- retention
-- intent
-- commercial evidence
-- verified revenue
-- effort hours
-- cash cost
-- rights risk
-- eligibility blocks
+## Market Cell Engine
 
-It starts in evidence-aware heuristic mode. It does **not** claim predictive ML when there is not enough labeled history. `modelReadiness()` only marks the dataset eligible for an external tabular model after a minimum number of aggregate outcome rows has been collected.
+`market-cell-engine.mjs` converts the useful part of the microsite idea into a policy-safe experiment system.
 
-This creates a clean future integration point for tabular foundation models such as Mitra-v2 without making the current engine dependent on GPU hardware or a specific vendor/model.
+It does **not** approve mass deployment merely because pages are cheap to generate. Each proposed cell must have:
+
+- standalone user value,
+- real local/topic evidence,
+- measurable demand,
+- a clear conversion path,
+- maintainability.
+
+The engine blocks scaling when cells are near-duplicates, funnel to the same destination, are designed to conceal a portfolio footprint, or primarily exist to manipulate rankings. The default mode is `PROVE_ONE_CELL`; scale is unlocked only after independently useful cells produce enough known outcomes and intent signals.
 
 ## Privacy boundary
 
-The public repository contains adapter code and synthetic fixtures only. Raw emails, sender addresses, form answers and other private connector data must not be committed. Connected tools should convert private data to anonymous counts/signals at runtime.
+The public repository contains adapter code and synthetic fixtures only. Raw emails, sender addresses, form answers and other private connector data must not be committed.
 
 ## Revenue truth rule
 
@@ -67,10 +60,8 @@ cd distribution-engine
 npm test
 npm run audit
 npm run audit:public
-node index.mjs sample-sources.json
-node index.mjs sample-sources.json --json
 ```
 
 ## Design principle
 
-The engine does not auto-publish, auto-send pitches, accept contracts, buy services or perform payment actions. It creates a prioritized, rights-aware action queue for explicit execution.
+The engine does not auto-publish, auto-send pitches, accept contracts, buy services, mass-deploy sites or perform payment actions. It creates a prioritized, rights-aware and evidence-aware action queue for explicit execution.
