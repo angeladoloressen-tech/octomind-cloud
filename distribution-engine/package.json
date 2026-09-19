@@ -1,11 +1,12 @@
 {
   "name": "cds-distribution-engine",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
     "audit": "node index.mjs sample-assets.json",
     "audit:json": "node index.mjs sample-assets.json --json",
-    "test": "node test.mjs"
+    "test": "node test.mjs && node test-adapters.mjs",
+    "test:adapters": "node test-adapters.mjs"
   }
 }
