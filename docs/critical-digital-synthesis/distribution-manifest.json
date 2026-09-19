@@ -1,0 +1,49 @@
+{
+  "schema": "cds.distribution.v1",
+  "version": "0.1",
+  "updated": "2026-09-19",
+  "project": "Critical Digital Synthesis",
+  "principle": "Creation is incomplete without canonical home, discovery, audience capture, and a legitimate value path.",
+  "completion_gate": [
+    "canonical_home",
+    "discovery_channel",
+    "audience_capture",
+    "value_path"
+  ],
+  "audience_capture": "https://form.jotform.com/262611805684056",
+  "research_inquiry": "https://form.jotform.com/262604965625060",
+  "commercial_pilot": "https://inverted-loop-5unvmm9.shipstatic.com",
+  "core_assets": [
+    {
+      "type": "essay",
+      "title": "Who Authorized the Machine?",
+      "url": "https://neon-echo-p3s9ab5.shipstatic.com",
+      "role": "public credibility"
+    },
+    {
+      "type": "research_protocol",
+      "title": "Normative Compression Pilot Protocol v0.1",
+      "url": "https://cracked-loop-rbh825s.shipstatic.com",
+      "role": "method evidence"
+    },
+    {
+      "type": "research_ledger",
+      "title": "Critical Digital Synthesis Research Ledger v2",
+      "url": "https://unveiled-rift-63nmgd6.shipstatic.com",
+      "role": "provenance"
+    },
+    {
+      "type": "method",
+      "title": "Normative Compression Review — Method v0.1",
+      "url": "https://mapped-logic-sp9yvt7.shipstatic.com",
+      "role": "research-to-service bridge"
+    },
+    {
+      "type": "editorial_preview",
+      "title": "When the Machine Says No",
+      "url": "https://spectral-mote-53xyn7e.shipstatic.com",
+      "role": "preserve first-publication rights"
+    }
+  ],
+  "truth_boundary": "Views, followers, clicks, pitches and inquiries are not revenue. Only verified payment counts as revenue."
+}
