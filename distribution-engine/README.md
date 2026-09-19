@@ -34,6 +34,24 @@ Missing layers produce one prioritized action:
 
 Missing analytics are reported as `unavailable`; they are never silently converted to zero traffic.
 
+## Predictive Opportunity Engine
+
+`opportunity-engine.mjs` ranks asset × platform actions from aggregate outcome signals:
+
+- attention
+- retention
+- intent
+- commercial evidence
+- verified revenue
+- effort hours
+- cash cost
+- rights risk
+- eligibility blocks
+
+It starts in evidence-aware heuristic mode. It does **not** claim predictive ML when there is not enough labeled history. `modelReadiness()` only marks the dataset eligible for an external tabular model after a minimum number of aggregate outcome rows has been collected.
+
+This creates a clean future integration point for tabular foundation models such as Mitra-v2 without making the current engine dependent on GPU hardware or a specific vendor/model.
+
 ## Privacy boundary
 
 The public repository contains adapter code and synthetic fixtures only. Raw emails, sender addresses, form answers and other private connector data must not be committed. Connected tools should convert private data to anonymous counts/signals at runtime.
@@ -48,6 +66,7 @@ Only events with `type=payment` and `verified=true` count as revenue. Pitches, v
 cd distribution-engine
 npm test
 npm run audit
+npm run audit:public
 node index.mjs sample-sources.json
 node index.mjs sample-sources.json --json
 ```
