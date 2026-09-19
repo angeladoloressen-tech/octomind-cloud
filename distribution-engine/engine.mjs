@@ -5,9 +5,12 @@ const WEIGHTS = { canonicalHome: 40, discoveryPath: 30, audienceCapture: 20, val
 export const SIGNAL_STAGE = {
   impression: 'attention', view: 'attention', profile_visit: 'attention',
   follow: 'retention', subscriber: 'retention', returning_visit: 'retention',
+  github_star: 'retention', github_watch: 'retention',
   reply: 'intent', inquiry: 'intent', editor_interest: 'intent', meeting_request: 'intent',
+  cta_click: 'intent', github_fork: 'intent',
   commission_agreed: 'commercial_evidence', contract_signed: 'commercial_evidence',
   payment: 'revenue',
+  outbound_pitch: 'activity', commit: 'activity', merged_pr: 'activity', publication: 'activity',
 };
 
 function bool(v) {
@@ -70,7 +73,7 @@ export function verifiedRevenue(events = []) {
 }
 
 export function signalSummary(events = []) {
-  const out = { attention: 0, retention: 0, intent: 0, commercial_evidence: 0, revenue: 0 };
+  const out = { activity: 0, attention: 0, retention: 0, intent: 0, commercial_evidence: 0, revenue: 0 };
   for (const event of events) {
     const stage = SIGNAL_STAGE[event.type];
     if (stage) out[stage] += Number(event.count ?? 1);
