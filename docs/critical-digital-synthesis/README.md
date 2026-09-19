@@ -15,11 +15,11 @@ A work is not finished when it is created. It is finished when it has:
 
 ## Start here
 
-- **Essay — Who Authorized the Machine?**  
-  https://neon-echo-p3s9ab5.shipstatic.com
+- **Discovery — Who Authorized the Machine?**  
+  [Reader path](discover/who-authorized-the-machine.md) → canonical essay: https://neon-echo-p3s9ab5.shipstatic.com
 
-- **Research — Normative Compression Pilot Protocol v0.1**  
-  https://cracked-loop-rbh825s.shipstatic.com
+- **Discovery — Normative Compression**  
+  [Practical entry point](discover/normative-compression.md) → pilot protocol: https://cracked-loop-rbh825s.shipstatic.com
 
 - **Public Research Ledger v2**  
   https://unveiled-rift-63nmgd6.shipstatic.com
@@ -57,4 +57,4 @@ Research services are not legal advice, certification or compliance assurance. P
 
 ---
 
-Current distribution-system version: **0.1 — 2026-09-19**
+Current distribution-system version: **0.2 — 2026-09-19**
