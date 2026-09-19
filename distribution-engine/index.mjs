@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+import fs from 'node:fs';
+import path from 'node:path';
+import { auditPortfolio } from './engine.mjs';
+
+const input = process.argv[2] ?? './distribution-engine/sample-assets.json';
+const resolved = path.resolve(process.cwd(), input);
+const payload = JSON.parse(fs.readFileSync(resolved, 'utf8'));
+const report = auditPortfolio(payload.assets ?? [], payload.revenueEvents ?? []);
+
+if (process.argv.includes('--json')) {
+  console.log(JSON.stringify(report, null, 2));
+  process.exit(0);
+}
+
+console.log('\nDISTRIBUTION & MONETIZATION ENGINE');
+console.log('----------------------------------');
+console.log(`Assets: ${report.totalAssets}`);
+console.log(`Complete: ${report.completeAssets}`);
+console.log(`Incomplete: ${report.incompleteAssets}`);
+console.log(`Verified revenue: ${report.verifiedRevenue}`);
+console.log('\nNEXT ACTIONS');
+
+for (const asset of report.actionQueue) {
+  console.log(`- [${asset.priority}] ${asset.title}`);
+  console.log(`  action=${asset.action} missing=${asset.missing.join(',') || 'none'}`);
+  if (asset.rightsRisk) console.log('  RIGHTS RISK: full manuscript is public while first-publication rights are active');
+}
